@@ -42,7 +42,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-4xl">
+      <div className="relative z-10 max-w-3xl">
         <motion.p
           className="uppercase tracking-[0.3em] text-sm text-blue-400 glow"
           initial={{ opacity: 0, y: -20 }}
@@ -58,7 +58,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          We Build{" "}
+          We Build
           <span className="relative inline-block">
             {/* الخلفية اللامعة */}
             <span className="absolute inset-0 flex items-center justify-center -z-10">
