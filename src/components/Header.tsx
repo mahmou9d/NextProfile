@@ -1,9 +1,9 @@
 "use client";
 import React, { JSX, useState } from "react";
 import Link from "next/link";
-import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa6";
+import { FaMoon, FaSun, FaBars, FaXmark } from "react-icons/fa6";
 
-export const Header = ({
+const Header = ({
   navItems,
 }: {
   navItems: { name: string; link: string; icon?: JSX.Element }[];
@@ -80,7 +80,7 @@ export const Header = ({
             onClick={toggleMobile}
             className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
           >
-            {mobileOpen ? <FaTimes /> : <FaBars />}
+            {mobileOpen ? <FaXmark /> : <FaBars />}
           </button>
         </div>
       </div>
@@ -102,3 +102,4 @@ export const Header = ({
     </header>
   );
 };
+export default Header;

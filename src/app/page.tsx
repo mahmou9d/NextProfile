@@ -9,8 +9,8 @@ import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
-import { Header } from "@/components/header";
-// import { Header } from "@/components/Header";
+import Header from "../components/Header";
+
 
 const Home = () => {
   return (
