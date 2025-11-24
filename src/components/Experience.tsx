@@ -6,9 +6,28 @@ import { Button } from "./ui/MovingBorders";
 const Experience = () => {
   return (
     <div className="py-20 w-full">
-      <h1 className="heading">
-        My <span className="text-purple">work experience</span>
-      </h1>
+      <div className="text-center mb-16 relative">
+        {/* Glow Behind Title */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-48 h-48 bg-blue-500/20 blur-3xl rounded-full animate-pulse"></div>
+        </div>
+
+        {/* Sub Title */}
+        <p className="text-sm tracking-widest text-blue-400 font-semibold uppercase relative z-10">
+          Our Expertise
+        </p>
+
+        {/* Main Title */}
+        <h1 className="text-4xl md:text-5xl text-blue-400 font-extrabold mt-2 relative z-10 leading-tight">
+          Proven{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">
+            web solutions
+          </span>
+        </h1>
+
+        {/* Underline Decor */}
+        <div className="mt-4 mx-auto w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-lg"></div>
+      </div>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
         {workExperience.map((card) => (

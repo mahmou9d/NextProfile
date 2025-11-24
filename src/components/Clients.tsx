@@ -8,10 +8,28 @@ import { InfiniteMovingCards } from "./ui/InfiniteCards";
 const Clients = () => {
   return (
     <section id="testimonials" className="py-20">
-      <h1 className="heading">
-        Kind words from
-        <span className="text-purple"> satisfied clients</span>
-      </h1>
+      <div className="text-center mb-16 relative">
+        {/* Glow Behind Title */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-48 h-48 bg-blue-500/20 blur-3xl rounded-full animate-pulse"></div>
+        </div>
+
+        {/* Sub Title */}
+        <p className="text-sm tracking-widest text-blue-400 font-semibold uppercase relative z-10">
+          What Our Clients Say
+        </p>
+
+        {/* Main Title */}
+        <h1 className="text-4xl md:text-5xl text-blue-400 font-extrabold mt-2 relative z-10 leading-tight">
+          Kind words from{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">
+            satisfied clients
+          </span>
+        </h1>
+
+        {/* Underline Decor */}
+        <div className="mt-4 mx-auto w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-lg"></div>
+      </div>
 
       <div className="flex flex-col items-center max-lg:mt-10">
         <div

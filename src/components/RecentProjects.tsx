@@ -8,10 +8,29 @@ import { PinContainer } from "./ui/Pin";
 const RecentProjects = () => {
   return (
     <div className="py-20">
-      <h1 className="heading">
-        A small selection of{" "}
-        <span className="text-purple">recent projects</span>
-      </h1>
+      <div className="text-center mb-20 relative">
+        {/* Big Glow Behind Title */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-56 h-56 bg-blue-500/20 blur-[140px] rounded-full animate-pulse"></div>
+        </div>
+
+        {/* Sub Title */}
+        <p className="text-sm tracking-widest text-blue-400 font-semibold uppercase relative z-10">
+          Premium Web Solutions
+        </p>
+
+        {/* Main Title */}
+        <h1 className="text-4xl md:text-5xl font-extrabold mt-3 bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg relative z-10 leading-tight">
+          A curated selection of{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">
+            our latest websites
+          </span>
+        </h1>
+
+        {/* Underline Decor */}
+        <div className="mt-4 mx-auto w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-lg"></div>
+      </div>
+
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item) => (
           <div
