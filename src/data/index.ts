@@ -120,99 +120,112 @@ export const projects = [
 export const testimonials = [
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Mahmoud mohammed",
-        title: "Director of AlphaStream Technologies",
+            "Working with this team completely transformed our online presence. Their attention to detail and ability to turn ideas into real, functional designs is unmatched. The project was delivered on time and exceeded every expectation.",
+        name: "Omar Khaled",
+        title: "Founder of NexaVision",
+        img: "https://i.pravatar.cc/150?img=64", // رجل — ملامح عربية
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Mahmoud mohammed",
-        title: "Director of AlphaStream Technologies",
+            "The level of professionalism and communication throughout the project was outstanding. They understood exactly what our brand needed and delivered a sleek, fast, and modern website that boosted our conversions instantly.",
+        name: "Sara Ibrahim",
+        title: "Marketing Manager, BrightWave Agency",
+        img: "https://i.pravatar.cc/150?img=47", // سيدة — ملامح شرق أوسطية
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Mahmoud mohammed",
-        title: "Director of AlphaStream Technologies",
+            "From the first meeting to final delivery, the experience was flawless. They provided creative solutions, clean code, and a performance-focused website that our customers love. Highly recommended.",
+        name: "Ahmed El-Sayed",
+        title: "CEO of Orion Labs",
+        img: "https://i.pravatar.cc/150?img=33", // رجل كبير — شكل مدير
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Mahmoud mohammed",
-        title: "Director of AlphaStream Technologies",
+            "Their UI/UX skills are exceptional. They transformed our outdated website into a modern, responsive platform that looks great on every device. The impact on user engagement was noticeable from day one.",
+        name: "Lina Hassan",
+        title: "Product Lead, Nova Digital",
+        img: "https://i.pravatar.cc/150?img=12", // سيدة — ملامح ناعمة واحترافية
     },
     {
         quote:
-            "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-        name: "Mahmoud mohammed",
-        title: "Director of AlphaStream Technologies",
+            "Fast, reliable, and extremely talented. They took our business goals seriously and built a website that truly reflects our brand identity. Support after launch was also top-tier. Great partner to work with.",
+        name: "Youssef Ayman",
+        title: "Operations Director, SkyBridge Solutions",
+        img: "https://i.pravatar.cc/150?img=28", // رجل — ستايل corporate
     },
 ];
+
+
 
 export const companies = [
     {
         id: 1,
         name: "cloudinary",
-        img: "/cloud.svg",
-        nameImg: "/cloudName.svg",
+        // img: "/cloud.svg",
+        nameImg: "/cloud.svg",
     },
     {
         id: 2,
-        name: "appwrite",
-        img: "/app.svg",
-        nameImg: "/appName.svg",
+        name: "nextjs",
+        // img: "/nextjs-fill-svgrepo-com.svg",
+        nameImg: "/nextjs-icon-svgrepo-com.svg",
     },
     {
         id: 3,
-        name: "HOSTINGER",
-        img: "/host.svg",
-        nameImg: "/hostName.svg",
+        name: "react",
+        // img: "/react-svgrepo-com.svg",
+        nameImg: "/react-svgrepo-com.svg",
     },
     {
         id: 4,
         name: "stream",
-        img: "/s.svg",
+        // img: "/s.svg",
         nameImg: "/streamName.svg",
     },
     {
         id: 5,
-        name: "docker.",
-        img: "/dock.svg",
-        nameImg: "/dockerName.svg",
+        name: "python",
+        // img: "/python-svgrepo-com.svg",
+        nameImg: "/python-svgrepo-com.svg",
+    }, {
+        id: 6,
+        name: "django",
+        // img: "/django-svgrepo-com.svg",
+        nameImg: "/django-svgrepo-com.svg",
     },
 ];
 
 export const workExperience = [
     {
         id: 1,
-        title: "Frontend Engineer Intern",
-        desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+        title: "Frontend Developer",
+        desc: "Built responsive and high-converting websites using React.js and Tailwind CSS, focusing on UI/UX and interactive components.",
         className: "md:col-span-2",
         thumbnail: "/exp1.svg",
     },
     {
         id: 2,
-        title: "Frontend Engineer Intern",
-        desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
-        className: "md:col-span-2", // change to md:col-span-2
+        title: "Backend Developer",
+        desc: "Developed server-side logic, APIs, and database integration to ensure fast, secure, and scalable web applications.",
+        className: "md:col-span-2",
         thumbnail: "/exp2.svg",
     },
     {
         id: 3,
-        title: "Freelance App Dev Project",
-        desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-        className: "md:col-span-2", // change to md:col-span-2
+        title: "Full-Stack Web Developer",
+        desc: "Delivered end-to-end web solutions, combining frontend and backend skills to build complete, functional websites for clients.",
+        className: "md:col-span-2",
         thumbnail: "/exp3.svg",
     },
     {
         id: 4,
-        title: "Lead Frontend Developer",
-        desc: "Developed and maintained user-facing features using modern frontend technologies.",
+        title: "Web Performance & Deployment",
+        desc: "Optimized website speed, SEO, and deployed web projects on cloud platforms, ensuring seamless performance and scalability.",
         className: "md:col-span-2",
         thumbnail: "/exp4.svg",
     },
 ];
+
 
 export const socialMedia = [
     {

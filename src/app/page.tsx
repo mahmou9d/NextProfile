@@ -10,6 +10,7 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import Header from "../components/Header";
+import ContactUs from "@/components/ContactUs";
 
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
         <Clients />
         <Experience />
         <Approach />
+        <ContactUs/>
         <Footer />
       </div>
     </main>

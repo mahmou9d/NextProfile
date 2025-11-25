@@ -42,7 +42,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10 max-w-4xl">
         <motion.p
           className="uppercase tracking-[0.3em] text-sm text-blue-400 glow"
           initial={{ opacity: 0, y: -20 }}
@@ -59,20 +59,15 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.2 }}
         >
           We Build
-          <span className="relative inline-block">
-            {/* الخلفية اللامعة */}
+          <span className="relative block mt-2">
             <span className="absolute inset-0 flex items-center justify-center -z-10">
               <span className="w-40 h-40 md:w-56 md:h-56 bg-blue-400/10 blur-[90px] rounded-full"></span>
             </span>
 
-            {/* النص نفسه Gradient */}
-            <span className="bg-gradient-to-r glow from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-sm">
+            <span className="bg-gradient-to-r glow from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-sm text-center block">
               Next-Level Platforms
             </span>
-
-            {/* خط زخرفة تحت النص */}
-            <div className="mx-auto mt-2 w-20 h-[3px] bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
-          </span>{" "}
+          </span>
           for Global Enterprises
         </motion.h1>
 

@@ -7,7 +7,7 @@ import { InfiniteMovingCards } from "./ui/InfiniteCards";
 
 const Clients = () => {
   return (
-    <section id="testimonials" className="py-20">
+    <section id="testimonials" className="">
       <div className="text-center mb-16 relative">
         {/* Glow Behind Title */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -47,11 +47,11 @@ const Clients = () => {
           {companies.map((company) => (
             <React.Fragment key={company.id}>
               <div className="flex md:max-w-60 max-w-32 gap-2">
-                <img
+                {/* <img
                   src={company.img}
                   alt={company.name}
                   className="md:w-10 w-5"
-                />
+                /> */}
                 <img
                   src={company.nameImg}
                   alt={company.name}

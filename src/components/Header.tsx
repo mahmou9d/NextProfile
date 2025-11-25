@@ -18,7 +18,7 @@ const Header = ({
 
   return (
     <header
-      className="fixed top-0 z-50 w-full backdrop-blur-xl bg-gradient-to-r from-black/70 via-gray-900/50 to-black/70 dark:from-gray-900/80 dark:via-gray-800/50 dark:to-gray-900/80 shadow-lg border-b border-blue-500/10"
+      className="fixed top-0 z-[1000] w-full backdrop-blur-xl bg-gradient-to-r from-black/70 via-gray-900/50 to-black/70 dark:from-gray-900/80 dark:via-gray-800/50 dark:to-gray-900/80 shadow-lg border-b border-blue-500/10"
       style={{
         backgroundBlendMode: "overlay",
       }}
