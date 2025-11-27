@@ -9,23 +9,76 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    from_name: "",
+    from_email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
+    from_name: "",
+    from_email: "",
+    message: "",
+  });
 
+  const [submitted, setSubmitted] = useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const validateForm = () => {
+    let valid = true;
+    let newErrors = { from_name: "", from_email: "", message: "" };
+
+    if (!form.from_name.trim()) {
+      newErrors.from_name = "Name is required";
+      valid = false;
+    }
+
+    if (!form.from_email.trim()) {
+      newErrors.from_email = "Email is required";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.from_email)) {
+      newErrors.from_email = "Invalid email format";
+      valid = false;
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Message cannot be empty";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
-    setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
-    setTimeout(() => setSubmitted(false), 5000);
+    if (!validateForm()) return;
+    emailjs
+      .send(
+        "service_qy4efie",
+        "template_0vh2uys",
+        {
+          from_name: form.from_name,
+          from_email: form.from_email,
+          message: form.message,
+        },
+        "CHMiAlP4ZYX3hYJxw"
+      )
+      .then(
+        () => {
+          setSubmitted(true);
+          setForm({ from_name: "", from_email: "", message: "" });
+          setTimeout(() => setSubmitted(false), 5000);
+        },
+        (error) => {
+          console.error("FAILED...", error);
+        }
+      );
   };
 
   return (
@@ -52,42 +105,38 @@ const ContactUs = () => {
           onSubmit={handleSubmit}
           className="flex-1 flex flex-col gap-6 bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-xl relative overflow-hidden"
         >
-          {submitted && (
-            <motion.p
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-green-400 font-semibold text-center animate-pulse"
-            >
-              Your message has been sent successfully!
-            </motion.p>
-          )}
-
           {/** Inputs with animated gradient focus */}
           <div className="relative">
             <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-black" />
             <input
               type="text"
-              name="name"
+              name="from_name"
               placeholder="Your Name"
-              value={form.name}
+              value={form.from_name}
               onChange={handleChange}
               className="w-full pl-12 p-4 rounded-xl border border-blue-400 bg-[#ffffff52] placeholder:text-black focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50 transition-all duration-300"
               required
             />
           </div>
+          {errors.from_name && (
+            <p className="text-red-400 text-sm mt-1">{errors.from_name}</p>
+          )}
 
           <div className="relative">
             <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-black" />
             <input
               type="email"
-              name="email"
+              name="from_email"
               placeholder="Your Email"
-              value={form.email}
+              value={form.from_email}
               onChange={handleChange}
               className="w-full pl-12 p-4 rounded-xl border border-blue-400 bg-[#ffffff52] placeholder:text-black focus:outline-none focus:ring-4 focus:ring-cyan-400 focus:ring-opacity-50 transition-all duration-300"
               required
             />
           </div>
+          {errors.from_email && (
+            <p className="text-red-400 text-sm mt-1">{errors.from_email}</p>
+          )}
 
           <div className="relative">
             <FaComment className="absolute left-4 top-4 text-black" />
@@ -100,6 +149,9 @@ const ContactUs = () => {
               required
             />
           </div>
+          {errors.message && (
+            <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+          )}
 
           {/* Neon Gradient Button */}
           <motion.button
@@ -110,6 +162,15 @@ const ContactUs = () => {
             <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 opacity-80 animate-gradient-x -z-10"></span>
             <span className="relative z-10">Send Message</span>
           </motion.button>
+          {submitted && (
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-green-400 font-semibold text-center animate-pulse"
+            >
+              Your message has been sent successfully!
+            </motion.p>
+          )}
         </form>
 
         {/* Right: Contact Info */}
@@ -161,7 +222,7 @@ const ContactUs = () => {
               href="tel:01009014597"
               className="bg-gradient-to-tr from-blue-400 to-cyan-400 p-3 rounded-full hover:scale-110 transition-transform shadow-lg"
             >
-              <FaPhone size={24} className="text-white" />
+              <FaPhoneAlt size={24} className="text-white" />
             </a>
           </div>
         </div>

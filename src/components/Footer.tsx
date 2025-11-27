@@ -5,18 +5,24 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="w-full relative overflow-hidden text-white py-16 px-4 lg:px-24  bg-[#000824]">
+    <footer className="w-full relative overflow-hidden text-white py-16 px-5 lg:px-24  bg-[#000824]">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12">
         {/* Company Info */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-extrabold">WebAgency</h2>
+          <h2 className="text-2xl font-extrabold">
+            <img
+              src="/logo2.png"
+              alt="Logo"
+              className="h-[4.5rem] w-[6.5rem]"
+            />
+          </h2>
           <p className="text-blue-200">
             We build stunning websites and apps that grow your business and
             elevate your brand.
           </p>
           <p className="text-blue-300">
-            © 2025 WebAgency. All rights reserved.
+            © 2025 webdouble. All rights reserved.
           </p>
         </div>
 
