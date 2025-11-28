@@ -175,13 +175,13 @@ export const companies = [
     {
         id: 1,
         name: "cloudinary",
-        // img: "/cloud.svg",
+        imgdark: "/cloud copy.svg",
         nameImg: "/cloud.svg",
     },
     {
         id: 2,
         name: "nextjs",
-        // img: "/nextjs-fill-svgrepo-com.svg",
+        imgdark: "/nextjs-icon-svgrepo-com copy.svg",
         nameImg: "/nextjs-icon-svgrepo-com.svg",
     },
     {
@@ -193,7 +193,7 @@ export const companies = [
     {
         id: 4,
         name: "stream",
-        // img: "/s.svg",
+        imgdark: "/streamName copy.svg",
         nameImg: "/streamName.svg",
     },
     {

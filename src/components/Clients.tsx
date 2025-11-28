@@ -4,37 +4,88 @@ import React from "react";
 
 import { companies, testimonials } from "@/data";
 import { InfiniteMovingCards } from "./ui/InfiniteCards";
+import { useTheme } from "next-themes";
 
 const Clients = () => {
+  const { theme } = useTheme();
   return (
-    <section id="testimonials" className="">
+    <section
+      id="testimonials"
+      className="
+        bg-gray-50 
+        dark:bg-transparent
+        transition-colors duration-300
+      "
+    >
       <div className="text-center mb-16 relative">
         {/* Glow Behind Title */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-48 h-48 bg-blue-500/20 blur-3xl rounded-full animate-pulse"></div>
+          <div
+            className="
+              w-52 h-52 
+              bg-white/80 
+              dark:bg-blue-500/20 
+              blur-[130px] 
+              rounded-full 
+              animate-pulse 
+              transition-all
+            "
+          ></div>
         </div>
 
         {/* Sub Title */}
-        <p className="text-sm tracking-widest text-blue-400 font-semibold uppercase relative z-10">
+        <p
+          className="
+            text-sm tracking-widest font-semibold uppercase relative z-10
+            text-blue-700 
+            dark:text-blue-400
+          "
+        >
           What Our Clients Say
         </p>
 
         {/* Main Title */}
-        <h1 className="text-4xl md:text-5xl text-blue-400 font-extrabold mt-2 relative z-10 leading-tight">
+        <h1
+          className="
+            text-4xl md:text-5xl font-extrabold mt-2 relative z-10 leading-tight
+            text-blue-700 
+            dark:text-blue-400
+          "
+        >
           Kind words from{" "}
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300 bg-clip-text text-transparent drop-shadow-lg">
+          <span
+            className="
+              bg-gradient-to-r 
+              from-blue-600 via-cyan-500 to-teal-600
+              dark:from-blue-400 dark:via-cyan-300 dark:to-teal-300
+              bg-clip-text text-transparent drop-shadow-xl
+            "
+          >
             satisfied clients
           </span>
         </h1>
 
         {/* Underline Decor */}
-        <div className="mt-4 mx-auto w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full shadow-lg"></div>
+        <div
+          className="
+            mt-4 mx-auto w-32 h-1 rounded-full shadow-lg
+            bg-gradient-to-r from-blue-500 to-cyan-400
+            dark:from-cyan-400 dark:to-blue-500
+          "
+        ></div>
       </div>
 
-      <div className="flex flex-col items-center max-lg:mt-10">
+      <div className="flex flex-col   items-center max-lg:mt-10">
         <div
-          // remove bg-white dark:bg-black dark:bg-grid-white/[0.05], h-[40rem] to 30rem , md:h-[30rem] are for the responsive design
-          className="h-[50vh] md:h-[30rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden"
+          className="
+            h-[50vh] md:h-[30rem] 
+            rounded-md flex flex-col antialiased 
+            items-center justify-center 
+            relative overflow-hidden
+            
+            dark:bg-transparent
+            transition-all
+          "
         >
           <InfiniteMovingCards
             items={testimonials}
@@ -43,20 +94,30 @@ const Clients = () => {
           />
         </div>
 
+        {/* Companies Logos */}
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
           {companies.map((company) => (
             <React.Fragment key={company.id}>
-              <div className="flex md:max-w-60 max-w-32 gap-2">
-                {/* <img
-                  src={company.img}
-                  alt={company.name}
-                  className="md:w-10 w-5"
-                /> */}
+              <div
+                className="
+                  flex md:max-w-60 max-w-32 gap-2 
+                  opacity-90 
+                  hover:opacity-100 
+                  transition-all
+                "
+              >
                 <img
-                  src={company.nameImg}
+                  src={
+                    theme !== "dark"
+                      ? [1, 2, 4].includes(company.id)
+                        ? company.imgdark
+                        : company.nameImg
+                      : company.nameImg
+                  }
                   alt={company.name}
                   width={company.id === 4 || company.id === 5 ? 100 : 150}
-                  className="w-20"
+                  className="w-16 md:w-20 transition-all"
+                  loading="lazy"
                 />
               </div>
             </React.Fragment>

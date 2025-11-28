@@ -1,84 +1,89 @@
 "use client";
+import { useTheme } from "next-themes";
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { motion } from "framer-motion";
 
 const Footer = () => {
+  const { theme } = useTheme();
   return (
-    <footer className="w-full relative overflow-hidden text-white py-16 px-5 lg:px-24  bg-[#000824]">
+    <footer className="w-full relative overflow-hidden py-16 px-5 lg:px-24 bg-gray-100 dark:bg-[#000824] transition-colors duration-300 text-gray-900 dark:text-white">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12">
         {/* Company Info */}
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-extrabold">
-            <img
-              src="/logo2.png"
-              alt="Logo"
-              className="h-[4.5rem] w-[6.5rem]"
-            />
+            {theme === "dark" ? (
+              <img
+                src="/logo2.png"
+                alt="Logo"
+                className="h-[4.5rem] w-[6.5rem]"
+                loading="lazy"
+              />
+            ) : (
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-[4.5rem] w-[6.5rem]"
+                loading="lazy"
+              />
+            )}
           </h2>
-          <p className="text-blue-200">
+          <p className="text-gray-700 dark:text-blue-200">
             We build stunning websites and apps that grow your business and
             elevate your brand.
           </p>
-          <p className="text-blue-300">
+          <p className="text-gray-600 dark:text-blue-300">
             © 2025 webdouble. All rights reserved.
           </p>
         </div>
 
         {/* Quick Links */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-bold mb-2">Quick Links</h3>
-          <a href="#" className="hover:text-cyan-400 transition-colors">
-            Home
-          </a>
-          <a href="#" className="hover:text-cyan-400 transition-colors">
-            Services
-          </a>
-          <a href="#" className="hover:text-cyan-400 transition-colors">
-            Portfolio
-          </a>
-          <a href="#" className="hover:text-cyan-400 transition-colors">
-            Contact
-          </a>
+          <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+            Quick Links
+          </h3>
+          {["Home", "Services", "Portfolio", "Contact"].map((link, idx) => (
+            <a
+              key={idx}
+              href="#"
+              className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+            >
+              {link}
+            </a>
+          ))}
         </div>
 
         {/* Contact Info */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-xl font-bold mb-2">Contact</h3>
-          <p className="text-blue-200">Phone: 01009014597</p>
-          <p className="text-blue-200">Email: mohnud0987@gmail.com</p>
-          <p className="text-blue-200">Website: www.webagency.com</p>
+          <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+            Contact
+          </h3>
+          <p className="text-gray-700 dark:text-blue-200">Phone: 01009014597</p>
+          <p className="text-gray-700 dark:text-blue-200">
+            Email: mohnud0987@gmail.com
+          </p>
+          <p className="text-gray-700 dark:text-blue-200">
+            Website: www.webagency.com
+          </p>
         </div>
 
         {/* Social Links */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-xl font-bold mb-2">Follow Us</h3>
+          <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+            Follow Us
+          </h3>
           <div className="flex gap-4">
-            <a
-              href="#"
-              className="p-3 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-400 hover:scale-110 transition-transform shadow-lg"
-            >
-              <FaFacebookF className="text-white" />
-            </a>
-            <a
-              href="#"
-              className="p-3 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-400 hover:scale-110 transition-transform shadow-lg"
-            >
-              <FaTwitter className="text-white" />
-            </a>
-            <a
-              href="#"
-              className="p-3 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-400 hover:scale-110 transition-transform shadow-lg"
-            >
-              <FaLinkedinIn className="text-white" />
-            </a>
-            <a
-              href="#"
-              className="p-3 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-400 hover:scale-110 transition-transform shadow-lg"
-            >
-              <FaGithub className="text-white" />
-            </a>
+            {[FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub].map(
+              (Icon, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="p-3 rounded-full bg-gradient-to-tr from-blue-400 to-cyan-400 hover:scale-110 transition-transform shadow-lg"
+                >
+                  <Icon className="text-white" size={20} />
+                </a>
+              )
+            )}
           </div>
         </div>
       </div>

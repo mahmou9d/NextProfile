@@ -17,24 +17,16 @@ const MagicButton = ({
     <button
       onClick={handleClick}
       className={`
-        relative inline-flex h-14 w-full md:w-64 md:mt-10 overflow-hidden rounded-2xl
-        border-2 border-blue-600 bg-black/60 backdrop-blur-md
-        text-white font-semibold text-sm px-6 gap-3 items-center justify-center
-        transition-all duration-300 ease-in-out
-        hover:scale-105 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40
+        relative flex items-center justify-center h-14 w-full md:w-64 rounded-xl
+        px-6 gap-3 font-semibold text-white dark:text-black text-sm
+        bg-gradient-to-r from-blue-500 to-cyan-400
+        shadow-lg shadow-blue-500/30
+        transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl
         ${otherClasses}
       `}
     >
-      {/* Optional icon on left */}
       {position === "left" && icon}
-
-      {/* Text with subtle glow on hover */}
-      <span className="relative z-10">
-        {title}
-        <span className="absolute inset-0 blur-xl opacity-20 bg-blue-500 rounded-2xl mix-blend-screen"></span>
-      </span>
-
-      {/* Optional icon on right */}
+      <span className="relative z-10">{title}</span>
       {position === "right" && icon}
     </button>
   );
