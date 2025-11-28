@@ -92,7 +92,7 @@ export const InfiniteMovingCards = ({
           <li
             //   change md:w-[450px] to md:w-[60vw] , px-8 py-6 to p-16, border-slate-700 to border-slate-800
             className="w-[90vw] max-w-full relative rounded-2xl  
-             flex-shrink-0  p-5 md:p-16 md:w-[60vw] bg-blue-600 dark:bg-[rgb(4,7,29)]"
+             flex-shrink-0  p-5 md:p-16 md:w-[60vw] bg-blue-500 dark:bg-[rgb(4,7,29)]"
             style={{
               //   background:
               //     "linear-gradient(180deg, var(--slate-800), var(--slate-900)", //remove this one
@@ -121,7 +121,6 @@ export const InfiniteMovingCards = ({
                     className="w-16 h-16 rounded-full"
                     src={item.img}
                     alt="profile"
-                    loading="lazy"
                   />
                 </div>
                 <span className="flex flex-col gap-1">

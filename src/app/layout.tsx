@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import { LocaleProvider } from "@/components/LocaleContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LocaleProvider>
           {children}
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>
