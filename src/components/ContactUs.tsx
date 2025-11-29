@@ -92,6 +92,7 @@ const ContactUs = () => {
 
   return (
     <section
+      id="contact"
       dir={locale === "AR" ? "rtl" : "ltr"}
       className="w-full mx-auto my-24 px-6 lg:px-12 py-16 relative overflow-hidden rounded-4xl bg-gray-50 dark:bg-transparent transition-colors duration-300"
     >

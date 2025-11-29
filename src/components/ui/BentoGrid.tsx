@@ -1,3 +1,5 @@
+import { link } from "fs";
+import Link from "next/link";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
@@ -74,12 +76,14 @@ export const BentoGridItem = ({
   description,
   techStack,
   img,
+  link
 }: {
   id: number;
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
   techStack?: string[];
   img?: string;
+  link:string
 }) => {
   const [copied, setCopied] = useState(false);
   const color = colorStyles[id as keyof typeof colorStyles] || colorStyles[1];
@@ -91,11 +95,11 @@ export const BentoGridItem = ({
   };
 
   return (
-    <div className="relative group">
+    <Link href={link} target="_blank" className="relative group">
       <div
         className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden 
         border border-white/10 backdrop-blur-sm transition-transform duration-500 
-        hover:scale-105 hover:shadow-2xl`}
+        hover:scale-105 hover:shadow-2xl  h-full flex flex-col`}
       >
         {/* Background Color Gradient */}
         <div
@@ -110,7 +114,6 @@ export const BentoGridItem = ({
               alt=""
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
-              
             />
           </div>
         )}
@@ -151,6 +154,6 @@ export const BentoGridItem = ({
           className={`absolute -bottom-6 -right-6 w-36 h-36 rounded-full ${color.glow2} blur-2xl`}
         />
       </div>
-    </div>
+    </Link>
   );
 };

@@ -12,10 +12,11 @@ const Hero = () => {
 
   return (
     <section
-            className={`relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden transition-colors duration-500
+      className={`relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden transition-colors duration-500
 bg-gradient-to-br from-white via-gray-100 to-blue-50
           // dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900
-      }`}      style={{
+      }`}
+      style={{
         direction: locale === "AR" ? "rtl" : "ltr",
       }}
     >
@@ -107,7 +108,7 @@ ${
           transition={{ duration: 1, delay: 0.4 }}
         >
           {locale === "EN"
-            ? "Modern web, mobile, and cloud solutions designed to scale and deliver seamless digital experiences."
+            ? "Modern web, mobile, and cloud solutions designed to scale professional websites built to increase your visibility, sales, and customer trust by 180%"
             : "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع وتقديم تجارب رقمية سلسة."}
         </motion.p>
 
@@ -123,7 +124,7 @@ ${
               title={
                 locale === "EN" ? "Explore Our Services" : "استكشف خدماتنا"
               }
-              icon={<FaLocationArrow />}
+              icon={<FaLocationArrow className="w-5 h-5" />}
               position="right"
             />
           </a>
@@ -131,9 +132,13 @@ ${
           <a href="#contact">
             <MagicButton
               title={
-                locale === "EN" ? "Schedule a Consultation" : "احجز استشارة"
+                locale === "EN"
+                  ? "Build Your Professional Website Today"
+                  : "ابنِ موقعك الاحترافي الآن"
+
+                // locale === "EN" ? "Schedule a Consultation" : "احجز استشارة"
               }
-              icon={<FaEnvelope />}
+              icon={<FaEnvelope className="w-5 h-5" />}
               position="right"
             />
           </a>

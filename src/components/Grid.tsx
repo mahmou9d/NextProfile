@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
-import { gridItems } from "@/data";
+import { gridItems, projects } from "@/data";
 import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 import { LocaleContext } from "./LocaleContext";
 
@@ -75,7 +75,7 @@ const Grid = () => {
           transition-all
         "
       >
-        {gridItems.map((item, i) => (
+        {projects.map((item, i) => (
           <BentoGridItem
             id={item.id}
             key={i}
@@ -84,6 +84,7 @@ const Grid = () => {
               locale === "AR" ? item.description.AR : item.description.EN
             }
             img={item.img}
+            link={item.link}
           />
         ))}
       </BentoGrid>

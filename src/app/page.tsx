@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
-import RecentProjects from "@/components/RecentProjects";
+// import RecentProjects from "@/components/RecentProjects";
 import Header from "../components/Header";
 import ContactUs from "@/components/ContactUs";
 
@@ -20,7 +20,7 @@ const Home = () => {
         <Header navItems={navItems} />
         <Hero />
         <Grid />
-        <RecentProjects />
+        {/* <RecentProjects /> */}
         <Clients />
         <Experience />
         <Approach />
