@@ -70,7 +70,7 @@ const Footer = () => {
             {locale === "AR" ? "تواصل معنا" : "Contact"}
           </h3>
           <p className="text-gray-700 dark:text-blue-200">
-            {locale === "AR" ? "الهاتف: 01009014597" : "Phone: 01009014597"}
+            {locale === "AR" ? "الهاتف: 01153032052" : "Phone: 01153032052"}
           </p>
           <p className="text-gray-700 dark:text-blue-200">
             {locale === "AR"

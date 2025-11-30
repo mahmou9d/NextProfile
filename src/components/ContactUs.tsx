@@ -199,7 +199,7 @@ const ContactUs = () => {
             {
               icon: <FaPhoneAlt className="text-cyan-400 text-2xl" />,
               title: locale === "AR" ? "الهاتف" : "Phone",
-              value: "01009014597",
+              value: "01153032052",
             },
             {
               icon: <FaEnvelope className="text-cyan-400 text-2xl" />,
@@ -433,7 +433,7 @@ export default ContactUs;
 //             {
 //               icon: <FaPhoneAlt className="text-cyan-400 text-2xl" />,
 //               title: "Phone",
-//               value: "01009014597",
+//               value: "01153032052",
 //             },
 //             {
 //               icon: <FaEnvelope className="text-cyan-400 text-2xl" />,
