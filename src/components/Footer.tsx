@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import React, { useState, useEffect, useContext } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { LocaleContext } from "./LocaleContext";
+import Image from "next/image";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -21,18 +22,22 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-extrabold">
             {theme === "dark" ? (
-              <img
+              <Image
                 src="/logo2.png"
                 alt="Logo"
-                className="h-[4.5rem] w-[6.5rem]"
+                width={104}
+                height={72}
+                className="object-contain"
                 loading="lazy"
               />
             ) : (
-              <img
+              <Image
                 src="/logo.png"
                 alt="Logo"
-                className="h-[4.5rem] w-[6.5rem]"
-                loading="lazy"
+                width={104}
+                height={72}
+                className="object-contain"
+                unoptimized
               />
             )}
           </h2>

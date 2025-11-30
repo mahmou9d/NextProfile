@@ -9,7 +9,7 @@ const Grid = () => {
 
   return (
     <section
-      id="about"
+      id="projects"
       className="
         bg-gray-50 
         dark:bg-transparent

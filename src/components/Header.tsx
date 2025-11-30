@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaMoon, FaSun, FaBars, FaXmark } from "react-icons/fa6";
 import { useTheme } from "next-themes";
 import { LocaleContext } from "./LocaleContext";
+import Image from "next/image";
 
 interface NavItem {
   name: {
@@ -33,23 +34,27 @@ bg-white/80
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-1">
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <Link href={"/"} className="flex items-center gap-3">
           {theme === "dark" ? (
-            <img
-              src={"/logo2.png"}
+            <Image
+              src="/logo2.png"
               alt="Logo"
+              width={104}
+              height={72}
               className="h-[4.5rem] w-[6.5rem]"
-              loading="lazy"
+              priority
             />
           ) : (
-            <img
-              src={"/logo.png"}
+            <Image
+              src="/logo.png"
               alt="Logo"
+              width={104}
+              height={72}
               className="h-[4.5rem] w-[6.5rem]"
-              loading="lazy"
+              priority
             />
           )}
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10">

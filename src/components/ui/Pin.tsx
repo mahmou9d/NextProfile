@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const PinContainer = ({
   children,
@@ -71,8 +72,8 @@ export const PinPerspective = ({
     <motion.div className="pointer-events-none w-full h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
       <div className=" w-[100px] h-full -mt-7 flex-none  inset-0">
         <div className="absolute top-0 inset-x-0  flex justify-center">
-          <a
-            href={href}
+          <Link
+            href={href as string}
             target="_blank"
             className="relative flex items-center z-10 rounded-full bg-zinc-950 py-1 px-4
              ring-1 ring-white/10 shadow-[0_0_12px_rgba(0,200,255,0.35)]
@@ -90,7 +91,7 @@ export const PinPerspective = ({
                   bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400
                   transition-opacity duration-500"
             ></span>
-          </a>
+          </Link>
         </div>
 
         <div

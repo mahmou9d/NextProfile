@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useState, useEffect, useContext } from "react";
 import { LocaleContext } from "./LocaleContext";
+import Link from "next/link";
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -114,12 +115,12 @@ ${
 
         {/* CTA Buttons */}
         <motion.div
-          className="mt-10 flex justify-center gap-6"
+          className="mt-10 flex justify-center gap-4 md:gap-6"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <a href="#services">
+          <Link href="#services">
             <MagicButton
               title={
                 locale === "EN" ? "Explore Our Services" : "استكشف خدماتنا"
@@ -127,9 +128,9 @@ ${
               icon={<FaLocationArrow className="w-5 h-5" />}
               position="right"
             />
-          </a>
+          </Link>
 
-          <a href="#contact">
+          <Link href="#contact">
             <MagicButton
               title={
                 locale === "EN"
@@ -141,7 +142,7 @@ ${
               icon={<FaEnvelope className="w-5 h-5" />}
               position="right"
             />
-          </a>
+          </Link>
         </motion.div>
       </div>
 

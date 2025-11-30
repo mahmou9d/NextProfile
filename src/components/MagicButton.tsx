@@ -17,8 +17,8 @@ const MagicButton = ({
     <button
       onClick={handleClick}
       className={`
-        relative flex items-center justify-center h-14 w-full md:w-64 rounded-xl
-        px-6 gap-3 font-semibold text-white dark:text-black text-sm
+        relative flex items-center justify-center h-16 w-full md:w-64 rounded-xl
+        px-2 md:px-6 md:gap-3 font-semibold text-white dark:text-black text-[12px] md:text-sm
         bg-gradient-to-r from-blue-500 to-cyan-400
         shadow-lg shadow-blue-500/30
         transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl

@@ -1,4 +1,5 @@
 import { link } from "fs";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
@@ -109,11 +110,14 @@ export const BentoGridItem = ({
         {/* Image */}
         {img && (
           <div className="h-48 w-full overflow-hidden relative z-10">
-            <img
-              src={img}
+            <Image
+              src={img}        
               alt=""
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              width={500}
+              height={500}
               loading="lazy"
+              unoptimized={true}
             />
           </div>
         )}
