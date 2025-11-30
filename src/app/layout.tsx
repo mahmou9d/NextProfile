@@ -8,8 +8,8 @@ import { LocaleProvider } from "@/components/LocaleContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mahmoud Portfolio",
-  description: "Modern & Minimal Mahmoud Portfolio",
+  title: "webdouble",
+  description: "Modern website & Ecommerce",
 };
 
 export default function RootLayout({

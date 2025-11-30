@@ -88,8 +88,7 @@ export const projects = [
         link: "https://projects-production-f790.up.railway.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
-    }
-,
+    },
     {
         id: 3,
         title: { EN: "CarePlus Clinic", AR: "عيادة CarePlus" },
@@ -131,14 +130,14 @@ export const projects = [
     },
     {
         id: 6,
-        title: { EN: "Dashboard", AR: "لوحة تحكم" },
+        title: { EN: "SmartWatch", AR: "SmartWatch" },
         description: {
-            EN: "Modern React dashboard with responsive layout, charts (Nivo/Recharts), key stats, revenue graph, and transactions panel.",
-            AR: "لوحة تحكم حديثة بـ React مع تخطيط متجاوب، رسوم بيانية (Nivo/Recharts)، إحصائيات أساسية، رسم بياني للإيرادات ولوحة المعاملات.",
+            EN: "E-commerce landing page built with Next.js, TypeScript, Tailwind & Shadcn — responsive, dynamic UI with cart using Stripe integration.",
+            AR: "صفحة هبوط للتجارة الإلكترونية تم إنشاؤها باستخدام Next.js وTypeScript وTailwind وShadcn — واجهة مستخدم سريعة الاستجابة وديناميكية مع عربة تسوق باستخدام تكامل Stripe.",
         },
-        img: "/Screenshot 2025-11-28 001832.png",
+        img: "/Screenshot 2025-11-30 111521.png",
         // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "https://statuesque-conkies-a26f3f.netlify.app/",
+        link: "https://poetic-truffle-8702f4.netlify.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
     },
