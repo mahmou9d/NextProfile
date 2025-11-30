@@ -8,7 +8,9 @@ import Image from "next/image";
 const Footer = () => {
   const { theme } = useTheme();
   const { locale, setLocale } = useContext(LocaleContext);
-
+  const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+    if (!mounted) return null;
   const linksEN = ["Home", "Services", "Portfolio", "Contact"];
   const linksAR = ["الرئيسية", "الخدمات", "أعمالنا", "اتصل بنا"];
 
