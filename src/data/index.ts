@@ -64,6 +64,18 @@ export const gridItems = [
 ];
 export const projects = [
     {
+        id: 4,
+        title: { EN: "XtraMarket", AR: "XtraMarket" },
+        description: {
+            EN: "E-commerce app with real backend built with Next.js, Redux Toolkit featuring product browsing, search, cart, wishlist, and secure checkout.",
+            AR: "تطبيق تجارة إلكترونية مع باك إند حقيقي مبني بـ Next.js و Redux Toolkit، يتضمن تصفح المنتجات، البحث، السلة، قائمة الرغبات والدفع الآمن.",
+        },
+        img: "/Screenshot 2025-11-28 001333.png",
+        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+        link: "https://vegecommerce-ct1s.vercel.app/",
+        imgClassName: "w-full h-full object-cover rounded-3xl",
+        titleClassName: "text-3xl font-extrabold mb-2",
+    }, {
         id: 1,
         title: { EN: "Prime Ecom", AR: "برايم إي كوم" },
         description: {
@@ -77,6 +89,31 @@ export const projects = [
         titleClassName: "text-3xl font-extrabold mb-2",
     },
     {
+        id: 6,
+        title: { EN: "SmartWatch", AR: "SmartWatch" },
+        description: {
+            EN: "E-commerce landing page built with Next.js, TypeScript, Tailwind & Shadcn — responsive, dynamic UI with cart using Stripe integration.",
+            AR: "صفحة هبوط للتجارة الإلكترونية تم إنشاؤها باستخدام Next.js وTypeScript وTailwind وShadcn — واجهة مستخدم سريعة الاستجابة وديناميكية مع عربة تسوق باستخدام تكامل Stripe.",
+        },
+        img: "/Screenshot 2025-11-30 111521.png",
+        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+        link: "https://poetic-truffle-8702f4.netlify.app/",
+        imgClassName: "w-full h-full object-cover rounded-3xl",
+        titleClassName: "text-3xl font-extrabold mb-2",
+    }, 
+    {
+        id: 5,
+        title: { EN: "M&MSTORE", AR: "M&MSTORE" },
+        description: {
+            EN: "E-commerce landing page built with React & SCSS — responsive, dynamic UI with cart and localStorage.",
+            AR: "صفحة هبوط لمتجر إلكتروني مبنية بـ React & SCSS — واجهة ديناميكية واستجابة مع السلة وlocalStorage.",
+        },
+        img: "/Screenshot 2025-11-28 001559.png",
+        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+        link: "https://benevolent-beignet-116c19.netlify.app/",
+        imgClassName: "w-full h-full object-cover rounded-3xl",
+        titleClassName: "text-3xl font-extrabold mb-2",
+    }, {
         id: 2,
         title: { EN: "Social media", AR: "وسائل التواصل الاجتماعي" },
         description: {
@@ -99,45 +136,6 @@ export const projects = [
         img: "Screenshot 2025-11-28 001140.png",
         // iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
         link: "https://patient-pi.vercel.app/",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-    },
-    {
-        id: 4,
-        title: { EN: "XtraMarket", AR: "XtraMarket" },
-        description: {
-            EN: "E-commerce app with real backend built with Next.js, Redux Toolkit featuring product browsing, search, cart, wishlist, and secure checkout.",
-            AR: "تطبيق تجارة إلكترونية مع باك إند حقيقي مبني بـ Next.js و Redux Toolkit، يتضمن تصفح المنتجات، البحث، السلة، قائمة الرغبات والدفع الآمن.",
-        },
-        img: "/Screenshot 2025-11-28 001333.png",
-        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "https://vegecommerce-ct1s.vercel.app/",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-    },
-    {
-        id: 5,
-        title: { EN: "M&MSTORE", AR: "M&MSTORE" },
-        description: {
-            EN: "E-commerce landing page built with React & SCSS — responsive, dynamic UI with cart and localStorage.",
-            AR: "صفحة هبوط لمتجر إلكتروني مبنية بـ React & SCSS — واجهة ديناميكية واستجابة مع السلة وlocalStorage.",
-        },
-        img: "/Screenshot 2025-11-28 001559.png",
-        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "https://benevolent-beignet-116c19.netlify.app/",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-    },
-    {
-        id: 6,
-        title: { EN: "SmartWatch", AR: "SmartWatch" },
-        description: {
-            EN: "E-commerce landing page built with Next.js, TypeScript, Tailwind & Shadcn — responsive, dynamic UI with cart using Stripe integration.",
-            AR: "صفحة هبوط للتجارة الإلكترونية تم إنشاؤها باستخدام Next.js وTypeScript وTailwind وShadcn — واجهة مستخدم سريعة الاستجابة وديناميكية مع عربة تسوق باستخدام تكامل Stripe.",
-        },
-        img: "/Screenshot 2025-11-30 111521.png",
-        // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-        link: "https://poetic-truffle-8702f4.netlify.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
     },
