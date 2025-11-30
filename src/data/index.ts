@@ -78,17 +78,18 @@ export const projects = [
     },
     {
         id: 2,
-        title: { EN: "Yoom - Video Conferencing App", AR: "Yoom - تطبيق مؤتمرات فيديو" },
+        title: { EN: "Social media", AR: "وسائل التواصل الاجتماعي" },
         description: {
-            EN: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-            AR: "بسّط تجربة مؤتمرات الفيديو الخاصة بك مع Yoom. تواصل بسلاسة مع الزملاء والأصدقاء.",
+            EN: "Enhance your brand presence with modern social media solutions. Create impactful content, grow your audience, and stay connected effortlessly.",
+            AR: "عزّز حضور علامتك التجارية عبر وسائل التواصل الاجتماعي. اصنع محتوى مؤثرًا، ونمِّ جمهورك، وابقَ على تواصل بسهولة.",
         },
-        img: "/Screenshot 2025-11-28 000923.png",
+        img: "/WhatsApp Image 2025-11-30 at 11.02.28_21d94493.jpg",
         // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-        link: "https://meeting-clone.vercel.app/",
+        link: "https://projects-production-f790.up.railway.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
-    },
+    }
+,
     {
         id: 3,
         title: { EN: "CarePlus Clinic", AR: "عيادة CarePlus" },
