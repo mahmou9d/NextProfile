@@ -23,11 +23,12 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
     useEffect(() => setMounted(true), []);
     if (!mounted) return null;
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
-  const toggleLocale = () => setLocale(locale === "AR" ? "EN" : "AR");
+  const toggleLocale = () => {setLocale(locale === "AR" ? "EN" : "AR")};
   const toggleMobile = () => setMobileOpen(!mobileOpen);
 
   return (
     <header
+    dir={locale ==="AR"?"rtl":"ltr"}
       className={`fixed top-0 z-[1000] w-full backdrop-blur-3xl shadow-lg transition-colors duration-300
 bg-white/80 
           dark:bg-transparent `}

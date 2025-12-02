@@ -126,6 +126,7 @@ const Clients = () => {
       <div className="flex flex-col items-center max-lg:mt-10">
         <div className="h-[50vh] md:h-[30rem] rounded-md flex antialiased items-center justify-center relative overflow-hidden">
           <InfiniteMovingCards
+            
             items={testimonials.map((t) => ({
               ...t,
               quote: locale === "AR" ? t.quote.AR : t.quote.EN,
