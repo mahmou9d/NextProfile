@@ -100,7 +100,7 @@ export const projects = [
         link: "https://poetic-truffle-8702f4.netlify.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
-    }, 
+    },
     {
         id: 5,
         title: { EN: "M&MSTORE", AR: "M&MSTORE" },
@@ -266,6 +266,9 @@ export const companies = [
     { id: 6, name: "django", nameImg: "/django-svgrepo-com.svg" },
     { id: 7, name: "motion", nameImg: "/fm.svg" },
     { id: 8, name: "host", nameImg: "/host.svg" },
+    { id: 9, name: "nodejs", nameImg: "/nodejs.svg" },
+     { id: 10, name: "host", nameImg: "/express.svg" },
+
 ];
 
 export const workExperience = [

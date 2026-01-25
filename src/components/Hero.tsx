@@ -1,308 +1,144 @@
 "use client";
 import { FaEnvelope, FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "./MagicButton";
-import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { LocaleContext } from "./LocaleContext";
 import Link from "next/link";
 
 const Hero = () => {
-  const { theme } = useTheme();
-  const { locale, setLocale } = useContext(LocaleContext);
+  const { locale } = useContext(LocaleContext);
+  const buttons = [
+    {
+      href: "#services",
+      title: locale === "AR" ? "استكشف خدماتنا" : "Explore Our Services",
+      icon: <FaLocationArrow className="w-5 h-5" />,
+      variant: "primary",
+    },
+    {
+      href: "#contact",
+      title:
+        locale === "AR"
+          ? "ابنِ موقعك الاحترافي الآن"
+          : "Build Your Professional Website Today",
+      icon: <FaEnvelope className="w-5 h-5" />,
+      variant: "secondary",
+    },
+  ];
 
   return (
     <section
-      className={`relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden transition-colors duration-500
-bg-gradient-to-br from-white via-gray-100 to-blue-50
-          // dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900
-      }`}
+      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
       style={{
         direction: locale === "AR" ? "rtl" : "ltr",
       }}
     >
-      {/* Floating glowing circles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className={`absolute rounded-full blur-3xl shadow-[0_0_60px_rgba(0,180,255,0.4)] transition-colors duration-500
-${
-  i % 2 === 0
-    ? "bg-blue-500/30 w-[350px] h-[350px]"
-    : "bg-purple-500/20 w-[250px] h-[250px]"
-}`}
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            scale: [1, 1.15, 1],
-            x: [0, 20, -20, 0],
-            y: [0, 15, -15, 0],
-          }}
-          transition={{
-            duration: 300 + i,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      ))}
+      {/* Main Content */}
+      <div className="relative z-10 max-w-5xl mx-auto">
+        {/* Badge - Same Style as Grid */}
+        <div className="mb-6">
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
+            <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-pink-500/10 border border-blue-500/20 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                {locale === "EN"
+                  ? "Cutting-Edge Solutions"
+                  : "حلول برمجية متطورة"}
+              </span>
+            </div>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-pink-500" />
+          </div>
+        </div>
 
-      {/* Grid */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="w-full h-full bg-[url('/grid.png')] bg-cover opacity-5 dark:opacity-10"></div>
-        <motion.div
-          className="absolute w-full h-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
-
-      {/* Text Content */}
-      <div className="relative z-10 max-w-4xl">
-        <motion.p
-          className={`uppercase tracking-[0.3em] text-sm transition-colors duration-500 
-            text-blue-600 dark:text-blue-400 glow`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {locale === "EN"
-            ? "Cutting-Edge Software Solutions"
-            : "حلول برمجية متطورة"}
-        </motion.p>
-
-        <motion.h1
-          className={`mt-4 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight relative transition-colors duration-500
-            text-gray-900 dark:text-white`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          {locale === "EN" ? "We Build" : "نقوم ببناء"}
-
-          <span className="relative block mt-2">
-            <span className="absolute inset-0 flex items-center justify-center -z-10">
-              <span
-                className={`w-40 h-40 md:w-56 md:h-56 blur-[90px] rounded-full transition-colors duration-500
-                bg-blue-300/20 dark:bg-blue-400/10`}
-              ></span>
-            </span>
-
-            <span
-              className={`bg-gradient-to-r bg-clip-text text-transparent drop-shadow-sm block text-center glow transition-colors duration-500
-                from-blue-600 via-cyan-500 to-teal-500
-                  dark:from-blue-400 dark:via-cyan-300 dark:to-teal-300`}
-            >
-              {locale === "EN" ? "Next-Level Platforms" : "منصات من مستوى جديد"}
-            </span>
+        {/* Main Title - Grid Style */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight mb-6">
+          <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
+            {locale === "EN" ? "We Build" : "نقوم ببناء"}
           </span>
+          <br />
+          <span className="gradient-text-x inline-block bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            {locale === "EN" ? "Next-Level" : "منصات من"}
+          </span>
+          <br />
+          <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
+            {locale === "EN" ? "Platforms" : "مستوى جديد"}
+          </span>
+        </h1>
 
-          {locale === "EN" ? "for Global Enterprises" : "للمؤسسات العالمية"}
-        </motion.h1>
-
-        <motion.p
-          className={`mt-6 text-lg md:text-xl leading-relaxed transition-colors duration-500
-            text-gray-800 dark:text-gray-300`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-        >
+        {/* Description */}
+        <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10">
           {locale === "EN"
-            ? "Modern web, mobile, and cloud solutions designed to scale professional websites built to increase your visibility, sales, and customer trust by 180%"
-            : "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع وتقديم تجارب رقمية سلسة."}
-        </motion.p>
+            ? "Modern web, mobile, and cloud solutions designed to scale. Professional websites built to increase your visibility, sales, and customer trust by 180%"
+            : "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع. مواقع احترافية مصممة لزيادة ظهورك ومبيعاتك وثقة العملاء بنسبة 180%"}
+        </p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          className="mt-10 flex justify-center gap-4 md:gap-6"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Link href="#services">
-            <MagicButton
-              title={
-                locale === "EN" ? "Explore Our Services" : "استكشف خدماتنا"
-              }
-              icon={<FaLocationArrow className="w-5 h-5" />}
-              position="right"
-            />
-          </Link>
+        {/* Decorative Line - Same as Grid */}
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+          <div className="relative">
+            <div className="absolute inset-0 animate-ping">
+              <div className="w-4 h-4 rounded-full bg-blue-500/50" />
+            </div>
+            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
+          </div>
+          <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-l from-transparent via-pink-500 to-transparent" />
+        </div>
 
-          <Link href="#contact">
-            <MagicButton
-              title={
-                locale === "EN"
-                  ? "Build Your Professional Website Today"
-                  : "ابنِ موقعك الاحترافي الآن"
+        {/* Stats - Grid Style */}
+        <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
+          {[
+            { value: "500+", label: locale === "EN" ? "Projects" : "مشروع" },
+            { value: "98%", label: locale === "EN" ? "Satisfaction" : "رضا" },
+            { value: "24/7", label: locale === "EN" ? "Support" : "دعم" },
+          ].map((stat, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center gap-2 min-w-[100px] px-6 py-4 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300"
+            >
+              <span className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                {stat.value}
+              </span>
+              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
 
-                // locale === "EN" ? "Schedule a Consultation" : "احجز استشارة"
-              }
-              icon={<FaEnvelope className="w-5 h-5" />}
-              position="right"
-            />
-          </Link>
-        </motion.div>
+        {/* CTA Buttons - Grid Style */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+          {buttons.map((btn, idx) => (
+            <Link
+              key={idx}
+              href={btn.href}
+              className={`group relative inline-flex items-center justify-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold text-base md:text-lg transition-all duration-300 w-full sm:w-auto ${
+                btn.variant === "primary"
+                  ? "bg-gradient-to-r from-blue-600 to-pink-600 text-white shadow-lg hover:shadow-blue-500/50 transform hover:scale-105"
+                  : "bg-gray-800/50 border border-gray-700/50 text-white hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105"
+              }`}
+            >
+              {btn.variant === "primary" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 opacity-0 group-hover:opacity-100 blur transition-opacity duration-300 rounded-xl" />
+              )}
+              <span className="relative z-10">{btn.title}</span>
+              <span
+                className={`relative z-10 transition-transform duration-300 ${
+                  locale === "AR"
+                    ? "group-hover:-translate-x-1"
+                    : "group-hover:translate-x-1"
+                }`}
+              >
+                {btn.icon}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
-
-      {/* Glow */}
-      <style jsx>{`
-        .glow {
-          text-shadow: ${theme === "light"
-            ? "0 0 6px rgba(100,180,255,0.35), 0 0 12px rgba(150,200,255,0.2)"
-            : "0 0 4px rgba(0,180,255,0.4), 0 0 8px rgba(0,180,255,0.25)"};
-        }
-      `}</style>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
     </section>
   );
 };
 
 export default Hero;
-
-// "use client";
-// import { FaEnvelope, FaLocationArrow } from "react-icons/fa6";
-// import MagicButton from "./MagicButton";
-// import { motion } from "framer-motion";
-// import { useTheme } from "next-themes";
-
-// const Hero = () => {
-//   const { theme } = useTheme();
-
-//   return (
-//     <section
-//       className={`relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden transition-colors duration-500
-// bg-gradient-to-br from-white via-gray-100 to-blue-50
-//           // dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-900
-//       }`}
-//     >
-//       {/* Floating glowing circles */}
-//       {[...Array(6)].map((_, i) => (
-//         <motion.div
-//           key={i}
-//           className={`absolute rounded-full blur-3xl shadow-[0_0_60px_rgba(0,180,255,0.4)] transition-colors duration-500
-// ${
-//   i % 2 === 0
-//     ? "bg-blue-500/30 w-[350px] h-[350px]"
-//     : "bg-purple-500/20 w-[250px] h-[250px]"
-// }
-//           `}
-//           style={{
-//             top: `${Math.random() * 100}%`,
-//             left: `${Math.random() * 100}%`,
-//           }}
-//           animate={{
-//             scale: [1, 1.15, 1],
-//             x: [0, 20, -20, 0],
-//             y: [0, 15, -15, 0],
-//           }}
-//           transition={{
-//             duration: 300 + i,
-//             repeat: Infinity,
-//             ease: "linear",
-//           }}
-//         />
-//       ))}
-
-//       {/* Grid / particles */}
-//       <div className="absolute inset-0 pointer-events-none">
-//         <div
-//           className={`w-full h-full bg-[url('/grid.png')] bg-cover transition-opacity duration-500
-//           opacity-5 dark:opacity-10`}
-//         ></div>
-
-//         <motion.div
-//           className="absolute w-full h-full"
-//           animate={{ rotate: 360 }}
-//           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-//         />
-//       </div>
-
-//       {/* Text Content */}
-//       <div className="relative z-10 max-w-4xl">
-//         <motion.p
-//           className={`uppercase tracking-[0.3em] text-sm transition-colors duration-500
-//             text-blue-600 dark:text-blue-400 glow`}
-//           initial={{ opacity: 0, y: -20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           Cutting-Edge Software Solutions
-//         </motion.p>
-
-//         <motion.h1
-//           className={`mt-4 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight relative transition-colors duration-500
-//             text-gray-900 dark:text-white`}
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 1, delay: 0.2 }}
-//         >
-//           We Build
-//           <span className="relative block mt-2">
-//             <span className="absolute inset-0 flex items-center justify-center -z-10">
-//               <span
-//                 className={`w-40 h-40 md:w-56 md:h-56 blur-[90px] rounded-full transition-colors duration-500
-//                 bg-blue-300/20 dark:bg-blue-400/10`}
-//               ></span>
-//             </span>
-
-//             <span
-//               className={`bg-gradient-to-r bg-clip-text text-transparent drop-shadow-sm block text-center glow transition-colors duration-500
-//                 from-blue-600 via-cyan-500 to-teal-500
-//                   dark:from-blue-400 dark:via-cyan-300 dark:to-teal-300
-//                 }`}
-//             >
-//               Next-Level Platforms
-//             </span>
-//           </span>
-//           for Global Enterprises
-//         </motion.h1>
-
-//         <motion.p
-//           className={`mt-6 text-lg md:text-xl leading-relaxed transition-colors duration-500
-//             text-gray-800 dark:text-gray-300`}
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 1, delay: 0.4 }}
-//         >
-//           Modern web, mobile, and cloud solutions designed to scale and deliver
-//           seamless digital experiences for your business.
-//         </motion.p>
-
-//         {/* CTA Buttons */}
-//         <motion.div
-//           className="mt-10 flex justify-center gap-6"
-//           initial={{ opacity: 0, scale: 0.8 }}
-//           animate={{ opacity: 1, scale: 1 }}
-//           transition={{ duration: 0.8, delay: 0.6 }}
-//         >
-//           <a href="#services">
-//             <MagicButton
-//               title="Explore Our Services"
-//               icon={<FaLocationArrow />}
-//               position="right"
-//             />
-//           </a>
-//           <a href="#services">
-//             <MagicButton
-//               title="Schedule a Consultation"
-//               icon={<FaEnvelope />}
-//               position="right"
-//             />
-//           </a>
-//         </motion.div>
-//       </div>
-
-//       {/* Glow */}
-//       <style jsx>{`
-//         .glow {
-//           text-shadow: ${theme === "light"
-//             ? "0 0 6px rgba(100,180,255,0.35), 0 0 12px rgba(150,200,255,0.2)"
-//             : "0 0 4px rgba(0,180,255,0.4), 0 0 8px rgba(0,180,255,0.25)"};
-//         }
-//       `}</style>
-//     </section>
-//   );
-// };
-
-// export default Hero;

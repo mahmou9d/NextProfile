@@ -93,13 +93,8 @@ export default function RootLayout({
         />
         <meta name="twitter:image" content={String(metadata.title)} />
       </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={inter.className} suppressHydrationWarning>
+        <ThemeProvider>
           <LocaleProvider>{children}</LocaleProvider>
         </ThemeProvider>
       </body>

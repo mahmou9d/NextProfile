@@ -99,7 +99,7 @@ export const BentoGridItem = ({
     <Link href={link} target="_blank" className="relative group">
       <div
         className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden 
-        border border-white/10 backdrop-blur-sm transition-transform duration-500 
+        border border-white/10  transition-transform duration-500 
         hover:scale-105 hover:shadow-2xl  h-full flex flex-col`}
       >
         {/* Background Color Gradient */}
