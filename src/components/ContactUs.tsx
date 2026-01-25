@@ -235,7 +235,7 @@ const ContactUs = () => {
               {
                 icon: <FaGlobe className="text-2xl" />,
                 title: locale === "AR" ? "الموقع" : "Website",
-                value: "www.Webvitas.com",
+                value: "www.webvitas.com",
                 link: "#",
               },
             ].map((info, idx) => (

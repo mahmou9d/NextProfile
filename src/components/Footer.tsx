@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="relative w-32 h-16">
               <Image
                 src="/Webvitas.png"
-                alt="Webvitas Logo"
+                alt="webvitas Logo"
                 fill
                 className="object-contain"
                 loading="lazy"
@@ -104,7 +104,7 @@ const Footer = () => {
                 },
                 {
                   label: locale === "AR" ? "الموقع" : "Website",
-                  value: "www.Webvitas.com",
+                  value: "www.webvitas.com",
                   link: "#",
                 },
               ].map((item, idx) => (
@@ -156,8 +156,8 @@ const Footer = () => {
           {/* Copyright */}
           <p className="text-gray-500 text-sm">
             {locale === "AR"
-              ? "© 2025 Webvitas. جميع الحقوق محفوظة."
-              : "© 2025 Webvitas. All rights reserved."}
+              ? "© 2025 webvitas. جميع الحقوق محفوظة."
+              : "© 2025 webvitas. All rights reserved."}
           </p>
 
           {/* Bottom Links */}

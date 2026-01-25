@@ -38,7 +38,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
             <div className="relative flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-gray-700/50 ">
               <Image
                 src="/Webvitas.png"
-                alt="Webvitas"
+                alt="webvitas"
                 width={100}
                 height={60}
                 className="h-12 w-auto object-contain transform transition-transform duration-300"

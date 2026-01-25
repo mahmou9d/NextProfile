@@ -19,7 +19,7 @@ const METADATA: Record<"ar" | "en", Metadata> = {
       title: "ويب دابل | مواقع إلكترونية حديثة",
       description:
         "نحن نبني مواقع حديثة وسريعة وصديقة لمحركات البحث ومنصات التجارة الإلكترونية.",
-      url: "https://Webvitas.com",
+      url: "https://ebvitas.com",
       siteName: "ويب دابل",
       images: ["/logo.svg"],
       type: "website",
@@ -33,22 +33,22 @@ const METADATA: Record<"ar" | "en", Metadata> = {
     },
   },
   en: {
-    title: "Webvitas | Modern Website & Ecommerce",
+    title: "ebvitas | Modern Website & Ecommerce",
     description:
       "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
     icons: "/logo.svg",
     openGraph: {
-      title: "Webvitas | Modern Website & Ecommerce",
+      title: "ebvitas | Modern Website & Ecommerce",
       description:
         "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
-      url: "https://Webvitas.com",
-      siteName: "Webvitas",
+      url: "https://ebvitas.com",
+      siteName: "ebvitas",
       images: ["/logo.svg"],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Webvitas | Modern Website & Ecommerce",
+      title: "ebvitas | Modern Website & Ecommerce",
       description:
         "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
       images: ["/logo.svg"],
