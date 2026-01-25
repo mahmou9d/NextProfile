@@ -31,7 +31,8 @@ const Footer = () => {
                 alt="Webvitas Logo"
                 fill
                 className="object-contain"
-                priority
+                loading="lazy"
+                priority={false}
               />
             </div>
 

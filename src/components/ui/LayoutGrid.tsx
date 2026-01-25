@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, JSX } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -89,9 +89,11 @@ const BlurImage = ({ card }: { card: Card }) => {
       onLoad={() => setLoaded(true)}
       className={cn(
         "object-cover object-top absolute inset-0 h-full w-full transition duration-200",
-        loaded ? "blur-none" : "blur-md"
+        loaded ? "blur-none" : "blur-md",
       )}
       alt="thumbnail"
+      loading="lazy"
+      priority={false}
     />
   );
 };

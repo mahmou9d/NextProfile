@@ -111,12 +111,13 @@ export const BentoGridItem = ({
         {img && (
           <div className="h-48 w-full overflow-hidden relative z-10">
             <Image
-              src={img}        
+              src={img}
               alt=""
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               width={500}
               height={500}
               loading="lazy"
+              priority={false}
               unoptimized={true}
             />
           </div>

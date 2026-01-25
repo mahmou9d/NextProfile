@@ -10,6 +10,7 @@ import {
 import emailjs from "@emailjs/browser";
 import { LocaleContext } from "./LocaleContext";
 import Link from "next/link";
+import Title from "./Title";
 
 const ContactUs = () => {
   const { locale } = useContext(LocaleContext);
@@ -88,50 +89,17 @@ const ContactUs = () => {
     <section
       id="contact"
       dir={locale === "AR" ? "rtl" : "ltr"}
-      className="relative w-full min-h-screen py-24 md:py-32 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      className="relative w-full min-h-screen py-24 md: overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-20 md:mb-28 space-y-6">
-          {/* Subtitle with Badge */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-            <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-pink-500/10 border border-blue-500/20 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                {locale === "AR" ? "تواصل معنا" : "Get in Touch"}
-              </span>
-            </div>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-pink-500" />
-          </div>
-
-          {/* Main Title */}
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-            <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-              {locale === "AR" ? "دعنا نبني" : "Let's Build"}
-            </span>
-            <br />
-            <span className="gradient-text-x inline-block bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-              {locale === "AR" ? "شيئًا رائعًا" : "Something Amazing"}
-            </span>
-          </h2>
-
-          {/* Decorative Line */}
-          <div className="flex items-center justify-center gap-4 pt-6">
-            <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-            <div className="relative">
-              <div className="absolute inset-0 animate-ping">
-                <div className="w-4 h-4 rounded-full bg-blue-500/50" />
-              </div>
-              <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
-            </div>
-            <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-l from-transparent via-pink-500 to-transparent" />
-          </div>
-        </div>
-
+        <Title
+          subtitle={locale === "AR" ? "تواصل معنا" : "Get in Touch"}
+          title1={locale === "AR" ? "دعنا نبني" : "Let's Build"}
+          title2={locale === "AR" ? "شيئًا رائعًا" : "Something Amazing"}
+          description={null}
+          title3={null}
+        />
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Form Card */}

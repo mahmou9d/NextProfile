@@ -3,6 +3,7 @@ import { FaEnvelope, FaLocationArrow } from "react-icons/fa6";
 import { useContext } from "react";
 import { LocaleContext } from "./LocaleContext";
 import Link from "next/link";
+import Title from "./Title";
 
 const Hero = () => {
   const { locale } = useContext(LocaleContext);
@@ -34,58 +35,20 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Badge - Same Style as Grid */}
-        <div className="mb-6">
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-            <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-pink-500/10 border border-blue-500/20 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                {locale === "EN"
-                  ? "Cutting-Edge Solutions"
-                  : "حلول برمجية متطورة"}
-              </span>
-            </div>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-pink-500" />
-          </div>
-        </div>
 
-        {/* Main Title - Grid Style */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight mb-6">
-          <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-            {locale === "EN" ? "We Build" : "نقوم ببناء"}
-          </span>
-          <br />
-          <span className="gradient-text-x inline-block bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-            {locale === "EN" ? "Next-Level" : "منصات من"}
-          </span>
-          <br />
-          <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-            {locale === "EN" ? "Platforms" : "مستوى جديد"}
-          </span>
-        </h1>
-
-        {/* Description */}
-        <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-10">
-          {locale === "EN"
-            ? "Modern web, mobile, and cloud solutions designed to scale. Professional websites built to increase your visibility, sales, and customer trust by 180%"
-            : "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع. مواقع احترافية مصممة لزيادة ظهورك ومبيعاتك وثقة العملاء بنسبة 180%"}
-        </p>
-
-        {/* Decorative Line - Same as Grid */}
-        <div className="flex items-center justify-center gap-4 mb-12">
-          <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-          <div className="relative">
-            <div className="absolute inset-0 animate-ping">
-              <div className="w-4 h-4 rounded-full bg-blue-500/50" />
-            </div>
-            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
-          </div>
-          <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-l from-transparent via-pink-500 to-transparent" />
-        </div>
-
+        <Title
+          subtitle={
+            locale === "EN" ? "Cutting-Edge Solutions" : "حلول برمجية متطورة"
+          }
+          title1={locale === "EN" ? "We Build" : "نقوم ببناء"}
+          title2={locale === "EN" ? "Next-Level" : "منصات من"}
+          title3={locale === "EN" ? "Platforms" : "مستوى جديد"}
+          description={
+            locale === "EN"
+              ? "Modern web, mobile, and cloud solutions designed to scale. Professional websites built to increase your visibility, sales, and customer trust by 180%"
+              : "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع. مواقع احترافية مصممة لزيادة ظهورك ومبيعاتك وثقة العملاء بنسبة 180%"
+          }
+        />
         {/* Stats - Grid Style */}
         <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
           {[

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { companies, testimonials } from "@/data";
 import { LocaleContext } from "./LocaleContext";
 import Image from "next/image";
+import Title from "./Title";
 
 const Clients = () => {
   const { locale } = useContext(LocaleContext);
@@ -12,51 +13,20 @@ const Clients = () => {
   return (
     <section
       id="testimonials"
-      className="relative w-full min-h-screen py-24 md:py-32 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      className="relative w-full min-h-screen py-24 md: overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
       // dir={locale === "AR" ? "rtl" : "ltr"}
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-20 md:mb-28 space-y-6">
-          {/* Subtitle with Badge */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-            <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-pink-500/10 border border-blue-500/20 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                {locale === "AR" ? "ماذا يقول عملاؤنا" : "What Our Clients Say"}
-              </span>
-            </div>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-pink-500" />
-          </div>
-
-          {/* Main Title */}
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-            <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-              {locale === "AR" ? "كلمات طيبة من" : "Kind words from"}
-            </span>
-            <br />
-            <span className="gradient-text-x inline-block bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-              {locale === "AR" ? "عملائنا الراضين" : "satisfied clients"}
-            </span>
-          </h2>
-
-          {/* Decorative Line */}
-          <div className="flex items-center justify-center gap-4 pt-6">
-            <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-            <div className="relative">
-              <div className="absolute inset-0 animate-ping">
-                <div className="w-4 h-4 rounded-full bg-blue-500/50" />
-              </div>
-              <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
-            </div>
-            <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-l from-transparent via-pink-500 to-transparent" />
-          </div>
-        </div>
-
+        <Title
+          subtitle={
+            locale === "AR" ? "ماذا يقول عملاؤنا" : "What Our Clients Say"
+          }
+          title1={locale === "AR" ? "كلمات طيبة من" : "Kind words from"}
+          title2={locale === "AR" ? "عملائنا الراضين" : "satisfied clients"}
+          description={null}
+          title3={null}
+        />
         {/* Testimonials Slider */}
         <div className="relative mb-20">
           <div
@@ -91,40 +61,42 @@ const Clients = () => {
                         "
                       </div>
                     </div>
-<div className="flex justify-between flex-col">
-                    {/* Quote Text */}
-                    <p
-                      className={`${locale === "AR" ? "text-right" : ""} text-gray-300 text-lg leading-relaxed mb-8 relative z-10`}
-                    >
-                      {locale === "AR"
-                        ? testimonial.quote.AR
-                        : testimonial.quote.EN}
-                    </p>
+                    <div className="flex justify-between flex-col">
+                      {/* Quote Text */}
+                      <p
+                        className={`${locale === "AR" ? "text-right" : ""} text-gray-300 text-lg leading-relaxed mb-8 relative z-10`}
+                      >
+                        {locale === "AR"
+                          ? testimonial.quote.AR
+                          : testimonial.quote.EN}
+                      </p>
 
-                    {/* Author Info */}
-                    <div
-                      className={`${locale === "AR" ? "text-right flex-row-reverse" : ""} flex items-center gap-4 relative z-10`}
-                    >
-                      <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/50 group-hover:border-blue-500 transition-colors">
-                        <Image
-                          src={testimonial.img || "/default-avatar.png"}
-                          alt={testimonial.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-bold text-lg">
-                          {testimonial.name}
-                        </h4>
-                        <p className="text-gray-400 text-sm">
-                          {locale === "AR"
-                            ? testimonial.title.AR
-                            : testimonial.title.EN}
-                        </p>
+                      {/* Author Info */}
+                      <div
+                        className={`${locale === "AR" ? "text-right flex-row-reverse" : ""} flex items-center gap-4 relative z-10`}
+                      >
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/50 group-hover:border-blue-500 transition-colors">
+                          <Image
+                            src={testimonial.img || "/default-avatar.png"}
+                            alt={testimonial.name}
+                            fill
+                            loading="lazy"
+                            priority={false}
+                            className="object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-bold text-lg">
+                            {testimonial.name}
+                          </h4>
+                          <p className="text-gray-400 text-sm">
+                            {locale === "AR"
+                              ? testimonial.title.AR
+                              : testimonial.title.EN}
+                          </p>
+                        </div>
                       </div>
                     </div>
-</div>
                     {/* Bottom Corner Accent */}
                     <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-blue-500/10 via-pink-500/5 to-transparent rounded-tl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
@@ -172,6 +144,8 @@ const Clients = () => {
                       alt={company.name || "Company Logo"}
                       width={140}
                       height={64}
+                      loading="lazy"
+                      priority={false}
                       className="opacity-50 group-hover:opacity-100 transition-all duration-500 object-contain max-w-full max-h-full group-hover:scale-110"
                     />
                   </div>
