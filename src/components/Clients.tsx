@@ -7,14 +7,13 @@ import Image from "next/image";
 
 const Clients = () => {
   const { locale } = useContext(LocaleContext);
-
-
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section
       id="testimonials"
       className="relative w-full min-h-screen py-24 md:py-32 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
-      dir={locale === "AR" ? "rtl" : "ltr"}
+      // dir={locale === "AR" ? "rtl" : "ltr"}
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
@@ -60,8 +59,17 @@ const Clients = () => {
 
         {/* Testimonials Slider */}
         <div className="relative mb-20">
-          <div className="overflow-hidden mask-gradient">
-            <div className="flex gap-6 animate-scroll-infinite">
+          <div
+            className="overflow-hidden mask-gradient"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div
+              className="flex gap-6 animate-scroll-infinite"
+              style={{
+                animationPlayState: isPaused ? "paused" : "running",
+              }}
+            >
               {/* Quadruple the testimonials for extra smooth seamless loop */}
               {[
                 ...testimonials,
@@ -83,16 +91,20 @@ const Clients = () => {
                         "
                       </div>
                     </div>
-
+<div className="flex justify-between flex-col">
                     {/* Quote Text */}
-                    <p className="text-gray-300 text-lg leading-relaxed mb-8 relative z-10">
+                    <p
+                      className={`${locale === "AR" ? "text-right" : ""} text-gray-300 text-lg leading-relaxed mb-8 relative z-10`}
+                    >
                       {locale === "AR"
                         ? testimonial.quote.AR
                         : testimonial.quote.EN}
                     </p>
 
                     {/* Author Info */}
-                    <div className="flex items-center gap-4 relative z-10">
+                    <div
+                      className={`${locale === "AR" ? "text-right flex-row-reverse" : ""} flex items-center gap-4 relative z-10`}
+                    >
                       <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/50 group-hover:border-blue-500 transition-colors">
                         <Image
                           src={testimonial.img || "/default-avatar.png"}
@@ -112,7 +124,7 @@ const Clients = () => {
                         </p>
                       </div>
                     </div>
-
+</div>
                     {/* Bottom Corner Accent */}
                     <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-blue-500/10 via-pink-500/5 to-transparent rounded-tl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>

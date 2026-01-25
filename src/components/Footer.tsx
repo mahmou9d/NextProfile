@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const Footer = () => {
   const { locale } = useContext(LocaleContext);
-  const linksEN = ["Home", "Services", "Portfolio", "Contact"];
-  const linksAR = ["الرئيسية", "الخدمات", "أعمالنا", "اتصل بنا"];
+  const linksEN = ["About", "Projects", "Testimonials", "Contact"];
+  const linksAR = ["من نحن", "مشاريعنا", "آراء العملاء", "اتصل بنا"];
 
   return (
     <footer
@@ -27,8 +27,8 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="relative w-32 h-16">
               <Image
-                src="/logo2.png"
-                alt="WebDouble Logo"
+                src="/Webvitas.png"
+                alt="Webvitas Logo"
                 fill
                 className="object-contain"
                 priority
@@ -100,7 +100,7 @@ const Footer = () => {
                 },
                 {
                   label: locale === "AR" ? "الموقع" : "Website",
-                  value: "www.webagency.com",
+                  value: "www.Webvitas.com",
                   link: "#",
                 },
               ].map((item, idx) => (
@@ -133,7 +133,7 @@ const Footer = () => {
                 }
                 className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
               />
-              <button className="absolute top-1/2 -translate-y-1/2 right-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
+              <button className="absolute rounded-xl top-1/2 -translate-y-1/2 right-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
                 {locale === "AR" ? "اشترك" : "Subscribe"}
               </button>
             </div>
@@ -148,8 +148,8 @@ const Footer = () => {
           {/* Copyright */}
           <p className="text-gray-500 text-sm">
             {locale === "AR"
-              ? "© 2025 WebDouble. جميع الحقوق محفوظة."
-              : "© 2025 WebDouble. All rights reserved."}
+              ? "© 2025 Webvitas. جميع الحقوق محفوظة."
+              : "© 2025 Webvitas. All rights reserved."}
           </p>
 
           {/* Bottom Links */}
@@ -169,7 +169,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
       </div>
     </footer>
   );

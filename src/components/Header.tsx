@@ -39,8 +39,8 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
           <Link href="/" className="relative group z-10">
             <div className="relative flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-gray-700/50 ">
               <Image
-                src="/logo2.png"
-                alt="WebDouble"
+                src="/Webvitas.png"
+                alt="Webvitas"
                 width={100}
                 height={60}
                 className="h-12 w-auto object-contain transform transition-transform duration-300"

@@ -1,0 +1,27 @@
+<svg viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="50%" y1="0%" x2="100%" y2="30%">
+      <stop offset="10%" style="stop-color:#ff0085;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Black background -->
+  <rect width="1024" height="768" fill="#00000000"/>
+  
+  <!-- W Symbol -->
+  <g transform="translate(512, 180)">
+    <!-- Left part of W -->
+    <path d="M -200 0 L -140 0 L -80 120 L -20 0 L 20 0 L 80 120 L 140 0 L 200 0 L 100 180 L 50 180 L 0 80 L -50 180 L -100 180 Z" 
+          fill="url(#gradient)" 
+          stroke="none"/>
+  </g>
+  
+  <!-- Webvitas text -->
+  <text x="512" y="580" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="220" 
+        font-weight="bold" 
+        fill="#FFFFFF" 
+        text-anchor="middle">webvitas</text>
+</svg>
