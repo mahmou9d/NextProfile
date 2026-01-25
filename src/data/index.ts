@@ -1,4 +1,4 @@
-// data.ts
+
 export const navItems = [
     { name: { EN: "About", AR: "من نحن" }, link: "#about" },
     { name: { EN: "Projects", AR: "مشاريعنا" }, link: "#projects" },
@@ -137,75 +137,6 @@ export const projects = [
         titleClassName: "text-3xl font-extrabold mb-2",
     },
 ];
-// export const projects = [
-//     {
-//         id: 1,
-//         title: { EN: "Prime Ecom", AR: "برايم إي كوم" },
-//         des: {
-//             EN: "E-commerce app built with React, Redux Toolkit & TypeScript — featuring product browsing, search, auth, cart, wishlist, and discounts.",
-//             AR: "تطبيق تجارة إلكترونية مبني بـ React و Redux Toolkit و TypeScript — يتضمن تصفح المنتجات، البحث، المصادقة، السلة، قائمة الرغبات والخصومات.",
-//         },
-//         img: "/Screenshot 2025-08-30 215858.png",
-//         iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-//         link: "https://guileless-tiramisu-18d615.netlify.app/",
-//     },
-//     {
-//         id: 2,
-//         title: { EN: "Yoom - Video Conferencing App", AR: "Yoom - تطبيق مؤتمرات فيديو" },
-//         des: {
-//             EN: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
-//             AR: "بسّط تجربة مؤتمرات الفيديو الخاصة بك مع Yoom. تواصل بسلاسة مع الزملاء والأصدقاء.",
-//         },
-//         img: "/Screenshot 2025-11-28 000923.png",
-//         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-//         link: "https://meeting-clone.vercel.app/",
-//     },
-//     {
-//         id: 3,
-//         title: { EN: "CarePlus Clinic", AR: "عيادة CarePlus" },
-//         des: {
-//             EN: "Clinic management app built with React, TypeScript & Redux Toolkit — for booking appointments and managing patient profiles.",
-//             AR: "تطبيق إدارة عيادة مبني بـ React و TypeScript و Redux Toolkit — لحجز المواعيد وإدارة ملفات المرضى.",
-//         },
-//         img: "Screenshot 2025-11-28 001140.png",
-//         iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-//         link: "https://patient-pi.vercel.app/",
-//     },
-//     {
-//         id: 4,
-//         title: { EN: "XtraMarket", AR: "XtraMarket" },
-//         des: {
-//             EN: "E-commerce app with real backend built with Next.js, Redux Toolkit featuring product browsing, search, cart, wishlist, and secure checkout.",
-//             AR: "تطبيق تجارة إلكترونية مع باك إند حقيقي مبني بـ Next.js و Redux Toolkit، يتضمن تصفح المنتجات، البحث، السلة، قائمة الرغبات والدفع الآمن.",
-//         },
-//         img: "/Screenshot 2025-11-28 001333.png",
-//         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-//         link: "https://vegecommerce-ct1s.vercel.app/",
-//     },
-//     {
-//         id: 5,
-//         title: { EN: "M&MSTORE", AR: "M&MSTORE" },
-//         des: {
-//             EN: "E-commerce landing page built with React & SCSS — responsive, dynamic UI with cart and localStorage.",
-//             AR: "صفحة هبوط لمتجر إلكتروني مبنية بـ React & SCSS — واجهة ديناميكية واستجابة مع السلة وlocalStorage.",
-//         },
-//         img: "/Screenshot 2025-11-28 001559.png",
-//         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-//         link: "https://benevolent-beignet-116c19.netlify.app/",
-//     },
-//     {
-//         id: 6,
-//         title: { EN: "Dashboard", AR: "لوحة تحكم" },
-//         des: {
-//             EN: "Modern React dashboard with responsive layout, charts (Nivo/Recharts), key stats, revenue graph, and transactions panel.",
-//             AR: "لوحة تحكم حديثة بـ React مع تخطيط متجاوب، رسوم بيانية (Nivo/Recharts)، إحصائيات أساسية، رسم بياني للإيرادات ولوحة المعاملات.",
-//         },
-//         img: "/Screenshot 2025-11-28 001832.png",
-//         iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-//         link: "https://statuesque-conkies-a26f3f.netlify.app/",
-//     },
-// ];
-
 export const testimonials = [
     {
         quote: {
@@ -298,9 +229,3 @@ export const workExperience = [
         thumbnail: "/exp4.svg",
     },
 ];
-
-// export const socialMedia = [
-//     { id: 1, img: "/git.svg" },
-//     { id: 2, img: "/twit.svg" },
-//     { id: 3, img: "/link.svg" },
-// ];
