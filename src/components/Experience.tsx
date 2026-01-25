@@ -114,9 +114,6 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Bottom Corner Accent */}
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-blue-500/10 via-pink-500/5 to-transparent rounded-tl-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </article>
           ))}

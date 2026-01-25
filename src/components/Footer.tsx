@@ -16,8 +16,8 @@ const Footer = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
-        <div className="glow-float absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full" />
-        <div className="glow-float-delayed absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full" />
+        <div className=" absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

@@ -1,5 +1,5 @@
 "use client";
-import { useState, JSX, useContext, SetStateAction } from "react";
+import { useState, JSX, useContext } from "react";
 import Link from "next/link";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { LocaleContext } from "./LocaleContext";
@@ -133,15 +133,9 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                 className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent flex items-center justify-center overflow-hidden"
               >
                 {mobileOpen ? (
-                  <FaXmark
-                    className="relative text-pink-400"
-                    size={22}
-                  />
+                  <FaXmark className="relative text-pink-400" size={22} />
                 ) : (
-                  <FaBars
-                    className="relative text-blue-400"
-                    size={22}
-                  />
+                  <FaBars className="relative text-blue-400" size={22} />
                 )}
               </button>
             </div>
