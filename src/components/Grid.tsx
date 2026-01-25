@@ -61,8 +61,11 @@ const Grid = () => {
               href={"#contact"}
               className="group/cta relative px-8 py-4 overflow-hidden rounded-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 opacity-0 group-hover/cta:opacity-100 blur-xl transition-opacity duration-300" />
-              <div className="relative flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300" />
+              <div
+                className="relative flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-transform transition-opacity
+ duration-300"
+              >
                 <span>
                   {locale === "AR" ? "ابدأ مشروعك" : "Start Your Project"}
                 </span>
@@ -84,7 +87,8 @@ const Grid = () => {
 
             <Link
               href={"#about"}
-              className="px-8 py-4 rounded-full bg-gray-800/50 border border-gray-700/50 text-white font-bold text-lg hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105 transition-all duration-300"
+              className="px-8 py-4 rounded-full bg-gray-800/50 border border-gray-700/50 text-white font-bold text-lg hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105 transition-transform transition-opacity
+ duration-300"
             >
               {locale === "AR" ? "تصفح المزيد" : "View More"}
             </Link>

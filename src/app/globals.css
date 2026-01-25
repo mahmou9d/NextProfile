@@ -153,3 +153,18 @@
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
 }
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .backdrop-blur-xl {
+    backdrop-filter: none;
+  }
+}

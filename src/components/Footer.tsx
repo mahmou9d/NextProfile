@@ -16,8 +16,8 @@ const Footer = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
-        <div className="glow-float absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px]" />
-        <div className="glow-float-delayed absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full blur-[100px]" />
+        <div className="glow-float absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full" />
+        <div className="glow-float-delayed absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -51,8 +51,11 @@ const Footer = () => {
                 { Icon: FaGithub, link: "#" },
               ].map(({ Icon, link }, idx) => (
                 <a key={idx} href={link} className="group relative w-11 h-11">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl blur-md opacity-0 group-hover:opacity-75 transition-opacity" />
-                  <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 flex items-center justify-center hover:border-blue-500/60 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-75 transition-opacity" />
+                  <div
+                    className="relative w-full h-full rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 flex items-center justify-center hover:border-blue-500/60 transition-transform transition-opacity
+ duration-300 transform hover:scale-110 hover:rotate-6"
+                  >
                     <Icon
                       className="text-gray-400 group-hover:text-blue-400 transition-colors"
                       size={18}
@@ -132,9 +135,13 @@ const Footer = () => {
                 placeholder={
                   locale === "AR" ? "بريدك الإلكتروني" : "Your email"
                 }
-                className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-transform transition-opacity
+ duration-300"
               />
-              <button className="absolute rounded-xl top-1/2 -translate-y-1/2 right-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
+              <button
+                className="absolute rounded-xl top-1/2 -translate-y-1/2 right-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-transform transition-opacity
+"
+              >
                 {locale === "AR" ? "اشترك" : "Subscribe"}
               </button>
             </div>

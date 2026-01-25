@@ -42,7 +42,6 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                 width={100}
                 height={60}
                 className="h-12 w-auto object-contain transform transition-transform duration-300"
-                priority
               />
               <div className="hidden sm:block w-px h-8 bg-gradient-to-b from-transparent via-gray-600 to-transparent" />
               <div className="hidden sm:flex flex-col">
@@ -62,9 +61,6 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                 href={item.link}
                 className="group relative px-5 py-2.5 overflow-hidden"
               >
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-blue-500/20 group-hover:via-pink-500/20 group-hover:to-blue-500/20 rounded-xl transition-all duration-500" />
-
                 {/* Text */}
                 <span className="relative text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">
                   {locale === "EN" ? item.name.EN : item.name.AR}
@@ -80,20 +76,13 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
           <div className="flex items-center gap-3">
             {/* Language Toggle - Desktop Premium */}
             <div className="hidden md:block group relative">
-              {/* Outer Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-70 transition-all duration-500 animate-gradient" />
-
               <button
                 onClick={toggleLocale}
-                className="relative flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent transition-all duration-300 overflow-hidden"
+                className="relative flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 overflow-hidden"
               >
-                {/* Animated Background on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-pink-600/0 to-blue-600/0 group-hover:from-blue-600/30 group-hover:via-pink-600/30 group-hover:to-blue-600/30 transition-all duration-500" />
-
                 {/* Icon Container */}
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-lg blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
+                  <div className="relative w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center">
                     <svg
                       className="w-4 h-4 text-white"
                       fill="none"
@@ -122,9 +111,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
 
                 {/* Chevron */}
                 <svg
-                  className={`relative w-4 h-4 text-gray-500 group-hover:text-blue-400 transition-all duration-300 ${
-                    locale === "AR" ? "rotate-180" : ""
-                  }`}
+                  className={`relative w-4 h-4 text-gray-500 group-hover:text-blue-400`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -141,22 +128,18 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
 
             {/* Mobile Menu Toggle - Premium */}
             <div className="group relative md:hidden">
-              <div className="absolute -inset-1 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl blur-md opacity-50 group-hover:opacity-100 transition-all duration-300" />
               <button
                 onClick={toggleMobile}
-                className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 overflow-hidden"
+                className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent flex items-center justify-center overflow-hidden"
               >
-                {/* Animated Background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-pink-600/0 group-hover:from-blue-600/30 group-hover:to-pink-600/30 transition-all duration-500" />
-
                 {mobileOpen ? (
                   <FaXmark
-                    className="relative text-pink-400 group-hover:rotate-90 transition-all duration-300"
+                    className="relative text-pink-400"
                     size={22}
                   />
                 ) : (
                   <FaBars
-                    className="relative text-blue-400 transition-all duration-300"
+                    className="relative text-blue-400"
                     size={22}
                   />
                 )}

@@ -51,7 +51,10 @@ const Clients = () => {
                   key={`${index}`}
                   className="flex-shrink-0 w-[90vw] sm:w-[450px] md:w-[500px]"
                 >
-                  <div className="group relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8">
+                  <div
+                    className="group relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
+ duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8"
+                  >
                     {/* Top Glow Effect */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -130,10 +133,16 @@ const Clients = () => {
             {companies.map((company) => (
               <div key={company.id} className="group relative">
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-pink-500/0 group-hover:from-blue-500/20 group-hover:to-pink-500/20 rounded-2xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-pink-500/0 group-hover:from-blue-500/20 group-hover:to-pink-500/20 rounded-2xl transition-transform transition-opacity
+ duration-500 opacity-0 group-hover:opacity-100"
+                />
 
                 {/* Card */}
-                <div className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 transition-all duration-500 group-hover:border-blue-500/60 group-hover:shadow-2xl group-hover:shadow-blue-500/20 p-8 flex items-center justify-center min-h-[120px]">
+                <div
+                  className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
+ duration-500 group-hover:border-blue-500/60 group-hover:shadow-2xl group-hover:shadow-blue-500/20 p-8 flex items-center justify-center min-h-[120px]"
+                >
                   {/* Top Glow */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -146,7 +155,8 @@ const Clients = () => {
                       height={64}
                       loading="lazy"
                       priority={false}
-                      className="opacity-50 group-hover:opacity-100 transition-all duration-500 object-contain max-w-full max-h-full group-hover:scale-110"
+                      className="opacity-50 group-hover:opacity-100 transition-transform transition-opacity
+ duration-500 object-contain max-w-full max-h-full group-hover:scale-110"
                     />
                   </div>
 

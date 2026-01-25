@@ -104,7 +104,10 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Form Card */}
           <div className="group relative">
-            <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8">
+            <div
+              className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
+ duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8"
+            >
               {/* Top Glow Effect */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -118,7 +121,8 @@ const ContactUs = () => {
                     placeholder={locale === "AR" ? "اسمك" : "Your Name"}
                     value={form.from_name}
                     onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-transform transition-opacity
+ duration-300"
                   />
                   {errors.from_name && (
                     <p className="text-red-400 text-sm mt-2">
@@ -138,7 +142,8 @@ const ContactUs = () => {
                     }
                     value={form.from_email}
                     onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-transform transition-opacity
+ duration-300"
                   />
                   {errors.from_email && (
                     <p className="text-red-400 text-sm mt-2">
@@ -155,7 +160,8 @@ const ContactUs = () => {
                     placeholder={locale === "AR" ? "رسالتك" : "Your Message"}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 resize-none h-40 transition-all duration-300"
+                    className="w-full pl-12 pr-4 py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 resize-none h-40 transition-transform transition-opacity
+ duration-300"
                   />
                   {errors.message && (
                     <p className="text-red-400 text-sm mt-2">
@@ -169,8 +175,11 @@ const ContactUs = () => {
                   onClick={handleSubmit}
                   className="group/btn relative w-full overflow-hidden cursor-pointer"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100 blur transition-opacity duration-300" />
-                  <div className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100  transition-opacity duration-300" />
+                  <div
+                    className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-transform transition-opacity
+ duration-300"
+                  >
                     <span>
                       {locale === "AR" ? "أرسل الرسالة" : "Send Message"}
                     </span>
@@ -235,15 +244,21 @@ const ContactUs = () => {
                 href={info.link}
                 className="group/info relative block"
               >
-                <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-6">
+                <div
+                  className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
+ duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-6"
+                >
                   {/* Top Glow Effect */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover/info:opacity-100 transition-opacity duration-500" />
 
                   <div className="flex items-center gap-4">
                     {/* Icon */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl blur-lg opacity-50 group-hover/info:opacity-75 transition-opacity" />
-                      <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white shadow-2xl transform group-hover/info:scale-110 group-hover/info:rotate-6 transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-50 group-hover/info:opacity-75 transition-opacity" />
+                      <div
+                        className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white shadow-2xl transform group-hover/info:scale-110 group-hover/info:rotate-6 transition-transform transition-opacity
+ duration-300"
+                      >
                         {info.icon}
                       </div>
                     </div>
@@ -260,7 +275,8 @@ const ContactUs = () => {
 
                     {/* Arrow */}
                     <svg
-                      className="w-6 h-6 text-gray-400 group-hover/info:text-blue-400 transform group-hover/info:translate-x-1 transition-all duration-300"
+                      className="w-6 h-6 text-gray-400 group-hover/info:text-blue-400 transform group-hover/info:translate-x-1 transition-transform transition-opacity
+ duration-300"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -304,8 +320,11 @@ const ContactUs = () => {
                   href={item.link}
                   className="group/social relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl blur-lg opacity-0 group-hover/social:opacity-75 transition-opacity" />
-                  <div className="relative flex flex-col items-center gap-2 p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 backdrop-blur-2xl border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 transform hover:scale-110">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-0 group-hover/social:opacity-75 transition-opacity" />
+                  <div
+                    className="relative flex flex-col items-center gap-2 p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 transition-transform transition-opacity
+ duration-300 transform hover:scale-110"
+                  >
                     <item.Icon className="text-3xl text-blue-400 group-hover/social:text-pink-400 transition-colors" />
                     <span className="text-xs text-gray-400 font-semibold">
                       {item.label}
