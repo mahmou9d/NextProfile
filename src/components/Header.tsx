@@ -16,10 +16,8 @@ interface NavItem {
 }
 
 const Header = ({ navItems }: { navItems: NavItem[] }) => {
-  const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { locale, setLocale } = useContext(LocaleContext);
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
   const toggleLocale = () => setLocale(locale === "AR" ? "EN" : "AR");
   const toggleMobile = () => setMobileOpen(!mobileOpen);
 

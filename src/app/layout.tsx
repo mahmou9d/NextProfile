@@ -7,23 +7,21 @@ import { LocaleProvider } from "@/components/LocaleContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// اختر اللغة هنا مباشرة
-const locale: "ar" | "en" = "ar"; // غيرها إلى "en" للإنجليزي
+const locale: "ar" | "en" = "ar"; 
 
-// فصل الـ metadata لكل لغة
 const METADATA: Record<"ar" | "en", Metadata> = {
   ar: {
     title: "ويب دابل | مواقع إلكترونية وتجارة إلكترونية حديثة",
     description:
       "نحن نبني مواقع حديثة وسريعة وصديقة لمحركات البحث ومنصات التجارة الإلكترونية.",
-    icons: "/logo.png",
+    icons: "/logo.svg",
     openGraph: {
       title: "ويب دابل | مواقع إلكترونية حديثة",
       description:
         "نحن نبني مواقع حديثة وسريعة وصديقة لمحركات البحث ومنصات التجارة الإلكترونية.",
       url: "https://Webvitas.com",
       siteName: "ويب دابل",
-      images: ["/logo.png"],
+      images: ["/logo.svg"],
       type: "website",
     },
     twitter: {
@@ -31,21 +29,21 @@ const METADATA: Record<"ar" | "en", Metadata> = {
       title: "ويب دابل | مواقع إلكترونية حديثة",
       description:
         "نحن نبني مواقع حديثة وسريعة وصديقة لمحركات البحث ومنصات التجارة الإلكترونية.",
-      images: ["/logo.png"],
+      images: ["/logo.svg"],
     },
   },
   en: {
     title: "Webvitas | Modern Website & Ecommerce",
     description:
       "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
-    icons: "/logo.png",
+    icons: "/logo.svg",
     openGraph: {
       title: "Webvitas | Modern Website & Ecommerce",
       description:
         "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
       url: "https://Webvitas.com",
       siteName: "Webvitas",
-      images: ["/logo.png"],
+      images: ["/logo.svg"],
       type: "website",
     },
     twitter: {
@@ -53,7 +51,7 @@ const METADATA: Record<"ar" | "en", Metadata> = {
       title: "Webvitas | Modern Website & Ecommerce",
       description:
         "We build modern, fast, SEO-friendly websites and e-commerce platforms crafted for growth and conversions.",
-      images: ["/logo.png"],
+      images: ["/logo.svg"],
     },
   },
 };
