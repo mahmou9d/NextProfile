@@ -1,0 +1,29 @@
+import { navItems } from "@/data";
+
+import Hero from "@/components/Hero";
+import Grid from "@/components/Grid";
+import Footer from "@/components/Footer";
+import Clients from "@/components/Clients";
+import Approach from "@/components/Approach";
+import Experience from "@/components/Experience";
+import Header from "@/components/Header";
+import ContactUs from "@/components/ContactUs";
+
+const Home = () => {
+  return (
+    <main className="relative bg-gray-50 dark:bg-black flex justify-center items-center flex-col overflow-hidden mx-auto">
+      <div className="w-full">
+        <Header navItems={navItems} />
+        <Hero />
+        <Grid />
+        <Clients />
+        <Experience />
+        <Approach />
+        <ContactUs />
+        <Footer />
+      </div>
+    </main>
+  );
+};
+
+export default Home;

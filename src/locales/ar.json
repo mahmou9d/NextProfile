@@ -1,0 +1,149 @@
+{
+  "header": {
+    "premium": "مميز",
+    "webSolutions": "حلول الويب",
+    "language": {
+      "code": "AR",
+      "name": "العربية",
+      "switch": "EN"
+    }
+  },
+  
+  "approach": {
+    "subtitle": "كيف نعمل",
+    "title1": "منهجيتي",
+    "title2": "في العمل",
+    "cards": [
+      {
+        "title": "التخطيط والاستراتيجية",
+        "description": "نحدد أهداف موقعك وجمهورك ونرتب المحتوى والهيكل لضمان أساس قوي.",
+        "iconText": "تخطيط",
+        "number": "01"
+      },
+      {
+        "title": "التطوير والتحديث المستمر",
+        "description": "نحوّل التصميم إلى كود تفاعلي ونعطيك تحديثات مستمرة طوال العمل.",
+        "iconText": "تطوير",
+        "number": "02"
+      },
+      {
+        "title": "الاختبار والإطلاق",
+        "description": "نختبر الموقع ونحسّن الأداء ونطلقه بأفضل جودة وتجربة للمستخدم.",
+        "iconText": "إطلاق",
+        "number": "03"
+      }
+    ]
+  },
+  "projects": {
+    "status": {
+      "live": "متاح",
+      "available": "مباشر"
+    },
+    "categories": {
+      "ecommerce": "تجارة إلكترونية",
+      "webapp": "ويب آب",
+      "portfolio": "معرض أعمال",
+      "corporate": "شركات"
+    },
+    "buttons": {
+      "viewProject": "عرض المشروع",
+      "preview": "معاينة",
+      "liveDemo": "تجربة مباشرة"
+    }
+  },
+  "clients": {
+    "subtitle": "ماذا يقول عملاؤنا",
+    "title1": "كلمات طيبة من",
+    "title2": "عملائنا الراضين",
+    "trustedBy": "عملاؤنا الموثوقون"
+  },
+  "contact": {
+    "subtitle": "تواصل معنا",
+    "title1": "دعنا نبني",
+    "title2": "شيئًا رائعًا",
+    "form": {
+      "namePlaceholder": "اسمك",
+      "emailPlaceholder": "بريدك الإلكتروني",
+      "messagePlaceholder": "رسالتك",
+      "submitButton": "أرسل الرسالة",
+      "successMessage": "تم إرسال رسالتك بنجاح!"
+    },
+    "validation": {
+      "nameRequired": "الاسم مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "البريد غير صحيح",
+      "messageRequired": "الرسالة مطلوبة"
+    },
+    "info": {
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "website": "الموقع"
+    },
+    "social": {
+      "phone": "الهاتف",
+      "email": "البريد",
+      "website": "الموقع"
+    }
+  },
+  "experience": {
+    "subtitle": "خبراتنا",
+    "title1": "حلول ويب",
+    "title2": "مثبتة وفعّالة"
+  },
+  "footer": {
+    "description": "نحن نصنع مواقع وتطبيقات مذهلة تنمي عملك وترتقي بعلامتك التجارية.",
+    "quickLinks": {
+      "title": "روابط سريعة",
+      "about": "من نحن",
+      "projects": "مشاريعنا",
+      "testimonials": "آراء العملاء",
+      "contact": "اتصل بنا"
+    },
+    "contactInfo": {
+      "title": "تواصل معنا",
+      "phone": "الهاتف",
+      "email": "البريد",
+      "website": "الموقع"
+    },
+    "newsletter": {
+      "title": "النشرة الإخبارية",
+      "description": "اشترك للحصول على آخر التحديثات والعروض",
+      "placeholder": "بريدك الإلكتروني",
+      "button": "اشترك"
+    },
+    "copyright": "© 2025 webvitas. جميع الحقوق محفوظة.",
+    "links": {
+      "privacy": "الخصوصية",
+      "terms": "الشروط",
+      "support": "الدعم"
+    }
+  },
+  "grid": {
+    "subtitle": "أعمالنا المميزة",
+    "title1": "مشاريع",
+    "title2": "احترافية",
+    "description": "اكتشف مجموعة من المشاريع المبتكرة التي صممناها وطورناها باحترافية عالية",
+    "cta": {
+      "heading": "هل لديك مشروع في ذهنك؟",
+      "description": "دعنا نحول فكرتك إلى واقع رقمي مبهر",
+      "startProject": "ابدأ مشروعك",
+      "viewMore": "تصفح المزيد"
+    }
+  },
+  "hero": {
+    "subtitle": "حلول برمجية متطورة",
+    "title1": "نقوم ببناء",
+    "title2": "منصات من",
+    "title3": "مستوى جديد",
+    "description": "حلول ويب وموبايل وسحابة حديثة مصممة للتوسع. مواقع احترافية مصممة لزيادة ظهورك ومبيعاتك وثقة العملاء بنسبة 180%",
+    "stats": {
+      "projects": "مشروع",
+      "satisfaction": "رضا",
+      "support": "دعم"
+    },
+    "buttons": {
+      "exploreServices": "استكشف خدماتنا",
+      "buildWebsite": "ابنِ موقعك الاحترافي الآن"
+    }
+  }
+}

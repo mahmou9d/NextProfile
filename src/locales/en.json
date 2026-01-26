@@ -1,0 +1,148 @@
+{
+  "header": {
+    "premium": "Premium",
+    "webSolutions": "Web Solutions",
+    "language": {
+      "code": "EN",
+      "name": "English",
+      "switch": "AR"
+    }
+  },
+  "approach": {
+    "subtitle": "How We Work",
+    "title1": "My",
+    "title2": "Approach",
+    "cards": [
+      {
+        "title": "Planning & Strategy",
+        "description": "We define your website goals, audience, and information structure.",
+        "iconText": "Planning",
+        "number": "01"
+      },
+      {
+        "title": "Development & Updates",
+        "description": "We convert designs into interactive code with continuous updates.",
+        "iconText": "Development",
+        "number": "02"
+      },
+      {
+        "title": "Testing & Launch",
+        "description": "We test, optimize, and launch your website for best performance.",
+        "iconText": "Launch",
+        "number": "03"
+      }
+    ]
+  },
+  "projects": {
+    "status": {
+      "live": "Live",
+      "available": "Available"
+    },
+    "categories": {
+      "ecommerce": "E-Commerce",
+      "webapp": "Web App",
+      "portfolio": "Portfolio",
+      "corporate": "Corporate"
+    },
+    "buttons": {
+      "viewProject": "View Project",
+      "preview": "Preview",
+      "liveDemo": "Live Demo"
+    }
+  },
+  "clients": {
+    "subtitle": "What Our Clients Say",
+    "title1": "Kind words from",
+    "title2": "satisfied clients",
+    "trustedBy": "Trusted By Industry Leaders"
+  },
+  "contact": {
+    "subtitle": "Get in Touch",
+    "title1": "Let's Build",
+    "title2": "Something Amazing",
+    "form": {
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "messagePlaceholder": "Your Message",
+      "submitButton": "Send Message",
+      "successMessage": "Your message has been sent successfully!"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "messageRequired": "Message cannot be empty"
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website"
+    },
+    "social": {
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website"
+    }
+  },
+  "experience": {
+    "subtitle": "Our Expertise",
+    "title1": "Proven",
+    "title2": "Web Solutions"
+  },
+  "footer": {
+    "description": "We build stunning websites and apps that grow your business and elevate your brand.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "about": "About",
+      "projects": "Projects",
+      "testimonials": "Testimonials",
+      "contact": "Contact"
+    },
+    "contactInfo": {
+      "title": "Contact",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to get latest updates and offers",
+      "placeholder": "Your email",
+      "button": "Subscribe"
+    },
+    "copyright": "© 2025 webvitas. All rights reserved.",
+    "links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "support": "Support"
+    }
+  },
+  "grid": {
+    "subtitle": "Featured Work",
+    "title1": "Premium",
+    "title2": "Projects",
+    "description": "Discover a collection of innovative projects designed and developed with high professionalism",
+    "cta": {
+      "heading": "Have a project in mind?",
+      "description": "Let's turn your idea into an amazing digital reality",
+      "startProject": "Start Your Project",
+      "viewMore": "View More"
+    }
+  },
+  "hero": {
+    "subtitle": "Cutting-Edge Solutions",
+    "title1": "We Build",
+    "title2": "Next-Level",
+    "title3": "Platforms",
+    "description": "Modern web, mobile, and cloud solutions designed to scale. Professional websites built to increase your visibility, sales, and customer trust by 180%",
+    "stats": {
+      "projects": "Projects",
+      "satisfaction": "Satisfaction",
+      "support": "Support"
+    },
+    "buttons": {
+      "exploreServices": "Explore Our Services",
+      "buildWebsite": "Build Your Professional Website Today"
+    }
+  }
+}

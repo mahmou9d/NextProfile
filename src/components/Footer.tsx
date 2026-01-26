@@ -1,23 +1,58 @@
 "use client";
-import { useContext } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { LocaleContext } from "./LocaleContext";
 import Image from "next/image";
+import { useTranslation } from "./Usetranslation";
 
 const Footer = () => {
-  const { locale } = useContext(LocaleContext);
-  const linksEN = ["About", "Projects", "Testimonials", "Contact"];
-  const linksAR = ["من نحن", "مشاريعنا", "آراء العملاء", "اتصل بنا"];
+  const { t, isArabic, dir } = useTranslation();
+
+  const quickLinks = [
+    { label: t.footer.quickLinks.about, href: "#about" },
+    { label: t.footer.quickLinks.projects, href: "#projects" },
+    { label: t.footer.quickLinks.testimonials, href: "#testimonials" },
+    { label: t.footer.quickLinks.contact, href: "#contact" },
+  ];
+
+  const contactInfo = [
+    {
+      label: t.footer.contactInfo.phone,
+      value: "01153032052",
+      link: "tel:01153032052",
+    },
+    {
+      label: t.footer.contactInfo.email,
+      value: "mohnud0987@gmail.com",
+      link: "mailto:mohnud0987@gmail.com",
+    },
+    {
+      label: t.footer.contactInfo.website,
+      value: "www.webvitas.com",
+      link: "#",
+    },
+  ];
+
+  const socialLinks = [
+    { Icon: FaFacebookF, link: "#" },
+    { Icon: FaTwitter, link: "#" },
+    { Icon: FaLinkedinIn, link: "#" },
+    { Icon: FaGithub, link: "#" },
+  ];
+
+  const bottomLinks = [
+    { label: t.footer.links.privacy, link: "#" },
+    { label: t.footer.links.terms, link: "#" },
+    { label: t.footer.links.support, link: "#" },
+  ];
 
   return (
     <footer
-      dir={locale === "AR" ? "rtl" : "ltr"}
+      dir={dir}
       className="relative w-full overflow-hidden py-8 bg-gradient-to-b from-black via-gray-950 to-black border-t border-gray-800/50"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
-        <div className=" absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full" />
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full " />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-pink-500/10 rounded-full " />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -37,25 +72,15 @@ const Footer = () => {
             </div>
 
             <p className="text-gray-400 leading-relaxed">
-              {locale === "AR"
-                ? "نحن نصنع مواقع وتطبيقات مذهلة تنمي عملك وترتقي بعلامتك التجارية."
-                : "We build stunning websites and apps that grow your business and elevate your brand."}
+              {t.footer.description}
             </p>
 
             {/* Social Links */}
             <div className="flex gap-3">
-              {[
-                { Icon: FaFacebookF, link: "#" },
-                { Icon: FaTwitter, link: "#" },
-                { Icon: FaLinkedinIn, link: "#" },
-                { Icon: FaGithub, link: "#" },
-              ].map(({ Icon, link }, idx) => (
+              {socialLinks.map(({ Icon, link }, idx) => (
                 <a key={idx} href={link} className="group relative w-11 h-11">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-75 transition-opacity" />
-                  <div
-                    className="relative w-full h-full rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 flex items-center justify-center hover:border-blue-500/60 transition-transform transition-opacity
- duration-300 transform hover:scale-110 hover:rotate-6"
-                  >
+                  <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 flex items-center justify-center hover:border-blue-500/60 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
                     <Icon
                       className="text-gray-400 group-hover:text-blue-400 transition-colors"
                       size={18}
@@ -69,17 +94,17 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-6">
-              {locale === "AR" ? "روابط سريعة" : "Quick Links"}
+              {t.footer.quickLinks.title}
             </h3>
             <div className="space-y-3">
-              {(locale === "AR" ? linksAR : linksEN).map((link, idx) => (
+              {quickLinks.map((link, idx) => (
                 <a
                   key={idx}
-                  href={`#${linksEN[idx].toLowerCase()}`}
+                  href={link.href}
                   className="group flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
-                  <span>{link}</span>
+                  <span>{link.label}</span>
                 </a>
               ))}
             </div>
@@ -88,26 +113,10 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-6">
-              {locale === "AR" ? "تواصل معنا" : "Contact"}
+              {t.footer.contactInfo.title}
             </h3>
             <div className="space-y-3">
-              {[
-                {
-                  label: locale === "AR" ? "الهاتف" : "Phone",
-                  value: "01153032052",
-                  link: "tel:01153032052",
-                },
-                {
-                  label: locale === "AR" ? "البريد" : "Email",
-                  value: "mohnud0987@gmail.com",
-                  link: "mailto:mohnud0987@gmail.com",
-                },
-                {
-                  label: locale === "AR" ? "الموقع" : "Website",
-                  value: "www.webvitas.com",
-                  link: "#",
-                },
-              ].map((item, idx) => (
+              {contactInfo.map((item, idx) => (
                 <a key={idx} href={item.link} className="block group">
                   <p className="text-gray-500 text-sm">{item.label}</p>
                   <p className="text-gray-400 group-hover:text-blue-400 transition-colors">
@@ -121,28 +130,26 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-6">
-              {locale === "AR" ? "النشرة الإخبارية" : "Newsletter"}
+              {t.footer.newsletter.title}
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              {locale === "AR"
-                ? "اشترك للحصول على آخر التحديثات والعروض"
-                : "Subscribe to get latest updates and offers"}
+              {t.footer.newsletter.description}
             </p>
 
             <div className="relative">
               <input
                 type="email"
-                placeholder={
-                  locale === "AR" ? "بريدك الإلكتروني" : "Your email"
-                }
-                className="w-full px-4 py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-transform transition-opacity
- duration-300"
+                placeholder={t.footer.newsletter.placeholder}
+                className={`w-full py-3 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 ${
+                  isArabic ? "pr-4 pl-24" : "pl-4 pr-24"
+                }`}
               />
               <button
-                className="absolute rounded-xl top-1/2 -translate-y-1/2 right-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-transform transition-opacity
-"
+                className={`absolute rounded-xl top-1/2 -translate-y-1/2 px-4 py-2 bg-gradient-to-r from-blue-600 to-pink-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-blue-500/50 transition-all ${
+                  isArabic ? "left-2" : "right-2"
+                }`}
               >
-                {locale === "AR" ? "اشترك" : "Subscribe"}
+                {t.footer.newsletter.button}
               </button>
             </div>
           </div>
@@ -154,19 +161,11 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
-          <p className="text-gray-500 text-sm">
-            {locale === "AR"
-              ? "© 2025 webvitas. جميع الحقوق محفوظة."
-              : "© 2025 webvitas. All rights reserved."}
-          </p>
+          <p className="text-gray-500 text-sm">{t.footer.copyright}</p>
 
           {/* Bottom Links */}
           <div className="flex items-center gap-6">
-            {[
-              { label: locale === "AR" ? "الخصوصية" : "Privacy", link: "#" },
-              { label: locale === "AR" ? "الشروط" : "Terms", link: "#" },
-              { label: locale === "AR" ? "الدعم" : "Support", link: "#" },
-            ].map((item, idx) => (
+            {bottomLinks.map((item, idx) => (
               <a
                 key={idx}
                 href={item.link}

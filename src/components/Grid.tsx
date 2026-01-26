@@ -1,43 +1,38 @@
 "use client";
-import { useContext, useRef, useEffect } from "react";
 import { projects } from "@/data";
-import { LocaleContext } from "./LocaleContext";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Title from "./Title";
 import Cart from "./Cart";
+import { useTranslation } from "./Usetranslation";
 
 const Grid = () => {
-  const { locale } = useContext(LocaleContext);
+  const { t, isArabic, dir } = useTranslation();
+  const pathname = usePathname();
+
+  // Get locale prefix for links
+  const localePrefix = isArabic ? "/ar" : "/en";
 
   return (
     <section
       id="projects"
-      className="relative w-full min-h-screen py-24 md: overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
-      dir={locale === "AR" ? "rtl" : "ltr"}
+      className="relative w-full min-h-screen py-24 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      dir={dir}
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
         <Title
-          subtitle={locale === "AR" ? "أعمالنا المميزة" : "Featured Work"}
-          title1={locale === "AR" ? "مشاريع" : "Premium"}
-          title2={locale === "AR" ? "احترافية" : "Projects"}
-          description={
-            locale === "AR"
-              ? "اكتشف مجموعة من المشاريع المبتكرة التي صممناها وطورناها باحترافية عالية"
-              : "Discover a collection of innovative projects designed and developed with high professionalism"
-          }
+          subtitle={t.grid.subtitle}
+          title1={t.grid.title1}
+          title2={t.grid.title2}
+          description={t.grid.description}
           title3={null}
         />
+
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <Cart
-              key={project.id}
-              project={project}
-              index={index}
-              locale={locale}
-            />
+            <Cart key={project.id} project={project} index={index} />
           ))}
         </div>
 
@@ -45,32 +40,25 @@ const Grid = () => {
         <div className="mt-24 md:mt-32 text-center space-y-8">
           <div className="space-y-4">
             <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              {locale === "AR"
-                ? "هل لديك مشروع في ذهنك؟"
-                : "Have a project in mind?"}
+              {t.grid.cta.heading}
             </h3>
             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              {locale === "AR"
-                ? "دعنا نحول فكرتك إلى واقع رقمي مبهر"
-                : "Let's turn your idea into an amazing digital reality"}
+              {t.grid.cta.description}
             </p>
           </div>
 
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link
-              href={"#contact"}
-              className="group/cta relative px-8 py-4 overflow-hidden rounded-full"
+              href={`${localePrefix}#contact`}
+              className="group/cta relative overflow-hidden rounded-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300" />
-              <div
-                className="relative flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105 transition-transform transition-opacity
- duration-300"
-              >
-                <span>
-                  {locale === "AR" ? "ابدأ مشروعك" : "Start Your Project"}
-                </span>
+              <div className="relative flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold text-lg shadow-2xl transform hover:scale-105 transition-all duration-300">
+                <span>{t.grid.cta.startProject}</span>
                 <svg
-                  className="w-5 h-5"
+                  className={`w-5 h-5 transform transition-transform ${
+                    isArabic ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -86,11 +74,10 @@ const Grid = () => {
             </Link>
 
             <Link
-              href={"#about"}
-              className="px-8 py-4 rounded-full bg-gray-800/50 border border-gray-700/50 text-white font-bold text-lg hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105 transition-transform transition-opacity
- duration-300"
+              href={`${localePrefix}#about`}
+              className="px-8 py-4 rounded-full bg-gray-800/50 border border-gray-700/50 text-white font-bold text-lg hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105 transition-all duration-300"
             >
-              {locale === "AR" ? "تصفح المزيد" : "View More"}
+              {t.grid.cta.viewMore}
             </Link>
           </div>
         </div>

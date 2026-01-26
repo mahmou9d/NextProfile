@@ -1,35 +1,25 @@
-// src/context/LocaleContext.tsx
 "use client";
 
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext } from "react";
 
-type Locale = "EN" | "AR";
+type Locale = "ar" | "en";
 
-interface LocaleContextType {
+export const LocaleContext = createContext<{
   locale: Locale;
-  setLocale: (locale: Locale) => void;
-}
+}>({ locale: "ar" });
 
-export const LocaleContext = createContext<LocaleContextType>({
-  locale: "EN",
-  setLocale: () => {},
-});
-
-export const LocaleProvider = ({ children }: { children: ReactNode }) => {
-  const [locale, setLocale] = useState<Locale>("EN");
-
-  useEffect(() => {
-    const savedLang = localStorage.getItem("locale") as Locale;
-    if (savedLang === "AR" || savedLang === "EN") setLocale(savedLang);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("locale", locale);
-  }, [locale]);
-
+export const LocaleProvider = ({
+  children,
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: Locale;
+}) => {
   return (
-    <LocaleContext.Provider value={{ locale, setLocale }}>
+    <LocaleContext.Provider value={{ locale }}>
       {children}
     </LocaleContext.Provider>
   );
 };
+
+export const useLocale = () => useContext(LocaleContext);

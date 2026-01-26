@@ -5,25 +5,23 @@ import { companies, testimonials } from "@/data";
 import { LocaleContext } from "./LocaleContext";
 import Image from "next/image";
 import Title from "./Title";
+import { useTranslation } from "./Usetranslation";
 
 const Clients = () => {
-  const { locale } = useContext(LocaleContext);
+  const { t, isArabic } = useTranslation();
   const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section
       id="testimonials"
       className="relative w-full min-h-screen py-24 md: overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
-      // dir={locale === "AR" ? "rtl" : "ltr"}
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
         <Title
-          subtitle={
-            locale === "AR" ? "ماذا يقول عملاؤنا" : "What Our Clients Say"
-          }
-          title1={locale === "AR" ? "كلمات طيبة من" : "Kind words from"}
-          title2={locale === "AR" ? "عملائنا الراضين" : "satisfied clients"}
+          subtitle={t.clients.subtitle}
+          title1={t.clients.title1}
+          title2={t.clients.title2}
           description={null}
           title3={null}
         />
@@ -67,16 +65,14 @@ const Clients = () => {
                     <div className="flex justify-between flex-col">
                       {/* Quote Text */}
                       <p
-                        className={`${locale === "AR" ? "text-right" : ""} text-gray-300 text-lg leading-relaxed mb-8 relative z-10`}
+                        className={`${isArabic ? "text-right" : ""} text-gray-300 text-lg leading-relaxed mb-8 relative z-10`}
                       >
-                        {locale === "AR"
-                          ? testimonial.quote.AR
-                          : testimonial.quote.EN}
+                        {isArabic ? testimonial.quote.AR : testimonial.quote.EN}
                       </p>
 
                       {/* Author Info */}
                       <div
-                        className={`${locale === "AR" ? "text-right flex-row-reverse" : ""} flex items-center gap-4 relative z-10`}
+                        className={`${isArabic ? "text-right flex-row-reverse" : ""} flex items-center gap-4 relative z-10`}
                       >
                         <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/50 group-hover:border-blue-500 transition-colors">
                           <Image
@@ -93,7 +89,7 @@ const Clients = () => {
                             {testimonial.name}
                           </h4>
                           <p className="text-gray-400 text-sm">
-                            {locale === "AR"
+                            {isArabic
                               ? testimonial.title.AR
                               : testimonial.title.EN}
                           </p>
@@ -122,9 +118,7 @@ const Clients = () => {
               <div className="h-px w-8 bg-gradient-to-l from-transparent to-pink-500/50" />
             </div>
             <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              {locale === "AR"
-                ? "عملاؤنا الموثوقون"
-                : "Trusted By Industry Leaders"}
+              {t.clients.trustedBy}
             </h3>
           </div>
 
