@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { JSX } from "react";
+import React, { JSX, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 interface NavItem {
@@ -40,11 +40,31 @@ const HeaderMobile = ({
 }) => {
   const pathname = usePathname();
   const isArabic = pathname.startsWith("/ar");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMobileOpen(false);
+      }
+    };
+
+    if (mobileOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileOpen, setMobileOpen]);
 
   return (
     <div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-800/50 bg-black/80">
+        <div
+          ref={menuRef}
+          className="md:hidden border-t border-gray-800/50 bg-black/80"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <nav className="py-6 space-y-2">
               {navItems.map((item, idx) => {
@@ -60,10 +80,7 @@ const HeaderMobile = ({
                     className="group relative block overflow-hidden"
                   >
                     <div className="relative px-5 py-4 rounded-xl">
-                      {/* Animated Background */}
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-blue-500/20 group-hover:via-pink-500/20 group-hover:to-blue-500/20 rounded-xl transition-all duration-300" />
-
-                      {/* Border Glow */}
                       <div className="absolute inset-0 border border-gray-800/50 group-hover:border-blue-500/30 rounded-xl transition-all duration-300" />
 
                       <div className="relative flex items-center justify-between">
@@ -94,7 +111,6 @@ const HeaderMobile = ({
                 );
               })}
 
-              {/* Mobile Language Toggle - Premium */}
               <div className="group relative mt-6 pt-6 border-t border-gray-800/50">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 rounded-2xl opacity-30 group-hover:opacity-70 transition-opacity duration-300 " />
 
@@ -103,11 +119,9 @@ const HeaderMobile = ({
                   className="relative w-full overflow-hidden rounded-2xl"
                 >
                   <div className="relative flex items-center justify-between px-6 py-5 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent rounded-2xl transition-all duration-300">
-                    {/* Animated Background */}
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-pink-600/0 to-blue-600/0 group-hover:from-blue-600/30 group-hover:via-pink-600/30 group-hover:to-blue-600/30 transition-all duration-500" />
 
                     <div className="relative flex items-center gap-4">
-                      {/* Icon */}
                       <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 " />
                         <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
@@ -127,7 +141,6 @@ const HeaderMobile = ({
                         </div>
                       </div>
 
-                      {/* Text */}
                       <div className="text-left">
                         <p className="text-xs text-gray-500 font-semibold mb-0.5">
                           {locale === "AR" ? "Switch to" : "التبديل إلى"}
@@ -138,7 +151,6 @@ const HeaderMobile = ({
                       </div>
                     </div>
 
-                    {/* Arrow */}
                     <svg
                       className={`relative w-6 h-6 text-gray-500 group-hover:text-blue-400 transition-all duration-300 ${
                         locale === "AR" ? "rotate-180" : ""

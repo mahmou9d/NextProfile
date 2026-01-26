@@ -4,6 +4,66 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Title from "./Title";
 import { useTranslation } from "./Usetranslation";
+import { Metadata } from "next";
+
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const isArabic = params.locale === "ar";
+
+  const t = isArabic
+    ? (await import("@/locales/ar.json")).default
+    : (await import("@/locales/en.json")).default;
+
+  const hero = t.hero;
+
+  // JSON-LD Schema للـ stats
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${hero.title1} | ${hero.title2} ${hero.title3}`,
+    description: hero.description,
+
+  };
+
+  return {
+    title: `${hero.title1} | ${hero.title2} ${hero.title3}`,
+    description: hero.description,
+    keywords: isArabic
+      ? ["تصميم مواقع", "تطوير ويب", "متاجر إلكترونية", "SEO"]
+      : ["Web Development", "Website Design", "Ecommerce", "SEO"],
+    alternates: {
+      canonical: `https://webvitas.com/${params.locale}`,
+      languages: {
+        en: "https://webvitas.com/en",
+        ar: "https://webvitas.com/ar",
+      },
+    },
+    openGraph: {
+      title: `${hero.title1} | ${hero.title2} ${hero.title3}`,
+      description: hero.description,
+      url: `https://webvitas.com/${params.locale}`,
+      siteName: "Webvitas",
+      locale: isArabic ? "ar_EG" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${hero.title1} | ${hero.title2} ${hero.title3}`,
+      description: hero.description,
+    },
+    robots: { index: true, follow: true },
+    // JSON-LD structured data
+    metadataBase: new URL("https://webvitas.com/"),
+    
+    other: {
+      "application/ld+json": JSON.stringify(structuredData),
+    },
+  };
+}
 
 const Hero = () => {
   const { t, isArabic, dir } = useTranslation();

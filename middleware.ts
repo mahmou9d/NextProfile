@@ -4,10 +4,9 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    // لو فتح الصفحة الرئيسية
     if (pathname === "/") {
         const url = request.nextUrl.clone();
-        url.pathname = "/ar";
+        url.pathname = "/en";
         return NextResponse.redirect(url);
     }
 

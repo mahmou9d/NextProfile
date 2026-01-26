@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import enTranslations from "@/locales/en.json";
 import arTranslations from "@/locales/ar.json";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({
   params,
@@ -29,10 +32,9 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   const messages = locale === "ar" ? arTranslations : enTranslations;
-  const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <div lang={locale} dir={dir}>
+    <div>
       {children}
     </div>
   );
