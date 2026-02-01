@@ -6,27 +6,16 @@ import Image from "next/image";
 import HeaderMobile from "./HeaderMobile";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslation } from "@/components/Usetranslation";
+import { NavItem } from "../../types/type";
 
-interface NavItem {
-  name: {
-    EN: string;
-    AR: string;
-  };
-  link: string;
-  icon?: JSX.Element;
-}
 
 const Header = ({ navItems }: { navItems: NavItem[] }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-
-  // استخدام الهوك useTranslation
   const { t, isArabic, dir } = useTranslation();
-
   const toggleMobile = () => setMobileOpen(!mobileOpen);
 
-  // Handle locale toggle
   const handleToggleLocale = () => {
     const newLocale = isArabic ? "en" : "ar";
     const currentPath = pathname.replace(/^\/(ar|en)/, "") || "/";
@@ -34,12 +23,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
   };
 
   return (
-    <header dir={dir} className="fixed top-0 z-[1000] w-full">
-      {/* Glass Morphism Background with Gradient Border */}
-      <div className="absolute inset-0 backdrop-blur-xl bg-black/50 border-b border-gray-800/50">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-pink-500/5 to-blue-500/5" />
-      </div>
-
+    <header dir={dir} className="fixed top-0 z-[1000] w-full bg-black/90">
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-20">
           {/* Logo with Premium Effect */}
@@ -170,7 +154,6 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
         navItems={navItems}
         locale={isArabic ? "AR" : "EN"}
         toggleLocale={handleToggleLocale}
-        translations={t}
       />
     </header>
   );

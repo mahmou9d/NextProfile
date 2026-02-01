@@ -91,8 +91,8 @@ const ContactUs = () => {
     {
       icon: <FaEnvelope className="text-2xl" />,
       title: t.contact.info.email,
-      value: "mohnud0987@gmail.com",
-      link: "mailto:mohnud0987@gmail.com",
+      value: "contact@webvitas.com",
+      link: "mailto:contact@webvitas.com",
     },
     {
       icon: <FaGlobe className="text-2xl" />,
@@ -111,7 +111,7 @@ const ContactUs = () => {
     {
       Icon: FaEnvelope,
       label: t.contact.social.email,
-      link: "mailto:mohnud0987@gmail.com",
+      link: "mailto:contact@webvitas.com",
     },
     {
       Icon: FaPhoneAlt,
@@ -142,7 +142,7 @@ const ContactUs = () => {
           <div className="group relative">
             <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8">
               {/* Top Glow Effect */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
 
               <div onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
@@ -221,7 +221,7 @@ const ContactUs = () => {
                   onClick={handleSubmit}
                   className="group/btn relative w-full overflow-hidden cursor-pointer"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 " />
+                  {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 " /> */}
                   <div className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
                     <span>{t.contact.form.submitButton}</span>
                     <svg
@@ -272,14 +272,14 @@ const ContactUs = () => {
               >
                 <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-6">
                   {/* Top Glow Effect */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover/info:opacity-100 transition-opacity duration-500" />
+                  {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover/info:opacity-100 transition-opacity duration-500" /> */}
 
                   <div
                     className={`flex items-center gap-4 ${isArabic ? "flex-row-reverse" : ""}`}
                   >
                     {/* Icon */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-50 group-hover/info:opacity-75 transition-opacity " />
+                      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-50 group-hover/info:opacity-75 transition-opacity " /> */}
                       <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white shadow-2xl transform group-hover/info:scale-110 group-hover/info:rotate-6 transition-all duration-300">
                         {info.icon}
                       </div>
@@ -334,7 +334,7 @@ const ContactUs = () => {
                   className="group/social relative"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-0 group-hover/social:opacity-75 transition-opacity " />
-                  <div className="relative flex flex-col items-center gap-2 p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 transform hover:scale-110">
+                  <div className="relative flex flex-col items-center gap-2 p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300 transform hover:scale-105">
                     <item.Icon className="text-3xl text-blue-400 group-hover/social:text-pink-400 transition-colors" />
                     <span className="text-xs text-gray-400 font-semibold">
                       {item.label}

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useTranslation } from "@/components/Usetranslation";
 import Title from "./Title";
 
@@ -28,15 +27,11 @@ const Approach = () => {
             <article key={index} className="group relative">
               {/* Card Container */}
               <div className="relative h-full min-h-[450px] overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
-                {/* Top Glow Effect */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 {/* Number Badge */}
                 <div
                   className={`absolute top-6 z-20 ${isArabic ? "right-6" : "left-6"}`}
                 >
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-75 group-hover:opacity-100 transition-opacity " />
                     <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       {card.number}
                     </div>
@@ -46,8 +41,6 @@ const Approach = () => {
                 {/* Content - Default State */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0">
                   <div className="relative">
-                    {/* Icon Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-pink-500/30 rounded-full " />
                     {/* Icon */}
                     <div className="relative rounded-full px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
                       <span className="text-3xl font-black bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">

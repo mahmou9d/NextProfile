@@ -21,8 +21,8 @@ const Footer = () => {
     },
     {
       label: t.footer.contactInfo.email,
-      value: "mohnud0987@gmail.com",
-      link: "mailto:mohnud0987@gmail.com",
+      value: "contact@webvitas.com",
+      link: "mailto:contact@webvitas.com",
     },
     {
       label: t.footer.contactInfo.website,
@@ -79,7 +79,6 @@ const Footer = () => {
             <div className="flex gap-3">
               {socialLinks.map(({ Icon, link }, idx) => (
                 <a key={idx} href={link} className="group relative w-11 h-11">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-75 transition-opacity" />
                   <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 flex items-center justify-center hover:border-blue-500/60 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
                     <Icon
                       className="text-gray-400 group-hover:text-blue-400 transition-colors"

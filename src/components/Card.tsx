@@ -1,21 +1,11 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import { useTranslation } from "@/components/Usetranslation";
+import { CartProps } from "../../types/type";
 
-interface CartProps {
-  project: {
-    id: number;
-    img: string;
-    title: { EN: string; AR: string };
-    description: { EN: string; AR: string };
-    link: string;
-    category?: "ecommerce" | "webapp" | "portfolio" | "corporate";
-  };
-  index: number;
-}
 
-const Cart = ({ project, index }: CartProps) => {
+
+const Card = ({ project, index }: CartProps) => {
   const { t, isArabic } = useTranslation();
 
   // Determine category based on index if not provided
@@ -28,18 +18,8 @@ const Cart = ({ project, index }: CartProps) => {
     >
       {/* Card Container */}
       <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20">
-        {/* Animated Border Gradient */}
-        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="border-gradient absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-pink-500/20 to-blue-500/20" />
-        </div>
-
-        {/* Top Glow Effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
         {/* Image Section */}
         <div className="relative h-64 md:h-72 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-pink-500/10 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
           <Image
             src={project.img}
             alt={isArabic ? project.title.AR : project.title.EN}
@@ -50,15 +30,14 @@ const Cart = ({ project, index }: CartProps) => {
           />
 
           {/* Image Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/10 to-transparent" />
 
           {/* Project Number Badge */}
           <div
             className={`absolute top-6 z-20 ${isArabic ? "right-6" : "left-6"}`}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-75 group-hover:opacity-100 transition-opacity " />
-              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl">
                 {String(index + 1).padStart(2, "0")}
               </div>
             </div>
@@ -68,7 +47,7 @@ const Cart = ({ project, index }: CartProps) => {
           <div
             className={`absolute top-6 z-20 ${isArabic ? "left-6" : "right-6"}`}
           >
-            <div className="px-4 py-2 rounded-full bg-green-500/20 border border-green-500/50">
+            <div className="px-4 py-2 rounded-full bg-green-500/40 border border-green-500/70">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -107,7 +86,7 @@ const Cart = ({ project, index }: CartProps) => {
 
           {/* Tech Stack Pills */}
           <div className="flex flex-wrap gap-2 pt-2">
-            {["React", "Next.js", "TypeScript"].map((tech, i) => (
+            {project.icons?.map((tech, i) => (
               <span
                 key={i}
                 className="px-2 py-1 text-xs rounded-lg bg-gray-800/50 text-gray-400 border border-gray-700/50 hover:border-gray-600/50 hover:text-gray-300 transition-colors"
@@ -125,7 +104,6 @@ const Cart = ({ project, index }: CartProps) => {
               rel="noopener noreferrer"
               className="flex-1 group/btn relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 " />
               <div className="relative flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
                 <span>{t.projects.buttons.viewProject}</span>
                 <svg
@@ -179,4 +157,4 @@ const Cart = ({ project, index }: CartProps) => {
   );
 };
 
-export default Cart;
+export default Card;

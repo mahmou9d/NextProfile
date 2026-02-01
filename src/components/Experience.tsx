@@ -61,7 +61,6 @@ const Experience = () => {
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                         loading="lazy"
                         priority={false}
-                        unoptimized
                       />
                     </div>
 
@@ -110,19 +109,6 @@ const Experience = () => {
 
       {/* Bottom Gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(2rem);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };

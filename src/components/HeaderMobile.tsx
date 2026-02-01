@@ -1,27 +1,7 @@
 import Link from "next/link";
 import React, { JSX, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-
-interface NavItem {
-  name: {
-    EN: string;
-    AR: string;
-  };
-  link: string;
-  icon?: JSX.Element;
-}
-
-interface Translations {
-  header: {
-    premium: string;
-    webSolutions: string;
-    language: {
-      code: string;
-      name: string;
-      switch: string;
-    };
-  };
-}
+import { NavItem } from "../../types/type";
 
 const HeaderMobile = ({
   mobileOpen,
@@ -29,14 +9,12 @@ const HeaderMobile = ({
   navItems,
   locale,
   toggleLocale,
-  translations,
 }: {
   mobileOpen: boolean;
   setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
   navItems: NavItem[];
   locale: "EN" | "AR";
   toggleLocale: () => void;
-  translations: Translations;
 }) => {
   const pathname = usePathname();
   const isArabic = pathname.startsWith("/ar");
@@ -80,12 +58,8 @@ const HeaderMobile = ({
                     className="group relative block overflow-hidden"
                   >
                     <div className="relative px-5 py-4 rounded-xl">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-blue-500/20 group-hover:via-pink-500/20 group-hover:to-blue-500/20 rounded-xl transition-all duration-300" />
-                      <div className="absolute inset-0 border border-gray-800/50 group-hover:border-blue-500/30 rounded-xl transition-all duration-300" />
-
                       <div className="relative flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-400 group-hover:scale-150 transition-all duration-300" />
                           <span className="text-base font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">
                             {locale === "EN" ? item.name.EN : item.name.AR}
                           </span>
@@ -112,18 +86,13 @@ const HeaderMobile = ({
               })}
 
               <div className="group relative mt-6 pt-6 border-t border-gray-800/50">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 rounded-2xl opacity-30 group-hover:opacity-70 transition-opacity duration-300 " />
-
                 <button
                   onClick={toggleLocale}
                   className="relative w-full overflow-hidden rounded-2xl"
                 >
                   <div className="relative flex items-center justify-between px-6 py-5 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent rounded-2xl transition-all duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-pink-600/0 to-blue-600/0 group-hover:from-blue-600/30 group-hover:via-pink-600/30 group-hover:to-blue-600/30 transition-all duration-500" />
-
                     <div className="relative flex items-center gap-4">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 " />
                         <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
                           <svg
                             className="w-6 h-6 text-white"

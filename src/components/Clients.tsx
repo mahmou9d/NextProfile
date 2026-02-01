@@ -1,8 +1,6 @@
 "use client";
-
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { companies, testimonials } from "@/data";
-import { LocaleContext } from "./LocaleContext";
 import Image from "next/image";
 import Title from "./Title";
 import { useTranslation } from "./Usetranslation";
@@ -53,9 +51,6 @@ const Clients = () => {
                     className="group relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
  duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8"
                   >
-                    {/* Top Glow Effect */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     {/* Quote Icon */}
                     <div className="relative mb-6">
                       <div className="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white text-3xl font-black">
@@ -126,20 +121,12 @@ const Clients = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {companies.map((company) => (
               <div key={company.id} className="group relative">
-                {/* Glow Effect */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-pink-500/0 group-hover:from-blue-500/20 group-hover:to-pink-500/20 rounded-2xl transition-transform transition-opacity
- duration-500 opacity-0 group-hover:opacity-100"
-                />
 
                 {/* Card */}
                 <div
                   className="relative h-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-transform transition-opacity
  duration-500 group-hover:border-blue-500/60 group-hover:shadow-2xl group-hover:shadow-blue-500/20 p-8 flex items-center justify-center min-h-[120px]"
                 >
-                  {/* Top Glow */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                   {/* Logo */}
                   <div className="relative w-full h-16 flex items-center justify-center">
                     <Image

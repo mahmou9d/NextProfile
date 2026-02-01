@@ -74,6 +74,13 @@ export const projects = [
         link: "https://vegecommerce-ct1s.vercel.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "React",
+            "Django",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
     },
     {
         id: 2,
@@ -86,6 +93,13 @@ export const projects = [
         link: "https://patient-pi.vercel.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "Nextjs",
+            "Django",
+            "HTML",
+            "CSS",
+            "JavaScript",
+        ],
     },
     {
         id: 3,
@@ -98,6 +112,13 @@ export const projects = [
         link: "https://prime-ecommerce-rho.vercel.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "React",
+            "Django",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
     },
     {
         id: 4,
@@ -110,6 +131,13 @@ export const projects = [
         link: "https://poetic-truffle-8702f4.netlify.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "React",
+            "Redux",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
     },
     {
         id: 5,
@@ -122,6 +150,12 @@ export const projects = [
         link: "https://benevolent-beignet-116c19.netlify.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "React",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
     },
     {
         id: 6,
@@ -135,6 +169,13 @@ export const projects = [
         link: "https://djangolearn-production.up.railway.app/",
         imgClassName: "w-full h-full object-cover rounded-3xl",
         titleClassName: "text-3xl font-extrabold mb-2",
+        icons: [
+            "React",
+            "Django",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
     },
 ];
 export const testimonials = [
@@ -195,7 +236,7 @@ export const companies = [
     { id: 7, name: "motion", nameImg: "/fm.svg" },
     { id: 8, name: "host", nameImg: "/host.svg" },
     { id: 9, name: "nodejs", nameImg: "/nodejs.svg" },
-     { id: 10, name: "host", nameImg: "/express.svg" },
+    { id: 10, name: "host", nameImg: "/express.svg" },
 
 ];
 

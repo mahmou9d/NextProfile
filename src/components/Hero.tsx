@@ -1,6 +1,5 @@
 "use client";
 import { FaEnvelope, FaLocationArrow } from "react-icons/fa6";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Title from "./Title";
 import { useTranslation } from "./Usetranslation";
@@ -10,7 +9,6 @@ import { useTranslation } from "./Usetranslation";
 
 const Hero = () => {
   const { t, isArabic, dir } = useTranslation();
-  const pathname = usePathname();
   const localePrefix = isArabic ? "/ar" : "/en";
 
   const stats = [
