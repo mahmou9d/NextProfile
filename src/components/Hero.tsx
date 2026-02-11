@@ -12,7 +12,7 @@ const Hero = () => {
   const localePrefix = isArabic ? "/ar" : "/en";
 
   const stats = [
-    { value: "500+", label: t.hero.stats.projects },
+    { value: "50+", label: t.hero.stats.projects },
     { value: "98%", label: t.hero.stats.satisfaction },
     { value: "24/7", label: t.hero.stats.support },
   ];

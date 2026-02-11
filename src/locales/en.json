@@ -65,6 +65,7 @@
       "emailPlaceholder": "Your Email",
       "messagePlaceholder": "Your Message",
       "submitButton": "Send Message",
+      "submittingButton": "Sending...",
       "successMessage": "Your message has been sent successfully!"
     },
     "validation": {

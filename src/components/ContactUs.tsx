@@ -7,7 +7,6 @@ import {
   FaPhoneAlt,
   FaGlobe,
 } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 import { useTranslation } from "@/components/Usetranslation";
 import Link from "next/link";
 import Title from "./Title";
@@ -16,18 +15,19 @@ const ContactUs = () => {
   const { t, isArabic, dir } = useTranslation();
 
   const [form, setForm] = useState({
-    from_name: "",
-    from_email: "",
+    name: "",
+    email: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({
-    from_name: "",
-    from_email: "",
+    name: "",
+    email: "",
     message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -35,18 +35,18 @@ const ContactUs = () => {
 
   const validateForm = () => {
     let valid = true;
-    let newErrors = { from_name: "", from_email: "", message: "" };
+    let newErrors = { name: "", email: "", message: "" };
 
-    if (!form.from_name.trim()) {
-      newErrors.from_name = t.contact.validation.nameRequired;
+    if (!form.name.trim()) {
+      newErrors.name = t.contact.validation.nameRequired;
       valid = false;
     }
 
-    if (!form.from_email.trim()) {
-      newErrors.from_email = t.contact.validation.emailRequired;
+    if (!form.email.trim()) {
+      newErrors.email = t.contact.validation.emailRequired;
       valid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.from_email)) {
-      newErrors.from_email = t.contact.validation.emailInvalid;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = t.contact.validation.emailInvalid;
       valid = false;
     }
 
@@ -59,26 +59,37 @@ const ContactUs = () => {
     return valid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: form.from_name,
-          from_email: form.from_email,
-          message: form.message,
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mjgopynd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-      )
-      .then(() => {
-        setSubmitted(true);
-        setForm({ from_name: "", from_email: "", message: "" });
-        setTimeout(() => setSubmitted(false), 5000);
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
       });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -141,10 +152,7 @@ const ContactUs = () => {
           {/* Form Card */}
           <div className="group relative">
             <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-8">
-              {/* Top Glow Effect */}
-              {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
-
-              <div onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
                 <div className="relative">
                   <FaUser
@@ -152,19 +160,19 @@ const ContactUs = () => {
                   />
                   <input
                     type="text"
-                    name="from_name"
+                    name="name"
                     placeholder={t.contact.form.namePlaceholder}
-                    value={form.from_name}
+                    value={form.name}
                     onChange={handleChange}
                     className={`w-full py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 ${
                       isArabic ? "pr-12 pl-4" : "pl-12 pr-4"
                     }`}
                   />
-                  {errors.from_name && (
+                  {errors.name && (
                     <p
                       className={`text-red-400 text-sm mt-2 ${isArabic ? "text-right" : "text-left"}`}
                     >
-                      {errors.from_name}
+                      {errors.name}
                     </p>
                   )}
                 </div>
@@ -176,19 +184,19 @@ const ContactUs = () => {
                   />
                   <input
                     type="email"
-                    name="from_email"
+                    name="email"
                     placeholder={t.contact.form.emailPlaceholder}
-                    value={form.from_email}
+                    value={form.email}
                     onChange={handleChange}
                     className={`w-full py-4 rounded-xl bg-gray-900/50 border border-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 ${
                       isArabic ? "pr-12 pl-4" : "pl-12 pr-4"
                     }`}
                   />
-                  {errors.from_email && (
+                  {errors.email && (
                     <p
                       className={`text-red-400 text-sm mt-2 ${isArabic ? "text-right" : "text-left"}`}
                     >
-                      {errors.from_email}
+                      {errors.email}
                     </p>
                   )}
                 </div>
@@ -217,32 +225,38 @@ const ContactUs = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div
-                  onClick={handleSubmit}
-                  className="group/btn relative w-full overflow-hidden cursor-pointer"
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group/btn relative w-full overflow-hidden"
                 >
-                  {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 rounded-xl opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 " /> */}
-                  <div className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
-                    <span>{t.contact.form.submitButton}</span>
-                    <svg
-                      className={`w-5 h-5 transform transition-transform duration-300 ${
-                        isArabic
-                          ? "rotate-180 group-hover/btn:-translate-x-1"
-                          : "group-hover/btn:translate-x-1"
-                      }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
+                  <div className="relative flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                    <span>
+                      {isSubmitting
+                        ? t.contact.form.submittingButton || "جاري الإرسال..."
+                        : t.contact.form.submitButton}
+                    </span>
+                    {!isSubmitting && (
+                      <svg
+                        className={`w-5 h-5 transform transition-transform duration-300 ${
+                          isArabic
+                            ? "rotate-180 group-hover/btn:-translate-x-1"
+                            : "group-hover/btn:translate-x-1"
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    )}
                   </div>
-                </div>
+                </button>
 
                 {/* Success Message */}
                 {submitted && (
@@ -252,7 +266,7 @@ const ContactUs = () => {
                     </span>
                   </div>
                 )}
-              </div>
+              </form>
 
               {/* Bottom Corner Accent */}
               <div
@@ -271,15 +285,11 @@ const ContactUs = () => {
                 className="group/info relative block"
               >
                 <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 p-6">
-                  {/* Top Glow Effect */}
-                  {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover/info:opacity-100 transition-opacity duration-500" /> */}
-
                   <div
                     className={`flex items-center gap-4 ${isArabic ? "flex-row-reverse" : ""}`}
                   >
                     {/* Icon */}
                     <div className="relative">
-                      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-2xl opacity-50 group-hover/info:opacity-75 transition-opacity " /> */}
                       <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white shadow-2xl transform group-hover/info:scale-110 group-hover/info:rotate-6 transition-all duration-300">
                         {info.icon}
                       </div>

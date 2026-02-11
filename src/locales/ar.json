@@ -66,6 +66,7 @@
       "emailPlaceholder": "بريدك الإلكتروني",
       "messagePlaceholder": "رسالتك",
       "submitButton": "أرسل الرسالة",
+      "submittingButton":  "جاري الإرسال...",
       "successMessage": "تم إرسال رسالتك بنجاح!"
     },
     "validation": {
