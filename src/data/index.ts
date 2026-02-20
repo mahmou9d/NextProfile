@@ -89,21 +89,9 @@ export const projects = [
     titleClassName: "text-3xl font-extrabold mb-2",
     icons: ["React", "Django", "JavaScript", "HTML", "CSS"],
   },
+
   {
     id: 3,
-    title: { EN: "CarePlus Clinic", AR: "CarePlus Clinic" },
-    description: {
-      EN: "A professional digital healthcare platform that streamlines patient management and appointment scheduling. It enhances clinic efficiency by automating daily workflows and organizing patient records securely.",
-      AR: "منصة رعاية صحية رقمية احترافية تعمل على تبسيط إدارة المرضى وجدولة المواعيد. تزيد من كفاءة العيادة من خلال أتمتة سير العمل اليومي وتنظيم سجلات المرضى بشكل آمن.",
-    },
-    img: "/Screenshot 2025-11-06 110958.png",
-    link: "https://patient-pi.vercel.app/",
-    imgClassName: "w-full h-full object-cover rounded-3xl",
-    titleClassName: "text-3xl font-extrabold mb-2",
-    icons: ["Nextjs", "Django", "HTML", "CSS", "JavaScript"],
-  },
-    {
-    id: 4,
     title: { EN: "Avura", AR: "افورا" },
     description: {
       EN: "A luxurious digital boutique crafted for high-end perfumery. It offers an elegant sensory shopping journey, featuring sophisticated fragrance discovery tools, curated collections, and a seamless, secure checkout for a premium customer experience.",
@@ -114,8 +102,9 @@ export const projects = [
     imgClassName: "w-full h-full object-cover rounded-3xl",
     titleClassName: "text-3xl font-extrabold mb-2",
     icons: ["React", "Redux", "JavaScript", "HTML", "CSS"],
-  },{
-    id: 5,
+  },
+  {
+    id: 4,
     title: { EN: "Prime Ecommerce", AR: "Prime Ecommerce" },
     description: {
       EN: "A high-end e-commerce experience focused on customer loyalty. Features smart search tools, personalized wishlists, and an advanced discount system designed to drive repeat sales and user engagement.",
@@ -127,8 +116,19 @@ export const projects = [
     titleClassName: "text-3xl font-extrabold mb-2",
     icons: ["React", "Django", "JavaScript", "HTML", "CSS"],
   },
-
-
+  {
+    id: 5,
+    title: { EN: "CarePlus Clinic", AR: "CarePlus Clinic" },
+    description: {
+      EN: "A professional digital healthcare platform that streamlines patient management and appointment scheduling. It enhances clinic efficiency by automating daily workflows and organizing patient records securely.",
+      AR: "منصة رعاية صحية رقمية احترافية تعمل على تبسيط إدارة المرضى وجدولة المواعيد. تزيد من كفاءة العيادة من خلال أتمتة سير العمل اليومي وتنظيم سجلات المرضى بشكل آمن.",
+    },
+    img: "/Screenshot 2025-11-06 110958.png",
+    link: "https://patient-pi.vercel.app/",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    icons: ["Nextjs", "Django", "HTML", "CSS", "JavaScript"],
+  },
   {
     id: 6,
     title: { EN: "Social media", AR: "Social media" },
