@@ -28,13 +28,37 @@ const Card = ({ project, index }: CartProps) => {
             loading="lazy"
             priority={false}
           />
-
+          {index === 0 && (
+            <div
+              className={`absolute top-3 z-20 ${isArabic ? "right-6" : "left-6"}`}
+            >
+              <div
+                className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full overflow-hidden shadow-lg shadow-pink-500/40"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #ec4899, #f43f5e, #fb7185)",
+                }}
+              >
+                <svg
+                  className="w-3 h-3 text-white relative z-10"
+                  style={{ animationDuration: "3s" }}
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+                </svg>
+                <span className="text-white text-[10px] font-black uppercase tracking-widest relative z-10">
+                  {isArabic ? "جديد" : "New"}
+                </span>
+              </div>
+            </div>
+          )}
           {/* Image Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/10 to-transparent" />
 
           {/* Project Number Badge */}
           <div
-            className={`absolute top-6 z-20 ${isArabic ? "right-6" : "left-6"}`}
+            className={`absolute top-10 z-20 ${isArabic ? "right-6" : "left-6"}`}
           >
             <div className="relative">
               <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl">

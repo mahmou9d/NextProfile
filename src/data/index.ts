@@ -65,10 +65,23 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: { EN: "XtraMarket", AR: "إكسترا ماركت" },
+    title: { EN: "Novera", AR: "Novera" },
     description: {
-      EN: "Full-stack e-commerce platform built with React.js and RTK Query, featuring complete product management, shopping cart, wishlist, secure checkout flow, and admin dashboard powered by a real backend API.",
-      AR: "منصة تجارة إلكترونية متكاملة مبنية بـ React.js و RTK Query، تتضمن إدارة المنتجات، سلة التسوق، قائمة الرغبات، عملية دفع آمنة، ولوحة تحكم إدارية مدعومة بـ API حقيقي.",
+      EN: "A sophisticated online marketplace optimized for speed and search engine visibility. It provides a reliable shopping environment with advanced cart management and a professional interface for modern brands.",
+      AR: "سوق إلكتروني متطور مُحسن للسرعة وظهور محركات البحث. يوفر بيئة تسوق موثوقة مع إدارة متقدمة لسلة التسوق وواجهة احترافية تناسب العلامات التجارية الحديثة.",
+    },
+    img: "/Screenshot 2025-11-28 001559.png",
+    link: "https://novera-tau.vercel.app/",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    icons: ["Nextjs", "Django", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    id: 2,
+    title: { EN: "XtraMarket", AR: "XtraMarket" },
+    description: {
+      EN: "A comprehensive retail solution designed to scale online businesses. It offers a seamless shopping journey from product discovery to secure checkout, featuring a robust management dashboard for full business control.",
+      AR: "حل تجاري متكامل مصمم لنمو الشركات عبر الإنترنت. يوفر تجربة تسوق سلسة تبدأ من استعراض المنتجات وحتى الدفع الآمن، مع لوحة تحكم قوية للإدارة الكاملة للنشاط التجاري.",
     },
     img: "/Screenshot 2025-11-28 001333.png",
     link: "https://vegecommerce2-2.vercel.app/",
@@ -77,11 +90,11 @@ export const projects = [
     icons: ["React", "Django", "JavaScript", "HTML", "CSS"],
   },
   {
-    id: 2,
-    title: { EN: "CarePlus Clinic", AR: "عيادة كير بلس" },
+    id: 3,
+    title: { EN: "CarePlus Clinic", AR: "CarePlus Clinic" },
     description: {
-      EN: "Comprehensive clinic management system developed with Next.js, TypeScript, and Redux Toolkit, enabling seamless appointment scheduling, patient profile management, and efficient healthcare workflow automation.",
-      AR: "نظام إدارة عيادات شامل مطور بـ Next.js و TypeScript و Redux Toolkit، يتيح جدولة المواعيد بسهولة، إدارة ملفات المرضى، وأتمتة سير العمل الطبي بكفاءة.",
+      EN: "A professional digital healthcare platform that streamlines patient management and appointment scheduling. It enhances clinic efficiency by automating daily workflows and organizing patient records securely.",
+      AR: "منصة رعاية صحية رقمية احترافية تعمل على تبسيط إدارة المرضى وجدولة المواعيد. تزيد من كفاءة العيادة من خلال أتمتة سير العمل اليومي وتنظيم سجلات المرضى بشكل آمن.",
     },
     img: "/Screenshot 2025-11-06 110958.png",
     link: "https://patient-pi.vercel.app/",
@@ -89,12 +102,24 @@ export const projects = [
     titleClassName: "text-3xl font-extrabold mb-2",
     icons: ["Nextjs", "Django", "HTML", "CSS", "JavaScript"],
   },
-  {
-    id: 3,
-    title: { EN: "Prime Ecommerce", AR: "برايم للتجارة الإلكترونية" },
+    {
+    id: 4,
+    title: { EN: "Avura", AR: "افورا" },
     description: {
-      EN: "Advanced e-commerce solution built with React, Redux Toolkit, and TypeScript, offering intelligent product search, user authentication, dynamic cart management, personalized wishlist, and promotional discount system.",
-      AR: "حل تجارة إلكترونية متقدم مبني بـ React و Redux Toolkit و TypeScript، يوفر بحث ذكي عن المنتجات، مصادقة المستخدمين، إدارة ديناميكية للسلة، قائمة رغبات مخصصة، ونظام خصومات ترويجية.",
+      EN: "A luxurious digital boutique crafted for high-end perfumery. It offers an elegant sensory shopping journey, featuring sophisticated fragrance discovery tools, curated collections, and a seamless, secure checkout for a premium customer experience.",
+      AR: "بوتيك رقمي فاخر مصمم خصيصاً لعالم العطور الراقية. يوفر رحلة تسوق أنيقة تعتمد على استكشاف الروائح المميزة، مجموعات مختارة بعناية، وعملية دفع سلسة وآمنة تضمن تجربة استثنائية للعملاء.",
+    },
+    img: "/Screenshot 2025-11-30 111521.png",
+    link: "https://avura-orpin.vercel.app/",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    icons: ["React", "Redux", "JavaScript", "HTML", "CSS"],
+  },{
+    id: 5,
+    title: { EN: "Prime Ecommerce", AR: "Prime Ecommerce" },
+    description: {
+      EN: "A high-end e-commerce experience focused on customer loyalty. Features smart search tools, personalized wishlists, and an advanced discount system designed to drive repeat sales and user engagement.",
+      AR: "تجربة تجارة إلكترونية راقية تركز على ولاء العملاء. تتميز بأدوات بحث ذكية، قوائم رغبات مخصصة، ونظام خصومات متطور مصمم لزيادة المبيعات المتكررة وتفاعل المستخدمين.",
     },
     img: "/Screenshot 2026-01-03 231730.png",
     link: "https://prime-ecommerce-rho.vercel.app/",
@@ -102,38 +127,14 @@ export const projects = [
     titleClassName: "text-3xl font-extrabold mb-2",
     icons: ["React", "Django", "JavaScript", "HTML", "CSS"],
   },
-  {
-    id: 4,
-    title: { EN: "SmartWatch Store", AR: "متجر سمارت ووتش" },
-    description: {
-      EN: "Modern e-commerce landing page crafted with Next.js, TypeScript, Tailwind CSS, and Shadcn UI components, featuring a responsive design, dynamic shopping experience, and integrated Stripe payment processing.",
-      AR: "صفحة هبوط عصرية للتجارة الإلكترونية مصممة بـ Next.js و TypeScript و Tailwind CSS ومكونات Shadcn UI، تتميز بتصميم متجاوب، تجربة تسوق ديناميكية، ومعالجة دفع متكاملة عبر Stripe.",
-    },
-    img: "/Screenshot 2025-11-30 111521.png",
-    link: "https://poetic-truffle-8702f4.netlify.app/",
-    imgClassName: "w-full h-full object-cover rounded-3xl",
-    titleClassName: "text-3xl font-extrabold mb-2",
-    icons: ["React", "Redux", "JavaScript", "HTML", "CSS"],
-  },
-  {
-    id: 5,
-    title: { EN: "M&M Store", AR: "متجر إم آند إم" },
-    description: {
-      EN: "Elegant e-commerce landing page developed with React and SCSS, delivering a fully responsive interface, interactive shopping cart functionality, and persistent data storage using localStorage technology.",
-      AR: "صفحة هبوط أنيقة للتجارة الإلكترونية مطورة بـ React و SCSS، توفر واجهة متجاوبة بالكامل، وظيفة سلة تسوق تفاعلية، وتخزين دائم للبيانات باستخدام تقنية localStorage.",
-    },
-    img: "/Screenshot 2025-11-28 001559.png",
-    link: "https://benevolent-beignet-116c19.netlify.app/",
-    imgClassName: "w-full h-full object-cover rounded-3xl",
-    titleClassName: "text-3xl font-extrabold mb-2",
-    icons: ["React", "JavaScript", "HTML", "CSS"],
-  },
+
+
   {
     id: 6,
-    title: { EN: "Social media", AR: "وسائل التواصل الاجتماعي" },
+    title: { EN: "Social media", AR: "Social media" },
     description: {
-      EN: "Enhance your brand presence with modern social media solutions. Create impactful content, grow your audience, and stay connected effortlessly.",
-      AR: "عزّز حضور علامتك التجارية عبر وسائل التواصل الاجتماعي. اصنع محتوى مؤثرًا، ونمِّ جمهورك، وابقَ على تواصل بسهولة.",
+      EN: "A dynamic community platform built to amplify brand presence. It enables real-time interaction and content sharing, helping businesses grow their audience and maintain strong customer relationships.",
+      AR: "منصة مجتمعية ديناميكية مصممة لتعزيز حضور العلامة التجارية. تتيح التفاعل الفوري ومشاركة المحتوى، مما يساعد الشركات على تنمية جمهورها والحفاظ على علاقات قوية مع العملاء.",
     },
     img: "/WhatsApp Image 2025-11-30 at 11.02.28_21d94493.jpg",
     // iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
