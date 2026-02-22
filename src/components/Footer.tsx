@@ -34,8 +34,11 @@ const Footer = () => {
   const socialLinks = [
     { Icon: FaFacebookF, link: "#" },
     { Icon: FaTwitter, link: "#" },
-    { Icon: FaLinkedinIn, link: "#" },
-    { Icon: FaGithub, link: "#" },
+    {
+      Icon: FaLinkedinIn,
+      link: "https://www.linkedin.com/in/fo2sh1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
+    { Icon: FaGithub, link: "https://github.com/mahmou9d" },
   ];
 
   const bottomLinks = [
