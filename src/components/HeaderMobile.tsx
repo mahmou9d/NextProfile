@@ -1,7 +1,8 @@
 import Link from "next/link";
-import React, { JSX, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { NavItem } from "../../types/type";
+import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderMobile = ({
   mobileOpen,
@@ -37,11 +38,15 @@ const HeaderMobile = ({
   }, [mobileOpen, setMobileOpen]);
 
   return (
-    <div>
+    <AnimatePresence>
       {mobileOpen && (
-        <div
+        <motion.div
           ref={menuRef}
-          className="md:hidden border-t border-purple-500/20 bg-black"
+          className="md:hidden absolute top-full left-0 right-0 border-t border-white/10 bg-black/95 backdrop-blur-md"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="px-4 sm:px-6">
             <nav className="py-4 space-y-1">
@@ -51,26 +56,35 @@ const HeaderMobile = ({
                   : item.link;
 
                 return (
-                  <Link
+                  <motion.div
                     key={idx}
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-lg hover:bg-purple-500/10 transition-colors duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
                   >
-                    <span className="text-base font-medium text-gray-300 hover:text-pink-500 transition-colors">
+                    <Link
+                      href={href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-4 py-3 rounded-lg text-white/60 hover:text-white hover:bg-white/5 transition-all"
+                    >
                       {locale === "EN" ? item.name.EN : item.name.AR}
-                    </span>
-                  </Link>
+                    </Link>
+                  </motion.div>
                 );
               })}
 
-              <div className="mt-6 pt-6 border-t border-purple-500/20">
+              <motion.div
+                className="mt-6 pt-6 border-t border-white/10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
                 <button
                   onClick={toggleLocale}
-                  className="w-full px-4 py-3 rounded-lg border border-purple-500/50 hover:border-pink-500 hover:text-pink-500 transition-all duration-300 flex items-center gap-3"
+                  className="w-full px-4 py-3 rounded-lg border border-white/20 hover:border-white/40 text-white/60 hover:text-white transition-all flex items-center gap-3"
                 >
                   <svg
-                    className="w-5 h-5 text-gray-300"
+                    className="w-5 h-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -82,16 +96,16 @@ const HeaderMobile = ({
                       d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
                     />
                   </svg>
-                  <span className="text-sm font-medium text-gray-300">
+                  <span className="text-sm font-medium">
                     {locale === "AR" ? "English" : "العربية"}
                   </span>
                 </button>
-              </div>
+              </motion.div>
             </nav>
           </div>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 

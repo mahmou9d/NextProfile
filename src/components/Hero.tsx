@@ -1,15 +1,20 @@
 "use client";
-import { FaEnvelope, FaLocationArrow } from "react-icons/fa6";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import Title from "./Title";
+import { FaArrowRight } from "react-icons/fa6";
 import { useTranslation } from "./Usetranslation";
-
-
-
+import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const { t, isArabic, dir } = useTranslation();
+  const { t, isArabic } = useTranslation();
   const localePrefix = isArabic ? "/ar" : "/en";
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const stats = [
     { value: "50+", label: t.hero.stats.projects },
@@ -17,75 +22,189 @@ const Hero = () => {
     { value: "24/7", label: t.hero.stats.support },
   ];
 
-  const buttons = [
-    {
-      href: `${localePrefix}#services`,
-      title: t.hero.buttons.exploreServices,
-      icon: <FaLocationArrow className="w-4 h-4" />,
-      variant: "primary" as const,
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
     },
-    {
-      href: `${localePrefix}#contact`,
-      title: t.hero.buttons.buildWebsite,
-      icon: <FaEnvelope className="w-4 h-4" />,
-      variant: "secondary" as const,
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
     },
-  ];
+  };
 
   return (
-    <section
-      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-black"
-      dir={dir}
-    >
-      {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Title Section */}
-        <Title
-          subtitle={t.hero.subtitle}
-          title1={t.hero.title1}
-          title2={t.hero.title2}
-          title3={t.hero.title3}
-          description={t.hero.description}
-        />
+    <section className="relative min-h-screen w-full bg-black overflow-hidden pt-20">
+      {/* Animated background elements */}
+      <motion.div
+        className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
+        animate={{
+          x: [0, 100, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        style={{ y: scrollY * 0.5 }}
+      />
+      <motion.div
+        className="absolute top-1/2 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+        animate={{
+          x: [0, -100, 0],
+          y: [0, -50, 0],
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        style={{ y: scrollY * 0.3 }}
+      />
 
-        {/* Stats - Bold Grid Style */}
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-16">
-          {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center gap-2 px-6 py-3"
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-20 md:py-32">
+        <motion.div
+          className="max-w-4xl"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Animated Badge */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <motion.div
+              className="inline-block px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm"
+              whileHover={{ borderColor: "rgb(34, 211, 238)" }}
+              transition={{ duration: 0.3 }}
             >
-              <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
-                {stat.value}
+              <span className="text-sm font-semibold text-cyan-400">
+                {t.hero.subtitle}
               </span>
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
+            </motion.div>
+          </motion.div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          {buttons.map((btn, idx) => (
-            <Link
-              key={idx}
-              href={btn.href}
-              className={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                btn.variant === "primary"
-                  ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:shadow-lg hover:shadow-pink-500/50 transform hover:scale-105"
-                  : "border border-purple-500/50 text-gray-300 hover:border-blue-500 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/20"
-              }`}
+          {/* Animated Heading */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight">
+              <motion.span
+                className="text-white block"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                {t.hero.title1}
+              </motion.span>
+              <motion.span
+                className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.8 }}
+              >
+                {t.hero.title2}
+              </motion.span>
+              {t.hero.title3 && (
+                <motion.span
+                  className="text-white block"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.8 }}
+                >
+                  {t.hero.title3}
+                </motion.span>
+              )}
+            </h1>
+          </motion.div>
+
+          {/* Animated Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12"
+          >
+            {t.hero.description}
+          </motion.p>
+
+          {/* Animated Stats */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap gap-8 md:gap-12 mb-12"
+          >
+            {stats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.1 + idx * 0.15, duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex flex-col">
+                  <motion.span
+                    className="text-3xl md:text-4xl font-black text-white"
+                    whileHover={{ color: "#22d3ee" }}
+                  >
+                    {stat.value}
+                  </motion.span>
+                  <span className="text-sm text-gray-400 uppercase tracking-widest">
+                    {stat.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Animated Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span>{btn.title}</span>
-              {btn.icon}
-            </Link>
-          ))}
-        </div>
+              <Link
+                href={`${localePrefix}#services`}
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all group"
+              >
+                <span>{t.hero.buttons.exploreServices}</span>
+                <motion.span
+                  className="inline-block"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <FaArrowRight className="w-4 h-4" />
+                </motion.span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href={`${localePrefix}#contact`}
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-purple-500/50 text-white font-semibold rounded-lg hover:border-purple-400 hover:bg-purple-500/5 transition-all"
+              >
+                <span>{t.hero.buttons.buildWebsite}</span>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <motion.div
+            className="w-1 h-2 bg-white/60 rounded-full"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 };
