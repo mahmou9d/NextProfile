@@ -21,20 +21,20 @@ const Hero = () => {
     {
       href: `${localePrefix}#services`,
       title: t.hero.buttons.exploreServices,
-      icon: <FaLocationArrow className="w-5 h-5" />,
+      icon: <FaLocationArrow className="w-4 h-4" />,
       variant: "primary" as const,
     },
     {
       href: `${localePrefix}#contact`,
       title: t.hero.buttons.buildWebsite,
-      icon: <FaEnvelope className="w-5 h-5" />,
+      icon: <FaEnvelope className="w-4 h-4" />,
       variant: "secondary" as const,
     },
   ];
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-black"
       dir={dir}
     >
       {/* Main Content */}
@@ -48,14 +48,14 @@ const Hero = () => {
           description={t.hero.description}
         />
 
-        {/* Stats - Grid Style */}
-        <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
+        {/* Stats - Clean Grid Style */}
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mb-16">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center gap-2 min-w-[100px] px-6 py-4 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 transition-all duration-300"
+              className="flex flex-col items-center gap-2 px-6 py-3"
             >
-              <span className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-3xl md:text-4xl font-bold text-white">
                 {stat.value}
               </span>
               <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
@@ -65,38 +65,27 @@ const Hero = () => {
           ))}
         </div>
 
-        {/* CTA Buttons - Grid Style */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {buttons.map((btn, idx) => (
             <Link
               key={idx}
               href={btn.href}
-              className={`group relative inline-flex items-center justify-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-xl font-bold text-base md:text-lg transition-all duration-300 w-full sm:w-auto ${
+              className={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 btn.variant === "primary"
-                  ? "bg-gradient-to-r from-blue-600 to-pink-600 text-white shadow-lg hover:shadow-blue-500/50 transform hover:scale-105"
-                  : "bg-gray-800/50 border border-gray-700/50 text-white hover:border-blue-500/50 hover:bg-gray-800 transform hover:scale-105"
+                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/25"
+                  : "border border-gray-700 text-gray-300 hover:border-gray-500 hover:text-white hover:bg-gray-800/50"
               }`}
             >
-              {btn.variant === "primary" && (
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl " />
-              )}
-              <span className="relative z-10">{btn.title}</span>
-              <span
-                className={`relative z-10 transition-transform duration-300 ${
-                  isArabic
-                    ? "group-hover:-translate-x-1"
-                    : "group-hover:translate-x-1"
-                }`}
-              >
-                {btn.icon}
-              </span>
+              <span>{btn.title}</span>
+              {btn.icon}
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+      {/* Bottom Border */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
     </section>
   );
 };
