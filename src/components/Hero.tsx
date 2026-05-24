@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white"
+      className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 pt-32 pb-20 overflow-hidden bg-black"
       dir={dir}
     >
       {/* Main Content */}
@@ -48,17 +48,17 @@ const Hero = () => {
           description={t.hero.description}
         />
 
-        {/* Stats - Clean Grid Style */}
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12 mb-16">
+        {/* Stats - Bold Grid Style */}
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-16">
           {stats.map((stat, idx) => (
             <div
               key={idx}
               className="flex flex-col items-center gap-2 px-6 py-3"
             >
-              <span className="text-3xl md:text-4xl font-bold text-gray-900">
+              <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                 {stat.value}
               </span>
-              <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 {stat.label}
               </span>
             </div>
@@ -73,8 +73,8 @@ const Hero = () => {
               href={btn.href}
               className={`inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 btn.variant === "primary"
-                  ? "bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg shadow-emerald-600/25"
-                  : "border border-gray-300 text-gray-900 hover:border-emerald-600 hover:text-emerald-600 hover:bg-emerald-50"
+                  ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:shadow-lg hover:shadow-pink-500/50 transform hover:scale-105"
+                  : "border border-purple-500/50 text-gray-300 hover:border-blue-500 hover:text-blue-400 hover:shadow-lg hover:shadow-blue-500/20"
               }`}
             >
               <span>{btn.title}</span>
@@ -85,7 +85,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
     </section>
   );
 };
