@@ -23,13 +23,13 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
   };
 
   return (
-    <header dir={dir} className="fixed top-0 z-[1000] w-full bg-black border-b border-gray-800/50">
+    <header dir={dir} className="fixed top-0 z-[1000] w-full bg-white border-b border-gray-200">
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link
             href={`/${isArabic ? "ar" : "en"}`}
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300 z-10"
+            className="flex items-center gap-3 hover:opacity-70 transition-opacity duration-300 z-10"
           >
             <Image
               src="/Webvitas.png"
@@ -53,10 +53,10 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                   href={href}
                   className="relative group"
                 >
-                  <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-emerald-600 transition-colors duration-300">
                     {isArabic ? item.name.AR : item.name.EN}
                   </span>
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300" />
+                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300" />
                 </Link>
               );
             })}
@@ -67,7 +67,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
             {/* Language Toggle - Desktop */}
             <button
               onClick={handleToggleLocale}
-              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 hover:bg-gray-800 transition-all duration-300 text-sm font-medium text-gray-300 hover:text-white"
+              className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 hover:border-emerald-600 hover:text-emerald-600 transition-all duration-300 text-sm font-medium text-gray-700"
             >
               <svg
                 className="w-4 h-4"
@@ -88,12 +88,12 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={toggleMobile}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors duration-300"
             >
               {mobileOpen ? (
-                <FaXmark className="text-white" size={20} />
+                <FaXmark className="text-gray-900" size={20} />
               ) : (
-                <FaBars className="text-white" size={20} />
+                <FaBars className="text-gray-900" size={20} />
               )}
             </button>
           </div>
