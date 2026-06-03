@@ -12,9 +12,13 @@ const Grid = () => {
   return (
     <section
       id="projects"
-      className="relative w-full min-h-screen py-24 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      className="relative w-full min-h-screen py-20 md:py-32 overflow-hidden bg-[#080810]"
       dir={dir}
     >
+      {/* Floating Orbs matching Hero */}
+      <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-pink-600/10 blur-[120px] rounded-full pointer-events-none" />
+
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
         <Title
@@ -26,54 +30,65 @@ const Grid = () => {
         />
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 auto-rows-[400px] md:auto-rows-[450px]">
           {projects.map((project, index) => (
-            <Card key={project.id} project={project} index={index} />
+            <div
+              key={project.id}
+              className={`${index === 0 || index === 3 ? "md:col-span-8" : "md:col-span-4"} h-full`}
+            >
+              <Card project={project} index={index} />
+            </div>
           ))}
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="mt-24 md:mt-32 text-center space-y-8">
-          <div className="space-y-4">
-            <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              {t.grid.cta.heading}
-            </h3>
-            <p className="text-gray-400 text-lg max-w-xl mx-auto">
-              {t.grid.cta.description}
-            </p>
-          </div>
+        <div className="relative mt-32 md:mt-48">
+          {/* Creative Background Glow */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Link
-              href={`${localePrefix}#contact`}
-              className="group/cta relative overflow-hidden rounded-full"
-            >
-              <div className="relative flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold text-lg shadow-2xl active:scale-95">
-                <span>{t.grid.cta.startProject}</span>
-                <svg
-                  className={`w-5 h-5 transform transition-transform ${
-                    isArabic ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </div>
-            </Link>
+          <div className="relative z-10 flex flex-col items-center text-center space-y-12">
+            <div className="space-y-4">
+              <h3 className="font-syne text-4xl md:text-6xl font-extrabold tracking-tighter text-white leading-none">
+                {t.grid.cta.heading}
+              </h3>
+              <p className="text-white/40 text-lg max-w-xl mx-auto font-medium">
+                {t.grid.cta.description}
+              </p>
+            </div>
 
-            <Link
-              href={`${localePrefix}#about`}
-              className="px-8 py-4 rounded-full bg-gray-800/50 border border-gray-700/50 text-white font-bold text-lg hover:border-blue-500/50 hover:bg-gray-800"
-            >
-              {t.grid.cta.viewMore}
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+              <Link
+                href={`${localePrefix}#contact`}
+                className="group/cta relative inline-flex items-center gap-4 px-10 py-5 rounded-2xl bg-white text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] active:scale-95"
+              >
+                <span className="font-syne text-xl font-black uppercase tracking-tight">
+                  {t.grid.cta.startProject}
+                </span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform group-hover/cta:translate-x-1">
+                  <svg
+                    className={`h-5 w-5 ${isArabic ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </div>
+              </Link>
+
+              <Link
+                href={`${localePrefix}#about`}
+                className="font-syne text-lg font-bold text-white/40 transition-colors hover:text-white flex items-center gap-2 group/sec"
+              >
+                {t.grid.cta.viewMore}
+                <span className="h-px w-0 bg-white transition-all group-hover/sec:w-8" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

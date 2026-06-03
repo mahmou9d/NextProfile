@@ -1,110 +1,128 @@
 "use client";
+import { useState, useEffect, useRef, MouseEvent } from "react";
 import { useTranslation } from "@/components/Usetranslation";
 import Title from "./Title";
 
 const Approach = () => {
   const { t, isArabic, dir } = useTranslation();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 },
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
 
   return (
     <section
       id="about"
-      className="relative w-full min-h-screen py-24 overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black"
+      ref={sectionRef}
+      className="relative w-full py-20 md:py-32 overflow-hidden bg-[#080810]"
       dir={dir}
     >
+      {/* Background Glows - Matching Hero */}
+      <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[#7c3aed]/10 blur-[120px] rounded-full pointer-events-none animate-[pulse_12s_infinite]" />
+      <div className="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-[#db2777]/10 blur-[100px] rounded-full pointer-events-none animate-[pulse_10s_infinite_1s]" />
+
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Header Section */}
         <Title
           subtitle={t.approach.subtitle}
           title1={t.approach.title1}
           title2={t.approach.title2}
-          description={null}
+          description={
+            isArabic
+              ? "خطوات مدروسة لتحويل رؤيتك إلى واقع رقمي ملموس"
+              : "Strategic steps to turn your vision into a tangible digital reality"
+          }
           title3={null}
         />
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Approach Steps Grid - Glass Style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {t.approach.cards.map((card, index) => (
-            <article key={index} className="group relative">
-              {/* Card Container */}
-              <div className="relative h-full min-h-[450px] overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
-                {/* Number Badge */}
-                <div
-                  className={`absolute top-6 z-20 ${isArabic ? "right-6" : "left-6"}`}
-                >
-                  <div className="relative">
-                    <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      {card.number}
-                    </div>
-                  </div>
-                </div>
+            <div
+              key={index}
+              onMouseMove={handleMouseMove}
+              className={`group relative p-[1px] rounded-[2.5rem] overflow-hidden transition-all duration-1000 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-24"
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
+              {/* Animated Border Shine */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
 
-                {/* Content - Default State */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 group-hover:opacity-0">
-                  <div className="relative">
-                    {/* Icon */}
-                    <div className="relative rounded-full px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700">
-                      <span className="text-3xl font-black bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+              {/* Card Body */}
+              <div className="relative h-full min-h-[420px] p-10 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col border border-white/5">
+                {/* Spotlight Overlay */}
+                <div
+                  className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.1), transparent 40%)`,
+                  }}
+                />
+
+                {/* Noise Effect */}
+                <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-12">
+                    {/* Step Number Badge */}
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#a78bfa] to-[#f472b6] shadow-[0_0_30px_-5px_rgba(167,139,250,0.5)] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                      <span className="font-syne text-2xl font-black text-white">
+                        {card.number}
+                      </span>
+                    </div>
+
+                    <div className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
+                      <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
                         {card.iconText}
                       </span>
                     </div>
                   </div>
-                </div>
 
-                {/* Content - Hover State */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 opacity-0 group-hover:opacity-100 transition-all duration-500 space-y-6">
-                  {/* Title */}
-                  <h3 className="text-3xl md:text-4xl font-black leading-tight">
-                    <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+                  <div
+                    className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}
+                  >
+                    <h3 className="font-syne text-3xl font-extrabold text-white tracking-tight group-hover:text-[#a78bfa] transition-colors duration-500">
                       {card.title}
-                    </span>
-                  </h3>
+                    </h3>
 
-                  {/* Divider */}
-                  <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
+                    <div className="w-12 h-[2px] bg-gradient-to-r from-[#a78bfa] to-transparent group-hover:w-20 transition-all duration-500" />
 
-                  {/* Description */}
-                  <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                    {card.description}
-                  </p>
-
-                  {/* Arrow Icon */}
-                  <div className="mt-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 flex items-center justify-center">
-                      <svg
-                        className={`w-6 h-6 text-white transform transition-transform ${
-                          isArabic
-                            ? "rotate-180 group-hover:-translate-x-1"
-                            : "group-hover:translate-x-1"
-                        }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </div>
+                    <p
+                      className={`text-white/50 text-lg leading-relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
+                    >
+                      {card.description}
+                    </p>
                   </div>
                 </div>
-
-                {/* Bottom Corner Accent */}
-                <div
-                  className={`absolute bottom-0 w-40 h-40 bg-gradient-to-tl from-blue-500/10 via-pink-500/5 to-transparent rounded-tl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                    isArabic ? "" : "right-0"
-                  }`}
-                />
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+      {/* Divider matching other sections */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 };

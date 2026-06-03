@@ -10,63 +10,72 @@ const Title = ({
   subtitle: string;
   title1: string;
   title2: string;
-  title3: string|null;
+  title3: string | null;
   description: string | null;
 }) => {
   return (
-    <div className="text-center mb-12 space-y-2">
-      {/* Subtitle with Badge */}
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-        <div className="relative inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-pink-500/10 border border-blue-500/20">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-          </span>
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+    <div className="relative flex flex-col items-center text-center mb-24 md:mb-36 px-4 group">
+      {/* ── Background Aura (Extreme Glow) ── */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[300px] bg-gradient-to-r from-[#7c3aed]/10 via-[#db2777]/10 to-transparent blur-[120px] rounded-full pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
+
+      {/* ── Floating Tech Badge ── */}
+      <div className="relative mb-10 overflow-hidden rounded-full p-[1px] transition-transform duration-500 hover:scale-105">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#a78bfa]/50 to-transparent animate-[scroll_3s_linear_infinite]" />
+        <div className="relative flex items-center gap-3 px-6 py-2 rounded-full bg-[#080810]/80 backdrop-blur-xl border border-white/5">
+          <div className="relative flex h-2 w-2">
+            <div className="absolute inset-0 rounded-full bg-[#a78bfa] animate-ping opacity-40" />
+            <div className="relative rounded-full h-2 w-2 bg-[#a78bfa] shadow-[0_0_10px_#a78bfa]" />
+          </div>
+          <span className="text-xs font-black uppercase text-white/75">
             {subtitle}
           </span>
         </div>
-        <div className="h-px w-12 bg-gradient-to-l from-transparent to-pink-500" />
       </div>
 
-      {/* Main Title */}
-      <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
-        <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-          {title1}
-        </span>
-        <br />
-        <span className="gradient-text-x inline-block bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          {title2}
-        </span>
-        {title3 && (
-          <>
-            <br />
-            <span className="gradient-text inline-block bg-gradient-to-b from-white via-white to-gray-600 bg-clip-text text-transparent">
-              {title3}
+      {/* ── High-Impact Typography ── */}
+      <div className="max-w-7xl space-y-8">
+        <h2 className="font-syne font-black text-white/75 selection:bg-[#a78bfa]">
+          <span className="inline-block text-3xl sm:text-4xl md:text-[5rem] leading-[1.2] pb-2">
+            {title1}
+          </span>
+          <div className="flex flex-wrap text-3xl sm:text-4xl md:text-[5rem] items-center justify-center gap-x-6 mt-2 py-3">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#fb923c] italic font-extrabold leading-[1.3]">
+              {title2}
             </span>
-          </>
-        )}
-      </h2>
-
-      {/* Description */}
-      {description && (
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          {description}
-        </p>
-      )}
-
-      {/* Decorative Line */}
-      <div className="flex items-center justify-center gap-4 pt-6">
-        <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-        <div className="relative">
-          <div className="absolute inset-0 animate-ping">
-            <div className="w-4 h-4 rounded-full bg-blue-500/50" />
+            {title3 && (
+              <span className="text-white/75 transition-colors duration-700 group-hover:text-white/40 leading-[1.3]">
+                {title3}
+              </span>
+            )}
           </div>
-          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-pink-500" />
-        </div>
-        <div className="pulse-line h-1 w-20 rounded-full bg-gradient-to-l from-transparent via-pink-500 to-transparent" />
+        </h2>
+
+        {description && (
+          <span>
+            <p className="max-w-2xl mx-auto text-white/40 text-lg md:text-xl font-medium leading-relaxed tracking-tight border-l-2 border-[#a78bfa]/20 pl-6 py-2 transition-all group-hover:border-[#a78bfa]/60">
+              {description}
+            </p>
+          </span>
+        )}
       </div>
+
+      {/* ── Minimalist Geometric Divider ── */}
+      <div className="flex items-center gap-4 mt-16 opacity-30 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#a78bfa]" />
+        <div className="w-2 h-2 rotate-45 border border-[#a78bfa] bg-[#a78bfa]/20 shadow-[0_0_10px_#a78bfa]" />
+        <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#a78bfa]" />
+      </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
     </div>
   );
 };

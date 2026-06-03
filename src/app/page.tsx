@@ -5,7 +5,7 @@ import Grid from "@/components/Grid";
 import Footer from "@/components/Footer";
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
+// import Experience from "@/components/Experience";
 import Header from "../components/Header";
 import ContactUs from "@/components/ContactUs";
 
@@ -17,7 +17,7 @@ const Home = () => {
         <Hero />
         <Grid />
         <Clients />
-        <Experience />
+        {/* <Experience /> */}
         <Approach />
         <ContactUs />
         <Footer />

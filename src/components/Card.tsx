@@ -3,8 +3,6 @@ import Image from "next/image";
 import { useTranslation } from "@/components/Usetranslation";
 import { CartProps } from "../../types/type";
 
-
-
 const Card = ({ project, index }: CartProps) => {
   const { t, isArabic } = useTranslation();
 
@@ -12,168 +10,91 @@ const Card = ({ project, index }: CartProps) => {
   const category = project.category || (index < 4 ? "ecommerce" : "webapp");
 
   return (
-    <article
-      key={project.id}
-      className={`group relative ${index % 3 === 0 ? "lg:col-span-1" : ""}`}
-    >
-      {/* Card Container */}
-      <div className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/50 to-gray-900/80 border border-gray-700/50 transition-all duration-500 hover:border-blue-500/60 hover:shadow-2xl hover:shadow-blue-500/20">
-        {/* Image Section */}
-        <div className="relative h-64 md:h-72 overflow-hidden">
+    <article className="group relative h-full w-full">
+      {/* Card Body */}
+      <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-[#0c0c14] border border-white/[0.05] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:border-purple-500/40 group-hover:shadow-[0_0_50px_-12px_rgba(167,139,250,0.3)] group-hover:translate-y-[-8px]">
+        {/* Background Reveal Image */}
+        <div className="absolute inset-0 z-0">
           <Image
             src={project.img}
             alt={isArabic ? project.title.AR : project.title.EN}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            className="object-cover object-top transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60 group-hover:grayscale-0"
             loading="lazy"
-            priority={false}
           />
-          {index === 0 && (
-            <div
-              className={`absolute top-3 z-20 ${isArabic ? "right-6" : "left-6"}`}
-            >
-              <div
-                className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full overflow-hidden shadow-lg shadow-pink-500/40"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #ec4899, #f43f5e, #fb7185)",
-                }}
-              >
-                <svg
-                  className="w-3 h-3 text-white relative z-10"
-                  style={{ animationDuration: "3s" }}
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-                </svg>
-                <span className="text-white text-[10px] font-black uppercase tracking-widest relative z-10">
-                  {isArabic ? "جديد" : "New"}
-                </span>
-              </div>
-            </div>
-          )}
-          {/* Image Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/10 to-transparent" />
-
-          {/* Project Number Badge */}
-          <div
-            className={`absolute top-10 z-20 ${isArabic ? "right-6" : "left-6"}`}
-          >
-            <div className="relative">
-              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-2xl shadow-2xl">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-            </div>
-          </div>
-
-          {/* Status Badge */}
-          <div
-            className={`absolute top-6 z-20 ${isArabic ? "left-6" : "right-6"}`}
-          >
-            <div className="px-4 py-2 rounded-full bg-green-500/40 border border-green-500/70">
-              <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-                </span>
-                <span className="text-xs font-bold text-green-300 uppercase tracking-wider">
-                  {t.projects.status.live}
-                </span>
-              </div>
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-[#0c0c14]/80 to-transparent" />
         </div>
 
-        {/* Content Section */}
-        <div className="relative p-6 md:p-8 space-y-4">
-          {/* Category Tag */}
-          <div className="flex items-center gap-2">
-            <div className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30">
-              <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">
-                {t.projects.categories[category]}
+        {/* Content Overlay */}
+        <div className="relative z-10 flex h-full flex-col p-8 md:p-10">
+          {/* Top Row: Metrics */}
+          <div className="flex justify-between items-start">
+            {/* <div className="flex flex-wrap gap-2">
+              {project.icons?.slice(0, 3).map((tech, i) => (
+                <span
+                  key={i}
+                  className="text-[9px] font-bold text-white/40 border border-white/10 px-2 py-1 rounded bg-black/20 backdrop-blur-md uppercase tracking-widest"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div> */}
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/30  border border-red-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+              <span className="text-[9px] font-black text-white/80 uppercase tracking-[2px]">
+                {/* High ROI */}
+                Live
               </span>
             </div>
           </div>
 
-          {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-black leading-tight">
-            <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-pink-300 group-hover:to-blue-300 transition-all duration-500">
-              {isArabic ? project.title.AR : project.title.EN}
-            </span>
-          </h3>
+          {/* Bottom Row: Text & CTA */}
+          <div className="mt-auto space-y-4">
+            <div className="space-y-2">
+              <h3 className="font-syne text-4xl md:text-5xl font-extrabold text-white leading-[0.9] tracking-tighter">
+                {isArabic ? project.title.AR : project.title.EN}
+              </h3>
+              <p className="text-gray-400 text-sm max-w-sm line-clamp-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                {isArabic ? project.description.AR : project.description.EN}
+              </p>
+            </div>
 
-          {/* Description */}
-          <p className="text-gray-400 leading-relaxed line-clamp-3 group-hover:text-gray-300 transition-colors duration-300">
-            {isArabic ? project.description.AR : project.description.EN}
-          </p>
-
-          {/* Tech Stack Pills */}
-          <div className="flex flex-wrap gap-2 pt-2">
-            {project.icons?.map((tech, i) => (
-              <span
-                key={i}
-                className="px-2 py-1 text-xs rounded-lg bg-gray-800/50 text-gray-400 border border-gray-700/50 hover:border-gray-600/50 hover:text-gray-300 transition-colors"
+            <div className="flex items-center justify-between pt-6 border-t border-white/5">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn flex items-center gap-4"
               >
-                {tech}
-              </span>
-            ))}
-          </div>
+                <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center transition-transform duration-500 group-hover/btn:scale-110">
+                  <svg
+                    className={`w-5 h-5 transition-transform ${isArabic ? "rotate-180" : "group-hover:translate-x-0.5"}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={3}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white">
+                  {t.projects.buttons.viewProject}
+                </span>
+              </a>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-4 pt-4">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 group/btn relative overflow-hidden"
-            >
-              <div className="relative flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-pink-600 text-white font-bold shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
-                <span>{t.projects.buttons.viewProject}</span>
-                <svg
-                  className={`w-5 h-5 transform transition-transform duration-300 ${
-                    isArabic
-                      ? "rotate-180 group-hover/btn:-translate-x-1"
-                      : "group-hover/btn:translate-x-1"
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
+              <div className="flex flex-col text-right">
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[2px]">
+                  Performance
+                </span>
+                <span className="text-lg font-syne font-black text-orange-400">
+                  99<span className="text-xs">/100</span>
+                </span>
               </div>
-            </a>
-
-            {/* Preview Button */}
-            <button
-              className="p-3 rounded-xl bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/50 hover:bg-gray-800 transition-all duration-300 group/preview"
-              aria-label={t.projects.buttons.preview}
-            >
-              <svg
-                className="w-6 h-6 text-gray-400 group-hover/preview:text-blue-400 transition-colors"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </button>
+            </div>
           </div>
         </div>
       </div>

@@ -37,97 +37,50 @@ const HeaderMobile = ({
   }, [mobileOpen, setMobileOpen]);
 
   return (
-    <div>
-      {mobileOpen && (
-        <div
-          ref={menuRef}
-          className="md:hidden border-t border-gray-800/50 bg-black/80"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <nav className="py-6 space-y-2">
-              {navItems.map((item, idx) => {
-                const href = item.link.startsWith("/")
-                  ? `/${isArabic ? "ar" : "en"}${item.link}`
-                  : item.link;
+    <>
+      {/* Overlay Backdrop */}
+      <div
+        className={`fixed inset-0 z-[998] bg-[#080810]/60 backdrop-blur-xl lg:hidden transition-all duration-500 ${
+          mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
 
-                return (
-                  <Link
-                    key={idx}
-                    href={href}
-                    onClick={() => setMobileOpen(false)}
-                    className="group relative block overflow-hidden"
-                  >
-                    <div className="relative px-5 py-4 rounded-xl">
-                      <div className="relative flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="text-base font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">
-                            {locale === "EN" ? item.name.EN : item.name.AR}
-                          </span>
-                        </div>
-                        <svg
-                          className={`w-5 h-5 text-gray-600 group-hover:text-blue-400 transition-all duration-300 ${
-                            locale === "AR" ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
+      {/* Floating Menu Drawer */}
+      <div
+        ref={menuRef}
+        className={`lg:hidden fixed inset-x-4 top-24 z-[999] transition-all duration-500 origin-top ${
+          mobileOpen
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 -translate-y-10 pointer-events-none"
+        }`}
+      >
+        <div className="bg-[#0c0c14]/90 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 p-6 shadow-2xl overflow-hidden relative">
+          {/* Decorative Glow */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#a78bfa]/10 blur-3xl rounded-full" />
 
-              <div className="group relative mt-6 pt-6 border-t border-gray-800/50">
-                <button
-                  onClick={toggleLocale}
-                  className="relative w-full overflow-hidden rounded-2xl"
+          <nav className="relative z-10 space-y-2">
+            {navItems.map((item, idx) => {
+              const href = item.link.startsWith("/")
+                ? `/${isArabic ? "ar" : "en"}${item.link}`
+                : item.link;
+
+              return (
+                <Link
+                  key={idx}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className="group flex items-center justify-between p-4 rounded-2xl hover:bg-white/5 transition-all"
                 >
-                  <div className="relative flex items-center justify-between px-6 py-5 bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 group-hover:border-transparent rounded-2xl transition-all duration-300">
-                    <div className="relative flex items-center gap-4">
-                      <div className="relative">
-                        <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-300">
-                          <svg
-                            className="w-6 h-6 text-white"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2.5}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-
-                      <div className="text-left">
-                        <p className="text-xs text-gray-500 font-semibold mb-0.5">
-                          {locale === "AR" ? "Switch to" : "التبديل إلى"}
-                        </p>
-                        <p className="text-lg font-bold bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-                          {locale === "AR" ? "English" : "العربية"}
-                        </p>
-                      </div>
-                    </div>
-
+                  <span className="text-lg font-bold text-white/50 group-hover:text-white transition-colors text-right">
+                    {isArabic ? item.name.AR : item.name.EN}
+                  </span>
+                  <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:text-[#a78bfa] group-hover:border-[#a78bfa]/50 transition-all">
                     <svg
-                      className={`relative w-6 h-6 text-gray-500 group-hover:text-blue-400 transition-all duration-300 ${
-                        locale === "AR" ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 ${isArabic ? "rotate-180" : ""}`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      strokeWidth={2}
+                      strokeWidth={3}
                     >
                       <path
                         strokeLinecap="round"
@@ -136,13 +89,55 @@ const HeaderMobile = ({
                       />
                     </svg>
                   </div>
-                </button>
-              </div>
-            </nav>
-          </div>
+                </Link>
+              );
+            })}
+
+            {/* Language Switcher */}
+            <div className="pt-4 mt-4 border-t border-white/5">
+              <button
+                onClick={() => {
+                  toggleLocale();
+                  setMobileOpen(false);
+                }}
+                className={`w-full flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 group hover:border-[#a78bfa]/30 transition-all ${isArabic ? "flex-row-reverse" : ""}`}
+              >
+                <div
+                  className={`flex items-center gap-4 ${isArabic ? "flex-row-reverse" : ""}`}
+                >
+                  <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#db2777] flex items-center justify-center">
+                    <span className="text-xs font-black text-white">
+                      {isArabic ? "EN" : "AR"}
+                    </span>
+                  </div>
+                  <div className={isArabic ? "text-right" : "text-left"}>
+                    <p className="text-[10px] font-bold text-white uppercase tracking-widest">
+                      {isArabic ? "Switch to" : "التبديل إلى"}
+                    </p>
+                    <p className="text-sm font-bold text-white">
+                      {isArabic ? "English" : "العربية"}
+                    </p>
+                  </div>
+                </div>
+                <svg
+                  className={`w-5 h-5 text-white ${isArabic ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </div>
+          </nav>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
