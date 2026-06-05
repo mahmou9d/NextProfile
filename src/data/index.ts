@@ -173,7 +173,7 @@ export const testimonials = [
     name: "Mahmoud",
     title: {
       EN: "Business Owner",
-      AR: "صاحب متجر إلكتروني",
+      AR: "صاحب العمل",
     },
     img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
   },
@@ -185,7 +185,7 @@ export const testimonials = [
     name: "Mahmoud Mohamed",
     title: {
       EN: "Business Owner",
-      AR: "صاحب متجر إلكتروني",
+      AR: "صاحب العمل",
     },
     img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
   },
