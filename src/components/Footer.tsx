@@ -1,5 +1,5 @@
 "use client";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import { useTranslation } from "./Usetranslation";
 
@@ -32,13 +32,16 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { Icon: FaFacebookF, link: "#" },
-    { Icon: FaTwitter, link: "#" },
+    {
+      Icon: FaFacebookF,
+      link: "https://www.facebook.com/profile.php?id=61587885578661",
+    },
+    { Icon: FaInstagram, link: "https://www.instagram.com/webvitas0/" },
     {
       Icon: FaLinkedinIn,
-      link: "https://www.linkedin.com/in/fo2sh1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      link: "https://www.linkedin.com/company/webvitas/",
     },
-    { Icon: FaGithub, link: "https://github.com/mahmou9d" },
+    // { Icon: FaGithub, link: "https://github.com/mahmou9d" },
   ];
 
   const bottomLinks = [
@@ -90,7 +93,7 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-white/50 text-base leading-relaxed max-w-sm">
+              <p className="text-gray-400 text-base leading-relaxed max-w-sm">
                 {t.footer.description}
               </p>
 
@@ -100,7 +103,7 @@ const Footer = () => {
                   <a key={idx} href={link} className="group relative w-12 h-12">
                     <div className="relative w-full h-full rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-[#a78bfa]/10 group-hover:border-[#a78bfa]/50 group-hover:shadow-[0_0_20px_-5px_rgba(167,139,250,0.4)] group-hover:-translate-y-1">
                       <Icon
-                        className="text-white/40 group-hover:text-[#a78bfa] transition-colors"
+                        className="text-gray-400 group-hover:text-[#a78bfa] transition-colors"
                         size={20}
                       />
                     </div>
@@ -119,7 +122,7 @@ const Footer = () => {
                   <a
                     key={idx}
                     href={link.href}
-                    className="group flex items-center gap-3 text-white/40 hover:text-white transition-colors text-sm font-medium"
+                    className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-medium"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#a78bfa] opacity-0 group-hover:opacity-100 transition-all group-hover:scale-150" />
                     <span>{link.label}</span>
@@ -136,10 +139,10 @@ const Footer = () => {
               <div className="space-y-6">
                 {contactInfo.map((item, idx) => (
                   <a key={idx} href={item.link} className="block group">
-                    <p className="text-white text-[10px] font-bold uppercase tracking-widest mb-1">
+                    <p className="text-white text-[14px] font-bold uppercase tracking-widest mb-1">
                       {item.label}
                     </p>
-                    <p className="text-white/60 group-hover:text-[#a78bfa] transition-colors text-sm">
+                    <p className="text-gray-400 group-hover:text-[#a78bfa] transition-colors text-sm">
                       {item.value}
                     </p>
                   </a>
@@ -152,7 +155,7 @@ const Footer = () => {
               <h3 className="font-syne text-lg font-bold text-white tracking-wider uppercase">
                 {t.footer.newsletter.title}
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 {t.footer.newsletter.description}
               </p>
 
@@ -160,7 +163,7 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder={t.footer.newsletter.placeholder}
-                  className={`w-full px-6 py-4 rounded-2xl bg-white/[0.02] border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-[#a78bfa]/50 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 transition-all duration-300 ${
+                  className={`w-full px-6 py-4 rounded-2xl bg-white/[0.02] border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-[#a78bfa]/50 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 transition-all duration-300 ${
                     isArabic ? "pl-28" : "pr-28"
                   }`}
                 />

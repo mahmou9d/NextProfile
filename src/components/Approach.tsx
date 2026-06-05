@@ -109,7 +109,7 @@ const Approach = () => {
                     <div className="w-12 h-[2px] bg-gradient-to-r from-[#a78bfa] to-transparent group-hover:w-20 transition-all duration-500" />
 
                     <p
-                      className={`text-white/50 text-lg leading-relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
+                      className={`text-gray-400 text-lg leading-relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
                     >
                       {card.description}
                     </p>

@@ -121,10 +121,10 @@ const Clients = () => {
                       />
                     </div>
                     <div className={isArabic ? "text-right" : "text-left"}>
-                      <h4 className="font-syne text-xl font-bold text-white tracking-tight group-hover:text-[#a78bfa] transition-colors duration-500">
+                      <h4 className="font-syne text-base font-bold text-white tracking-tight group-hover:text-[#a78bfa] transition-colors duration-500">
                         {testimonial.name}
                       </h4>
-                      <p className="text-white/40 text-sm font-semibold uppercase tracking-widest">
+                      <p className="text-gray-400 text-sm font-semibold uppercase tracking-widest">
                         {isArabic ? testimonial.title.AR : testimonial.title.EN}
                       </p>
                     </div>

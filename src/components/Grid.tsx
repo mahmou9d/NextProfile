@@ -51,7 +51,7 @@ const Grid = () => {
               <h3 className="font-syne text-4xl md:text-6xl font-extrabold tracking-tighter text-white leading-none">
                 {t.grid.cta.heading}
               </h3>
-              <p className="text-white/40 text-lg max-w-xl mx-auto font-medium">
+              <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium">
                 {t.grid.cta.description}
               </p>
             </div>
@@ -83,7 +83,7 @@ const Grid = () => {
 
               <Link
                 href={`${localePrefix}#about`}
-                className="font-syne text-lg font-bold text-white/40 transition-colors hover:text-white flex items-center gap-2 group/sec"
+                className="font-syne text-lg font-bold text-gray-400 transition-colors hover:text-white flex items-center gap-2 group/sec"
               >
                 {t.grid.cta.viewMore}
                 <span className="h-px w-0 bg-white transition-all group-hover/sec:w-8" />

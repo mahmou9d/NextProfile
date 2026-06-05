@@ -165,51 +165,57 @@ export const projects = [
   //   },
 ];
 export const testimonials = [
-    {
-        quote: {
-            EN: "We were stuck with a slow, outdated website that was hurting our brand. They rebuilt everything from scratch in just 5 weeks. Page load time went from 7 seconds to under 2 seconds. Our customers immediately noticed the difference and sales went up by 35% in the first month alone.",
-            AR: "كنا عالقين بموقع بطيء وقديم كان بيضر العلامة التجارية بتاعتنا. أعادوا بناء كل حاجة من الصفر في 5 أسابيع بس. وقت التحميل نزل من 7 ثواني لأقل من ثانيتين. العملاء لاحظوا الفرق على طول والمبيعات زادت 35% في أول شهر.",
-        },
-        name: "Karim Mansour",
-        title: { EN: "VP of Sales, TechFlow MENA", AR: "نائب مدير المبيعات، TechFlow الشرق الأوسط" },
-        img: "https://i.pravatar.cc/150?img=13",
+  {
+    quote: {
+      EN: "Honestly, what impressed us the most was how easy the whole process was. We sent our requirements, got regular updates, and ended up with a website that looks far better than we expected. The feedback from our customers has been amazing.",
+      AR: "بصراحة أكتر حاجة عجبتنا هي سهولة التعامل. بعتنا المطلوب، وكنا بنتابع كل خطوة أول بأول، وفي الآخر استلمنا موقع أحسن بكتير من اللي كنا متخيلينه. ردود فعل العملاء كانت ممتازة جدًا.",
     },
-    {
-        quote: {
-            EN: "Our previous developer disappeared halfway through the project leaving us with broken code. They stepped in, fixed all the issues in 10 days, and completed the entire platform in 3 weeks. The site now handles 10,000 daily visitors without any problems. Best decision we made this year.",
-            AR: "المطور السابق اختفى نص المشروع وساب لنا كود مكسور. تدخلوا، صلحوا كل المشاكل في 10 أيام، وكملوا المنصة كلها في 3 أسابيع. الموقع دلوقتي بيتحمل 10,000 زائر يومياً من غير أي مشاكل. أحسن قرار اتخذناه السنة دي.",
-        },
-        name: "Nour Abdallah",
-        title: { EN: "Founder, Daleel App", AR: "مؤسسة تطبيق دليل" },
-        img: "https://i.pravatar.cc/150?img=45",
+    name: "Mahmoud",
+    title: {
+      EN: "Business Owner",
+      AR: "صاحب متجر إلكتروني",
     },
-    {
-        quote: {
-            EN: "After working with 3 other agencies that promised big and delivered little, I was hesitant. But these guys were different - clear communication, realistic timelines, and they actually delivered what they showed in the mockups. Our admin dashboard is now so intuitive that we didn't need any training sessions.",
-            AR: "بعد ما اشتغلنا مع 3 شركات تانية وعدوا كتير وسلموا قليل، كنت متردد. بس الشباب دول كانوا مختلفين - تواصل واضح، مواعيد واقعية، وفعلاً سلموا اللي وروهولنا في التصاميم. لوحة التحكم بقت سهلة جداً لدرجة إننا ما احتجناش أي تدريب.",
-        },
-        name: "Tarek Fouad",
-        title: { EN: "CTO, CloudNest Systems", AR: "المدير التقني، CloudNest Systems" },
-        img: "https://i.pravatar.cc/150?img=52",
+    img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
+  },
+  {
+    quote: {
+      EN: "We were looking for a team that could build something modern without making the process complicated. They delivered exactly what we needed, stayed responsive throughout the project, and launched everything on schedule.",
+      AR: "كنا بندور على فريق يعمل موقع عصري من غير ما يعقد الدنيا. نفذوا كل اللي كنا محتاجينه بالضبط، وكانوا متابعين معانا طول فترة المشروع، واتسلم الموقع في الموعد المتفق عليه.",
     },
-    {
-        quote: {
-            EN: "We needed our booking system to work with our old database and everyone told us it was impossible. They found a solution, built the entire integration, and tested it with real customers before launch. Three months later and we haven't received a single complaint. The system handles 500 bookings per day smoothly.",
-            AR: "احتجنا نظام الحجز يشتغل مع قاعدة البيانات القديمة والكل قال مستحيل. لقوا حل، بنوا التكامل كله، وجربوه مع عملاء حقيقيين قبل الإطلاق. بعد 3 شهور وما وصلتناش ولا شكوى واحدة. النظام بيتعامل مع 500 حجز يومياً بسلاسة.",
-        },
-        name: "Mona Samir",
-        title: { EN: "Operations Manager, Horizon Logistics", AR: "مديرة العمليات، Horizon Logistics" },
-        img: "https://i.pravatar.cc/150?img=26",
+    name: "Mahmoud Mohamed",
+    title: {
+      EN: "Business Owner",
+      AR: "صاحب متجر إلكتروني",
     },
-    {
-        quote: {
-            EN: "Our budget was limited so they suggested we launch a basic version first and add features later. Smart approach. We went live in 4 weeks, gathered user feedback, then improved based on real data. Now we have 8,000 active users and the platform runs perfectly. They understood our business constraints and worked with them.",
-            AR: "الميزانية كانت محدودة فاقترحوا نطلق نسخة بسيطة الأول ونضيف مميزات بعدين. طريقة ذكية. أطلقنا في 4 أسابيع، جمعنا ملاحظات المستخدمين، وبعدين طورنا بناءً على بيانات حقيقية. دلوقتي عندنا 8,000 مستخدم نشط والمنصة شغالة تمام. فهموا قيود الشغل بتاعنا واشتغلوا معاها.",
-        },
-        name: "Hossam Zaki",
-        title: { EN: "Co-founder, Suq Online", AR: "شريك مؤسس، سوق أونلاين" },
-        img: "https://i.pravatar.cc/150?img=68",
-    },
+    img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
+  },
+  // {
+  //     quote: {
+  //         EN: "After working with 3 other agencies that promised big and delivered little, I was hesitant. But these guys were different - clear communication, realistic timelines, and they actually delivered what they showed in the mockups. Our admin dashboard is now so intuitive that we didn't need any training sessions.",
+  //         AR: "بعد ما اشتغلنا مع 3 شركات تانية وعدوا كتير وسلموا قليل، كنت متردد. بس الشباب دول كانوا مختلفين - تواصل واضح، مواعيد واقعية، وفعلاً سلموا اللي وروهولنا في التصاميم. لوحة التحكم بقت سهلة جداً لدرجة إننا ما احتجناش أي تدريب.",
+  //     },
+  //     name: "Tarek Fouad",
+  //     title: { EN: "CTO, CloudNest Systems", AR: "المدير التقني، CloudNest Systems" },
+  //     img: "https://i.pravatar.cc/150?img=52",
+  // },
+  // {
+  //     quote: {
+  //         EN: "We needed our booking system to work with our old database and everyone told us it was impossible. They found a solution, built the entire integration, and tested it with real customers before launch. Three months later and we haven't received a single complaint. The system handles 500 bookings per day smoothly.",
+  //         AR: "احتجنا نظام الحجز يشتغل مع قاعدة البيانات القديمة والكل قال مستحيل. لقوا حل، بنوا التكامل كله، وجربوه مع عملاء حقيقيين قبل الإطلاق. بعد 3 شهور وما وصلتناش ولا شكوى واحدة. النظام بيتعامل مع 500 حجز يومياً بسلاسة.",
+  //     },
+  //     name: "Mona Samir",
+  //     title: { EN: "Operations Manager, Horizon Logistics", AR: "مديرة العمليات، Horizon Logistics" },
+  //     img: "https://i.pravatar.cc/150?img=26",
+  // },
+  // {
+  //     quote: {
+  //         EN: "Our budget was limited so they suggested we launch a basic version first and add features later. Smart approach. We went live in 4 weeks, gathered user feedback, then improved based on real data. Now we have 8,000 active users and the platform runs perfectly. They understood our business constraints and worked with them.",
+  //         AR: "الميزانية كانت محدودة فاقترحوا نطلق نسخة بسيطة الأول ونضيف مميزات بعدين. طريقة ذكية. أطلقنا في 4 أسابيع، جمعنا ملاحظات المستخدمين، وبعدين طورنا بناءً على بيانات حقيقية. دلوقتي عندنا 8,000 مستخدم نشط والمنصة شغالة تمام. فهموا قيود الشغل بتاعنا واشتغلوا معاها.",
+  //     },
+  //     name: "Hossam Zaki",
+  //     title: { EN: "Co-founder, Suq Online", AR: "شريك مؤسس، سوق أونلاين" },
+  //     img: "https://i.pravatar.cc/150?img=68",
+  // },
 ];
 
 export const companies = [

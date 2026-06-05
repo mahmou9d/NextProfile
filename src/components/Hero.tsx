@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "./Usetranslation";
 
 const HeroROI = () => {
@@ -7,45 +7,52 @@ const HeroROI = () => {
   const localePrefix = isArabic ? "/ar" : "/en";
 
   const revenueRef = useRef<HTMLInputElement>(null);
-  const visitorsRef = useRef<HTMLInputElement>(null);
-  const convRef = useRef<HTMLInputElement>(null);
-  const aovRef = useRef<HTMLInputElement>(null);
+  const ordersRef = useRef<HTMLInputElement>(null);
+
+  const [barCurWidth, setBarCurWidth] = useState("8%");
+  const [barNewWidth, setBarNewWidth] = useState("90%");
+  const [results, setResults] = useState({
+    currentMonthly: "—",
+    newMonthly: "—",
+    yearlyGain: "—",
+    barCurNum: "—",
+    barNewNum: "—",
+    aovDisplay: "—",
+  });
 
   const fmt = (n: number) =>
     new Intl.NumberFormat("ar-EG").format(Math.round(n));
 
   const calc = () => {
-    const visitors = parseFloat(visitorsRef.current?.value || "0") || 0;
-    const conv = parseFloat(convRef.current?.value || "1.5") || 1.5;
-    const aov = parseFloat(aovRef.current?.value || "500") || 500;
+    const cur = parseFloat(revenueRef.current?.value || "0") || 0;
+    const orders = Math.max(
+      parseFloat(ordersRef.current?.value || "1") || 1,
+      1,
+    );
 
-    const convDisplay = document.getElementById("conv-display");
-    const aovDisplay = document.getElementById("aov-display");
-    if (convDisplay) convDisplay.textContent = conv.toFixed(1) + "%";
-    if (aovDisplay) aovDisplay.textContent = fmt(aov) + " EGP";
+    const aov = cur / orders;
 
-    const newConv = Math.min(conv * 2.4, 6.5);
-    const cur = visitors * (conv / 100) * aov;
-    const next = visitors * (newConv / 100) * aov * 1.35;
-    const yearly = (next - cur) * 12;
+    // Realistic uplift breakdown:
+    //   +20% from improved conversion rate (professional store UX)
+    //   +12% from higher average order value (better product pages / upsells)
+    //   +8%  from increased repeat purchases (trust & retention)
+    // Combined multiplier: 1.20 × 1.12 × 1.08 ≈ 1.45
+    const UPLIFT = 1.45;
+    const next = cur * UPLIFT;
+    const yearly = Math.max(0, (next - cur) * 12);
 
-    const set = (id: string, val: string) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = val;
-    };
+    const dynamicMax = Math.max(next * 1.1, 50000);
+    setBarCurWidth(Math.min(Math.max((cur / dynamicMax) * 100, 6), 55) + "%");
+    setBarNewWidth(Math.min(Math.max((next / dynamicMax) * 100, 50), 95) + "%");
 
-    set("current-monthly", fmt(cur) + " EGP");
-    set("new-monthly", fmt(next) + " EGP");
-    set("yearly-gain", fmt(yearly) + " EGP");
-    set("bar-cur-num", fmt(cur) + " EGP");
-    set("bar-new-num", fmt(next) + " EGP");
-
-    const mx = Math.max(cur, next, 1);
-    const barCur = document.getElementById("bar-cur") as HTMLElement | null;
-    const barNew = document.getElementById("bar-new") as HTMLElement | null;
-    if (barCur) barCur.style.width = Math.round((cur / mx) * 88) + "%";
-    if (barNew)
-      barNew.style.width = Math.min(Math.round((next / mx) * 88), 90) + "%";
+    setResults({
+      currentMonthly: fmt(cur) + " EGP",
+      newMonthly: fmt(next) + " EGP",
+      yearlyGain: fmt(yearly) + " EGP",
+      barCurNum: fmt(cur) + " EGP",
+      barNewNum: fmt(next) + " EGP",
+      aovDisplay: fmt(aov) + " EGP",
+    });
   };
 
   useEffect(() => {
@@ -74,7 +81,8 @@ const HeroROI = () => {
 
         .roi-h1 { font-size:clamp(40px,8vw,58px);font-weight:800;line-height:1.05;letter-spacing:-0.025em;color:#fff;margin-bottom:8px;animation:fadeUp 0.6s 0.18s both; }
         .roi-h1-grad { background:linear-gradient(90deg,#a78bfa 0%,#f472b6 55%,#fb923c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
-        .roi-sub { font-size:17px;font-weight:400;line-height:1.7;color:rgba(255,255,255,0.75);margin-bottom:40px;animation:fadeUp 0.6s 0.26s both;max-width:580px; }
+        .roi-sub { font-size:17px;font-weight:400;line-height:1.7;color:rgba(255,255,255,0.75);margin-bottom:16px;animation:fadeUp 0.6s 0.26s both;max-width:580px; }
+        .roi-ads-note { font-size:15px;font-weight:600;line-height:1.6;color:rgba(167,139,250,0.9);background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.22);border-radius:12px;padding:12px 18px;margin-bottom:32px;max-width:580px;animation:fadeUp 0.6s 0.32s both; }
 
         .roi-grid { display:grid;grid-template-columns:1fr 1fr;gap:24px;animation:fadeUp 0.7s 0.35s both; }
 
@@ -82,19 +90,17 @@ const HeroROI = () => {
         .roi-inputs-title { font-size:14px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:24px; }
 
         .roi-field { margin-bottom:20px; }
-        .roi-field label { display:block;font-size:15px;font-weight:600;color:rgba(255,255,255,0.75);margin-bottom:10px; }
+        .roi-field label { display:block;font-size:15px;font-weight:600;color:rgba(255,255,255,0.75);margin-bottom:4px; }
+        .roi-field-hint { font-size:12px;color:rgba(255,255,255,0.38);margin-bottom:10px;line-height:1.5; }
         .roi-field-row { display:flex;align-items:center; }
         .roi-currency { display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-left:none;border-radius:0 10px 10px 0;font-size:13px;font-weight:700;color:rgba(255,255,255,0.75);flex-shrink:0; }
         .roi-field input[type=number] { width:100%;height:48px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-right:none;border-radius:10px 0 0 10px;color:#fff;font-size:18px;font-weight:700;font-family:'Cairo',sans-serif;padding:0 16px;outline:none;transition:border-color 0.2s,background 0.2s;-moz-appearance:textfield; }
         .roi-field input::-webkit-outer-spin-button,.roi-field input::-webkit-inner-spin-button{-webkit-appearance:none;}
         .roi-field input:focus { border-color:rgba(167,139,250,0.5);background:rgba(124,58,237,0.05); }
 
-        .roi-range { margin-bottom:20px; }
-        .roi-range-lbl { display:flex;justify-content:space-between;align-items:center;margin-bottom:10px; }
-        .roi-range-name { font-size:15px;font-weight:600;color:rgba(255,255,255,0.75); }
-        .roi-range-val { font-size:15px;font-weight:800;background:linear-gradient(90deg,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
-        input[type=range] { -webkit-appearance:none;width:100%;height:4px;background:rgba(255,255,255,0.1);border-radius:99px;outline:none;cursor:pointer; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#db2777);box-shadow:0 0 10px rgba(124,58,237,0.6);cursor:pointer; }
+        .roi-insight { padding:14px 16px;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.18);border-radius:12px;margin-bottom:8px; }
+        .roi-insight-lbl { font-size:12px;color:rgba(255,255,255,0.45);margin:0 0 4px; }
+        .roi-insight-val { font-size:22px;font-weight:800;color:#a78bfa;margin:0; }
 
         .roi-results { display:flex;flex-direction:column;gap:16px; }
 
@@ -168,6 +174,12 @@ const HeroROI = () => {
               : "Enter your business numbers and see exactly what changes when you launch a professional store"}
           </p>
 
+          <p className="roi-ads-note">
+            {isArabic
+              ? "⚡ النتايج دي بتحصل لما بتشغّل إعلاناتك من خلال الموقع"
+              : "⚡ These results happen when you run your ads through the site"}
+          </p>
+
           <div className="roi-grid">
             {/* ── INPUTS ── */}
             <div className="roi-inputs">
@@ -175,84 +187,60 @@ const HeroROI = () => {
                 {isArabic ? "أرقام بيزنسك الحالية" : "Your Current Numbers"}
               </div>
 
+              {/* Input 1: Monthly Revenue */}
               <div className="roi-field">
                 <label>
-                  {isArabic
-                    ? "المبيعات الشهرية الحالية"
-                    : "Current Monthly Revenue"}
+                  {isArabic ? "مبيعاتك الشهرية" : "Monthly Revenue"}
                 </label>
+                <p className="roi-field-hint">
+                  {isArabic
+                    ? "الفلوس اللي بتدخل عليك من البيع كل شهر تقريباً"
+                    : "Roughly how much money comes in from sales each month"}
+                </p>
                 <div className="roi-field-row">
                   <input
                     ref={revenueRef}
                     type="number"
-                    defaultValue={30000}
-                    min={1000}
-                    max={10000000}
+                    defaultValue={10000}
+                    min={0}
                     onChange={calc}
                   />
                   <div className="roi-currency">EGP</div>
                 </div>
               </div>
 
+              {/* Input 2: Orders per Month */}
               <div className="roi-field">
                 <label>
-                  {isArabic ? "عدد الزوار الشهريين" : "Monthly Visitors"}
+                  {isArabic ? "عدد الطلبات في الشهر" : "Orders per Month"}
                 </label>
+                <p className="roi-field-hint">
+                  {isArabic
+                    ? "كام طلب أو عميل بتخدمهم تقريباً كل شهر؟"
+                    : "Roughly how many orders or customers do you serve each month?"}
+                </p>
                 <div className="roi-field-row">
                   <input
-                    ref={visitorsRef}
+                    ref={ordersRef}
                     type="number"
-                    defaultValue={2000}
-                    min={100}
-                    max={1000000}
+                    defaultValue={20}
+                    min={1}
                     onChange={calc}
                   />
                   <div className="roi-currency" style={{ fontSize: 12 }}>
-                    {isArabic ? "زائر" : "visitor"}
+                    {isArabic ? "طلب" : "orders"}
                   </div>
                 </div>
               </div>
 
-              <div className="roi-range">
-                <div className="roi-range-lbl">
-                  <span className="roi-range-name">
-                    {isArabic
-                      ? "معدل التحويل الحالي"
-                      : "Current Conversion Rate"}
-                  </span>
-                  <span className="roi-range-val" id="conv-display">
-                    1.5%
-                  </span>
-                </div>
-                <input
-                  ref={convRef}
-                  type="range"
-                  min={0.5}
-                  max={5}
-                  step={0.1}
-                  defaultValue={1.5}
-                  onChange={calc}
-                />
-              </div>
-
-              <div className="roi-range">
-                <div className="roi-range-lbl">
-                  <span className="roi-range-name">
-                    {isArabic ? "متوسط قيمة الأوردر" : "Average Order Value"}
-                  </span>
-                  <span className="roi-range-val" id="aov-display">
-                    500 EGP
-                  </span>
-                </div>
-                <input
-                  ref={aovRef}
-                  type="range"
-                  min={100}
-                  max={5000}
-                  step={50}
-                  defaultValue={500}
-                  onChange={calc}
-                />
+              {/* Derived insight */}
+              <div className="roi-insight">
+                <p className="roi-insight-lbl">
+                  {isArabic
+                    ? "متوسط قيمة الأوردر عندك"
+                    : "Your average order value"}
+                </p>
+                <p className="roi-insight-val">{results.aovDisplay}</p>
               </div>
             </div>
 
@@ -264,10 +252,8 @@ const HeroROI = () => {
                     ? "الزيادة السنوية المتوقعة"
                     : "Expected Yearly Increase"}
                 </div>
-                <div className="roi-card-val" id="yearly-gain">
-                  —
-                </div>
-                <div className="roi-card-sub" id="yearly-sub">
+                <div className="roi-card-val">{results.yearlyGain}</div>
+                <div className="roi-card-sub">
                   {isArabic
                     ? "بعد المتجر الاحترافي"
                     : "after your professional store"}
@@ -279,16 +265,14 @@ const HeroROI = () => {
                   <div className="roi-mini-lbl">
                     {isArabic ? "دلوقتي شهرياً" : "Current / Month"}
                   </div>
-                  <div className="roi-mini-val" id="current-monthly">
-                    —
-                  </div>
+                  <div className="roi-mini-val">{results.currentMonthly}</div>
                 </div>
                 <div className="roi-mini-card">
                   <div className="roi-mini-lbl">
                     {isArabic ? "بعد المتجر" : "After Store"}
                   </div>
-                  <div className="roi-mini-val-accent" id="new-monthly">
-                    —
+                  <div className="roi-mini-val-accent">
+                    {results.newMonthly}
                   </div>
                 </div>
               </div>
@@ -302,15 +286,12 @@ const HeroROI = () => {
                     <span className="roi-bar-name">
                       {isArabic ? "مبيعاتك دلوقتي" : "Current Sales"}
                     </span>
-                    <span className="roi-bar-num" id="bar-cur-num">
-                      —
-                    </span>
+                    <span className="roi-bar-num">{results.barCurNum}</span>
                   </div>
                   <div className="roi-bar-track">
                     <div
                       className="roi-bar-fill-cur"
-                      id="bar-cur"
-                      style={{ width: "30%" }}
+                      style={{ width: barCurWidth }}
                     />
                   </div>
                 </div>
@@ -319,15 +300,12 @@ const HeroROI = () => {
                     <span className="roi-bar-name">
                       {isArabic ? "بعد المتجر الاحترافي" : "After Pro Store"}
                     </span>
-                    <span className="roi-bar-num" id="bar-new-num">
-                      —
-                    </span>
+                    <span className="roi-bar-num">{results.barNewNum}</span>
                   </div>
                   <div className="roi-bar-track">
                     <div
                       className="roi-bar-fill-new"
-                      id="bar-new"
-                      style={{ width: "75%" }}
+                      style={{ width: barNewWidth }}
                     />
                   </div>
                 </div>

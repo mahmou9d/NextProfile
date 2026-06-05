@@ -54,7 +54,7 @@ const Card = ({ project, index }: CartProps) => {
               <h3 className="font-syne text-4xl md:text-5xl font-extrabold text-white leading-[0.9] tracking-tighter">
                 {isArabic ? project.title.AR : project.title.EN}
               </h3>
-              <p className="text-gray-400 text-sm max-w-sm line-clamp-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+              <p className="text-gray-400 text-sm flex line-clamp-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                 {isArabic ? project.description.AR : project.description.EN}
               </p>
             </div>

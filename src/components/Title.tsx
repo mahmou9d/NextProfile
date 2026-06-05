@@ -34,7 +34,7 @@ const Title = ({
 
       {/* ── High-Impact Typography ── */}
       <div className="max-w-7xl space-y-8">
-        <h2 className="font-syne font-black text-white/75 selection:bg-[#a78bfa]">
+        <h2 className="font-syne font-black text-white selection:bg-[#a78bfa]">
           <span className="inline-block text-3xl sm:text-4xl md:text-[5rem] leading-[1.2] pb-2">
             {title1}
           </span>
@@ -43,7 +43,7 @@ const Title = ({
               {title2}
             </span>
             {title3 && (
-              <span className="text-white/75 transition-colors duration-700 group-hover:text-white/40 leading-[1.3]">
+              <span className="text-white transition-colors duration-700 group-hover:text-white/40 leading-[1.3]">
                 {title3}
               </span>
             )}
@@ -52,7 +52,7 @@ const Title = ({
 
         {description && (
           <span>
-            <p className="max-w-2xl mx-auto text-white/40 text-lg md:text-xl font-medium leading-relaxed tracking-tight border-l-2 border-[#a78bfa]/20 pl-6 py-2 transition-all group-hover:border-[#a78bfa]/60">
+            <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-medium leading-relaxed tracking-tight border-l-2 border-[#a78bfa]/20 pl-6 py-2 transition-all group-hover:border-[#a78bfa]/60">
               {description}
             </p>
           </span>
