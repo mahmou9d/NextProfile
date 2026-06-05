@@ -162,7 +162,7 @@ const HeroROI = () => {
           </div>
 
           <h1 className="roi-h1">
-            {isArabic ? "متجرك الجديد" : "Your New Store"}
+            {isArabic ? "متجرك " : "Your Store"}
             <br />
             <span className="roi-h1-grad">
               {isArabic ? "هيكسبك أد إيه؟" : "How Much Will It Earn?"}
