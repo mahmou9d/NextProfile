@@ -315,7 +315,7 @@ const HeroROI = () => {
 
           {/* ── CTAs ── */}
           <div className="roi-ctas">
-            <a href={`${localePrefix}/contact`} className="roi-btn-main">
+            <a href={`${localePrefix}#contact`} className="roi-btn-main">
               {isArabic ? "ابني متجرك دلوقتي" : "Build My Store Now"}
               <svg
                 width="15"
@@ -336,9 +336,9 @@ const HeroROI = () => {
                 />
               </svg>
             </a>
-            <a href={`${localePrefix}#contact`} className="roi-btn-sec">
+            {/* <a href={`${localePrefix}#contact`} className="roi-btn-sec">
               {isArabic ? "استشارة مجانية" : "Free Consultation"}
-            </a>
+            </a> */}
           </div>
 
           <div className="roi-trust">
