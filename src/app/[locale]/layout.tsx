@@ -1,5 +1,18 @@
 // app/[locale]/layout.tsx
 import type { Metadata } from "next";
+import { Inter, Cairo } from "next/font/google";
+import "../globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const cairo = Cairo({
+  subsets: ["arabic"],
+  variable: "--font-cairo",
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 const locales = ["en", "ar"] as const;
 type Locale = (typeof locales)[number];
@@ -230,8 +243,19 @@ export async function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-  return <div>{children}</div>;
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+
+  return (
+    <html lang={locale} dir={isArabic ? "rtl" : "ltr"} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cairo.variable} font-sans antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
 }

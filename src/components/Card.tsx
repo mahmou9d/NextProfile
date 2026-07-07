@@ -12,7 +12,7 @@ const Card = ({ project, index }: CartProps) => {
   return (
     <article className="group relative h-full w-full">
       {/* Card Body */}
-      <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-[#0c0c14] border border-white/[0.05] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:border-purple-500/40 group-hover:shadow-[0_0_50px_-12px_rgba(167,139,250,0.3)] group-hover:translate-y-[-8px]">
+      <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] bg-[#0c0c14] border border-gray-400/[0.05] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:border-purple-500/40 group-hover:shadow-[0_0_50px_-12px_rgba(167,139,250,0.3)] group-hover:translate-y-[-8px]">
         {/* Background Reveal Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -33,7 +33,7 @@ const Card = ({ project, index }: CartProps) => {
               {project.icons?.slice(0, 3).map((tech, i) => (
                 <span
                   key={i}
-                  className="text-[9px] font-bold text-white/40 border border-white/10 px-2 py-1 rounded bg-black/20 backdrop-blur-md uppercase tracking-widest"
+                  className="text-[9px] font-bold text-gray-400/40 border border-gray-400/10 px-2 py-1 rounded bg-black/20 backdrop-blur-md uppercase -widest"
                 >
                   {tech}
                 </span>
@@ -41,7 +41,7 @@ const Card = ({ project, index }: CartProps) => {
             </div> */}
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/30  border border-red-500">
               <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-              <span className="text-[9px] font-black text-white/80 uppercase tracking-[2px]">
+              <span className="text-[9px] font-black text-gray-400/80 uppercase -[2px]">
                 {/* High ROI */}
                 Live
               </span>
@@ -51,15 +51,15 @@ const Card = ({ project, index }: CartProps) => {
           {/* Bottom Row: Text & CTA */}
           <div className="mt-auto space-y-4">
             <div className="space-y-2">
-              <h3 className="font-syne text-4xl md:text-5xl font-extrabold text-white leading-[0.9] tracking-tighter">
+              <h3 className="font-syne text-4xl md:text-5xl font-extrabold text-white -[0.9] -tighter">
                 {isArabic ? project.title.AR : project.title.EN}
               </h3>
-              <p className="text-gray-400 text-sm flex line-clamp-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+              <p className="text-gray-400 text-base flex line-clamp-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                 {isArabic ? project.description.AR : project.description.EN}
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-6 border-t border-white/5">
+            <div className="flex items-center justify-between pt-6 border-t border-gray-400/5">
               <a
                 href={project.link}
                 target="_blank"
@@ -81,17 +81,17 @@ const Card = ({ project, index }: CartProps) => {
                     />
                   </svg>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white">
+                <span className="text-sm font-bold uppercase -[0.2em] text-white">
                   {t.projects.buttons.viewProject}
                 </span>
               </a>
 
               <div className="flex flex-col text-right">
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[2px]">
+                <span className="text-xs font-bold text-gray-500 uppercase -[2px]">
                   Performance
                 </span>
                 <span className="text-lg font-syne font-black text-orange-400">
-                  99<span className="text-xs">/100</span>
+                  99<span className="text-sm">/100</span>
                 </span>
               </div>
             </div>

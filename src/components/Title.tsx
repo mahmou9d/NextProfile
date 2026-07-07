@@ -21,12 +21,12 @@ const Title = ({
       {/* ── Floating Tech Badge ── */}
       <div className="relative mb-10 overflow-hidden rounded-full p-[1px] transition-transform duration-500 hover:scale-105">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#a78bfa]/50 to-transparent animate-[scroll_3s_linear_infinite]" />
-        <div className="relative flex items-center gap-3 px-6 py-2 rounded-full bg-[#080810]/80 backdrop-blur-xl border border-white/5">
+        <div className="relative flex items-center gap-3 px-6 py-2 rounded-full bg-[#080810]/80 backdrop-blur-xl border border-gray-400/5">
           <div className="relative flex h-2 w-2">
             <div className="absolute inset-0 rounded-full bg-[#a78bfa] animate-ping opacity-40" />
             <div className="relative rounded-full h-2 w-2 bg-[#a78bfa] shadow-[0_0_10px_#a78bfa]" />
           </div>
-          <span className="text-xs font-black uppercase text-white/75">
+          <span className="text-sm font-black uppercase text-gray-400/75">
             {subtitle}
           </span>
         </div>
@@ -35,15 +35,15 @@ const Title = ({
       {/* ── High-Impact Typography ── */}
       <div className="max-w-7xl space-y-8">
         <h2 className="font-syne font-black text-white selection:bg-[#a78bfa]">
-          <span className="inline-block text-3xl sm:text-4xl md:text-[5rem] leading-[1.2] pb-2">
+          <span className="inline-block text-3xl sm:text-4xl md:text-[5rem] -[1.2] pb-2">
             {title1}
           </span>
           <div className="flex flex-wrap text-3xl sm:text-4xl md:text-[5rem] items-center justify-center gap-x-6 mt-2 py-3">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#fb923c] italic font-extrabold leading-[1.3]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#fb923c] italic font-extrabold -[1.3]">
               {title2}
             </span>
             {title3 && (
-              <span className="text-white transition-colors duration-700 group-hover:text-white/40 leading-[1.3]">
+              <span className="text-white transition-colors duration-700 group-hover:text-gray-400/40 -[1.3]">
                 {title3}
               </span>
             )}
@@ -52,7 +52,7 @@ const Title = ({
 
         {description && (
           <span>
-            <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-medium leading-relaxed tracking-tight border-l-2 border-[#a78bfa]/20 pl-6 py-2 transition-all group-hover:border-[#a78bfa]/60">
+            <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-medium -relaxed -tight border-l-2 border-[#a78bfa]/20 pl-6 py-2 transition-all group-hover:border-[#a78bfa]/60">
               {description}
             </p>
           </span>

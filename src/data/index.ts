@@ -1,66 +1,98 @@
-
 export const navItems = [
-    { name: { EN: "About", AR: "من نحن" }, link: "#about" },
-    { name: { EN: "Projects", AR: "مشاريعنا" }, link: "#projects" },
-    { name: { EN: "Testimonials", AR: "آراء العملاء" }, link: "#testimonials" },
-    { name: { EN: "Contact", AR: "اتصل بنا" }, link: "#contact" },
+  { name: { EN: "About", AR: "من نحن" }, link: "#about" },
+  { name: { EN: "Projects", AR: "مشاريعنا" }, link: "#projects" },
+  { name: { EN: "Testimonials", AR: "آراء العملاء" }, link: "#testimonials" },
+  // { name: { EN: "Contact", AR: "اتصل بنا" }, link: "#contact" },
 ];
 
 export const gridItems = [
-    {
-        id: 1,
-        title: { EN: "Create Stunning Landing Pages", AR: "اصنع صفحات هبوط مذهلة" },
-        description: { EN: "High-converting pages to boost your business.", AR: "صفحات عالية التحويل لتعزيز أعمالك." },
-        className: "lg:col-span-3 md:col-span-6 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/98ecb4507f2ca027a972216016de2a67543fca79",
+  {
+    id: 1,
+    title: { EN: "Create Stunning Landing Pages", AR: "اصنع صفحات هبوط مذهلة" },
+    description: {
+      EN: "High-converting pages to boost your business.",
+      AR: "صفحات عالية التحويل لتعزيز أعمالك.",
     },
-    {
-        id: 2,
-        title: { EN: "Launch Your E-Commerce Store", AR: "أطلق متجرك الإلكتروني" },
-        description: { EN: "Custom online stores with seamless shopping experience.", AR: "متاجر إلكترونية مخصصة مع تجربة تسوق سلسة." },
-        className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/c4a6bd7cfc75f912cc5de90aa079b83fbd1cfb93.png",
+    className:
+      "lg:col-span-3 md:col-span-6 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/98ecb4507f2ca027a972216016de2a67543fca79",
+  },
+  {
+    id: 2,
+    title: { EN: "Launch Your E-Commerce Store", AR: "أطلق متجرك الإلكتروني" },
+    description: {
+      EN: "Custom online stores with seamless shopping experience.",
+      AR: "متاجر إلكترونية مخصصة مع تجربة تسوق سلسة.",
     },
-    {
-        id: 3,
-        title: { EN: "Engaging Blogs & Content Sites", AR: "مواقع مدونات ومحتوى جذابة" },
-        description: { EN: "Engage your audience with dynamic content platforms.", AR: "تفاعل مع جمهورك عبر منصات محتوى ديناميكية." },
-        className: "lg:col-span-2 md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/ae6525e6a73013ab0ef5cd3017b862d1ab5967a3.png",
+    className:
+      "lg:col-span-2 md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/c4a6bd7cfc75f912cc5de90aa079b83fbd1cfb93.png",
+  },
+  {
+    id: 3,
+    title: {
+      EN: "Engaging Blogs & Content Sites",
+      AR: "مواقع مدونات ومحتوى جذابة",
     },
-    {
-        id: 4,
-        title: { EN: "Your Work with Portfolios", AR: "اعرض أعمالك عبر البورتفوليو" },
-        description: { EN: "Showcase your work with a sleek modern design.", AR: "اعرض أعمالك بتصميم عصري وأنيق." },
-        className: "lg:col-span-2 md:col-span-3 md:row-span-1 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/0d16195c821f5d4ff5e9f8341c80c5d651a323fe.png",
+    description: {
+      EN: "Engage your audience with dynamic content platforms.",
+      AR: "تفاعل مع جمهورك عبر منصات محتوى ديناميكية.",
     },
-    {
-        id: 5,
-        title: { EN: "Professional Corporate Websites", AR: "مواقع شركات احترافية" },
-        description: { EN: "Professional websites for companies and startups.", AR: "مواقع احترافية للشركات والمشاريع الناشئة." },
-        className: "md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/1faa9ddf887b25c337896ca5bccc8c700389146f.png",
+    className:
+      "lg:col-span-2 md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/ae6525e6a73013ab0ef5cd3017b862d1ab5967a3.png",
+  },
+  {
+    id: 4,
+    title: {
+      EN: "Your Work with Portfolios",
+      AR: "اعرض أعمالك عبر البورتفوليو",
     },
-    {
-        id: 7,
-        title: { EN: "Interactive Platforms", AR: "منصات تفاعلية" },
-        description: { EN: "Interactive learning sites for schools and online courses.", AR: "مواقع تعليمية تفاعلية للمدارس والدورات الإلكترونية." },
-        className: "lg:col-span-2 md:col-span-3 md:row-span-1 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
-        imgClassName: "w-full h-full object-cover rounded-3xl",
-        titleClassName: "text-3xl font-extrabold mb-2",
-        img: "https://profile-ipz4.vercel.app/images/Screenshot%202025-11-06%20110958.png",
+    description: {
+      EN: "Showcase your work with a sleek modern design.",
+      AR: "اعرض أعمالك بتصميم عصري وأنيق.",
     },
+    className:
+      "lg:col-span-2 md:col-span-3 md:row-span-1 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/0d16195c821f5d4ff5e9f8341c80c5d651a323fe.png",
+  },
+  {
+    id: 5,
+    title: {
+      EN: "Professional Corporate Websites",
+      AR: "مواقع شركات احترافية",
+    },
+    description: {
+      EN: "Professional websites for companies and startups.",
+      AR: "مواقع احترافية للشركات والمشاريع الناشئة.",
+    },
+    className:
+      "md:col-span-3 md:row-span-2 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://s3-figma-hubfile-images-production.figma.com/hub/file/carousel/img/resized/1200x720/1faa9ddf887b25c337896ca5bccc8c700389146f.png",
+  },
+  {
+    id: 7,
+    title: { EN: "Interactive Platforms", AR: "منصات تفاعلية" },
+    description: {
+      EN: "Interactive learning sites for schools and online courses.",
+      AR: "مواقع تعليمية تفاعلية للمدارس والدورات الإلكترونية.",
+    },
+    className:
+      "lg:col-span-2 md:col-span-3 md:row-span-1 text-white p-6 rounded-3xl shadow-2xl hover:scale-105 transition-transform",
+    imgClassName: "w-full h-full object-cover rounded-3xl",
+    titleClassName: "text-3xl font-extrabold mb-2",
+    img: "https://profile-ipz4.vercel.app/images/Screenshot%202025-11-06%20110958.png",
+  },
 ];
 export const projects = [
   {
@@ -75,6 +107,16 @@ export const projects = [
   },
   {
     id: 2,
+    title: { EN: "Roltco.", AR: "Roltco." },
+    img: "/Gemini_Generated_Image_kneuv7kneuv7kneu.png",
+    link: "https://pre-three-psi.vercel.app/",
+    description: {
+      EN: "A premium fragrance e-commerce platform designed to highlight luxury perfume collections. With an elegant interface, seamless navigation, and a refined shopping experience, Misk Stores reflects the sophistication of modern perfume brands.",
+      AR: "متجر إلكتروني فاخر للعطور مصمم لإبراز مجموعات العطور الراقية. يتميز بواجهة أنيقة وتجربة تصفح مريحة وتجربة تسوق متكاملة تعكس فخامة العلامات التجارية الحديثة للعطور.",
+    },
+  },
+  {
+    id: 3,
     title: { EN: "Misk Stores", AR: "Misk Stores" },
     img: "/ChatGPT Image Jun 4, 2026, 06_11_29 PM.png",
     link: "https://miskstores.com",
@@ -219,46 +261,72 @@ export const testimonials = [
 ];
 
 export const companies = [
-    { id: 1, name: "cloudinary", imgdark: "/cloud copy.svg", nameImg: "/cloud.svg" },
-    { id: 2, name: "nextjs", imgdark: "/nextjs-icon-svgrepo-com copy.svg", nameImg: "/nextjs-icon-svgrepo-com.svg" },
-    { id: 3, name: "react", nameImg: "/react-svgrepo-com.svg" },
-    { id: 4, name: "stream", imgdark: "/streamName copy.svg", nameImg: "/streamName.svg" },
-    { id: 5, name: "python", nameImg: "/python-svgrepo-com.svg" },
-    { id: 6, name: "django", nameImg: "/django-svgrepo-com.svg" },
-    { id: 7, name: "motion", nameImg: "/fm.svg" },
-    { id: 8, name: "host", nameImg: "/host.svg" },
-    { id: 9, name: "nodejs", nameImg: "/nodejs.svg" },
-    { id: 10, name: "host", nameImg: "/express.svg" },
-
+  {
+    id: 1,
+    name: "cloudinary",
+    imgdark: "/cloud copy.svg",
+    nameImg: "/cloud.svg",
+  },
+  {
+    id: 2,
+    name: "nextjs",
+    imgdark: "/nextjs-icon-svgrepo-com copy.svg",
+    nameImg: "/nextjs-icon-svgrepo-com.svg",
+  },
+  { id: 3, name: "react", nameImg: "/react-svgrepo-com.svg" },
+  {
+    id: 4,
+    name: "stream",
+    imgdark: "/streamName copy.svg",
+    nameImg: "/streamName.svg",
+  },
+  { id: 5, name: "python", nameImg: "/python-svgrepo-com.svg" },
+  { id: 6, name: "django", nameImg: "/django-svgrepo-com.svg" },
+  { id: 7, name: "motion", nameImg: "/fm.svg" },
+  { id: 8, name: "host", nameImg: "/host.svg" },
+  { id: 9, name: "nodejs", nameImg: "/nodejs.svg" },
+  { id: 10, name: "host", nameImg: "/express.svg" },
 ];
 
 export const workExperience = [
-    {
-        id: 1,
-        title: { EN: "Frontend Developer", AR: "مطور واجهات" },
-        desc: { EN: "Built responsive and high-converting websites using React.js and Tailwind CSS, focusing on UI/UX and interactive components.", AR: "بناء مواقع متجاوبة وعالية التحويل باستخدام React.js و Tailwind CSS مع التركيز على UI/UX والمكونات التفاعلية." },
-        className: "md:col-span-2",
-        thumbnail: "/exp1.svg",
+  {
+    id: 1,
+    title: { EN: "Frontend Developer", AR: "مطور واجهات" },
+    desc: {
+      EN: "Built responsive and high-converting websites using React.js and Tailwind CSS, focusing on UI/UX and interactive components.",
+      AR: "بناء مواقع متجاوبة وعالية التحويل باستخدام React.js و Tailwind CSS مع التركيز على UI/UX والمكونات التفاعلية.",
     },
-    {
-        id: 2,
-        title: { EN: "Backend Developer", AR: "مطور باك إند" },
-        desc: { EN: "Developed server-side logic, APIs, and database integration to ensure fast, secure, and scalable web applications.", AR: "تطوير منطق الخادم، APIs، ودمج قواعد البيانات لضمان تطبيقات ويب سريعة وآمنة وقابلة للتوسع." },
-        className: "md:col-span-2",
-        thumbnail: "/exp2.svg",
+    className: "md:col-span-2",
+    thumbnail: "/exp1.svg",
+  },
+  {
+    id: 2,
+    title: { EN: "Backend Developer", AR: "مطور باك إند" },
+    desc: {
+      EN: "Developed server-side logic, APIs, and database integration to ensure fast, secure, and scalable web applications.",
+      AR: "تطوير منطق الخادم، APIs، ودمج قواعد البيانات لضمان تطبيقات ويب سريعة وآمنة وقابلة للتوسع.",
     },
-    {
-        id: 3,
-        title: { EN: "Full-Stack Web Developer", AR: "مطور ويب كامل" },
-        desc: { EN: "Delivered end-to-end web solutions, combining frontend and backend skills to build complete, functional websites for clients.", AR: "تقديم حلول ويب متكاملة، تجمع بين مهارات الواجهة الأمامية والخلفية لبناء مواقع كاملة للعملاء." },
-        className: "md:col-span-2",
-        thumbnail: "/exp3.svg",
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+  },
+  {
+    id: 3,
+    title: { EN: "Full-Stack Web Developer", AR: "مطور ويب كامل" },
+    desc: {
+      EN: "Delivered end-to-end web solutions, combining frontend and backend skills to build complete, functional websites for clients.",
+      AR: "تقديم حلول ويب متكاملة، تجمع بين مهارات الواجهة الأمامية والخلفية لبناء مواقع كاملة للعملاء.",
     },
-    {
-        id: 4,
-        title: { EN: "Web Performance & Deployment", AR: "أداء ونشر المواقع" },
-        desc: { EN: "Optimized website speed, SEO, and deployed web projects on cloud platforms, ensuring seamless performance and scalability.", AR: "تحسين سرعة الموقع، SEO، ونشر المشاريع على منصات سحابية لضمان أداء سلس وقابلية التوسع." },
-        className: "md:col-span-2",
-        thumbnail: "/exp4.svg",
+    className: "md:col-span-2",
+    thumbnail: "/exp3.svg",
+  },
+  {
+    id: 4,
+    title: { EN: "Web Performance & Deployment", AR: "أداء ونشر المواقع" },
+    desc: {
+      EN: "Optimized website speed, SEO, and deployed web projects on cloud platforms, ensuring seamless performance and scalability.",
+      AR: "تحسين سرعة الموقع، SEO، ونشر المشاريع على منصات سحابية لضمان أداء سلس وقابلية التوسع.",
     },
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
+  },
 ];

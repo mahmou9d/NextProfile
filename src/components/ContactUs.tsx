@@ -276,7 +276,7 @@ const ContactUs = () => {
               className={`lg:col-span-7 group relative p-[1px] rounded-[2.5rem] overflow-hidden transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"}`}
             >
               {/* Animated Border Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
 
               <div
                 className="relative h-full p-8 md:p-12 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col"
@@ -302,7 +302,7 @@ const ContactUs = () => {
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-white/75 uppercase tracking-[0.2em] px-1">
+                      <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
                         {t.contact.form.namePlaceholder}
                       </label>
                       <div className="relative">
@@ -311,7 +311,7 @@ const ContactUs = () => {
                           name="name"
                           value={form.name}
                           onChange={handleChange}
-                          className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all"
+                          className="w-full px-6 py-4 rounded-2xl bg-gray-400/[0.03] border border-gray-400/10 text-gray-400/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-gray-400/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all"
                         />
                         {errors.name && (
                           <p className="text-[#f472b6] text-sm font-bold mt-2 animate-pulse">
@@ -322,7 +322,7 @@ const ContactUs = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-white/75 uppercase tracking-[0.2em] px-1">
+                      <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
                         {t.contact.form.emailPlaceholder}
                       </label>
                       <div className="relative">
@@ -331,7 +331,7 @@ const ContactUs = () => {
                           name="email"
                           value={form.email}
                           onChange={handleChange}
-                          className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all"
+                          className="w-full px-6 py-4 rounded-2xl bg-gray-400/[0.03] border border-gray-400/10 text-gray-400/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-gray-400/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all"
                         />
                         {errors.email && (
                           <p className="text-[#f472b6] text-sm font-bold mt-2 animate-pulse">
@@ -343,10 +343,10 @@ const ContactUs = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-white/75 uppercase tracking-[0.2em] px-1">
+                    <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
                       {isArabic
                         ? "المرفقات ( اختياريه )"
-                        :"Attachments (optional)"}
+                        : "Attachments (optional)"}
                     </label>
                     <div
                       className="relative group/file"
@@ -365,8 +365,8 @@ const ContactUs = () => {
                         htmlFor="file-upload"
                         className={`flex items-center justify-between w-full px-6 py-4 rounded-2xl border backdrop-blur-3xl transition-all cursor-pointer ${
                           isDragging
-                            ? "border-[#a78bfa] bg-white/[0.08] shadow-[0_0_30px_rgba(167,139,250,0.1)]"
-                            : "border-white/10 bg-white/[0.03] text-white/75 group-hover/file:border-[#a78bfa]/30 group-hover/file:bg-white/[0.05]"
+                            ? "border-[#a78bfa] bg-gray-400/[0.08] shadow-[0_0_30px_rgba(167,139,250,0.1)]"
+                            : "border-gray-400/10 bg-gray-400/[0.03] text-gray-400/75 group-hover/file:border-[#a78bfa]/30 group-hover/file:bg-gray-400/[0.05]"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -385,7 +385,7 @@ const ContactUs = () => {
                                   : "Drag & drop project file..."}
                           </span>
                         </div>
-                        <span className="text-sm font-black uppercase tracking-widest text-white/75 bg-white/5 px-2 py-1 rounded-lg">
+                        <span className="text-sm font-black uppercase -widest text-gray-400/75 bg-gray-400/5 px-2 py-1 rounded-lg">
                           {isArabic ? "تصفح" : "Browse"}
                         </span>
                       </label>
@@ -398,14 +398,14 @@ const ContactUs = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-white/75 uppercase tracking-[0.2em] px-1">
+                    <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
                       {t.contact.form.messagePlaceholder}
                     </label>
                     <textarea
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all min-h-[160px] resize-none"
+                      className="w-full px-6 py-4 rounded-2xl bg-gray-400/[0.03] border border-gray-400/10 text-gray-400/75 focus:outline-none focus:border-[#a78bfa]/60 focus:bg-gray-400/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 focus:shadow-[0_0_25px_-5px_rgba(167,139,250,0.3)] transition-all min-h-[160px] resize-none"
                     />
                     {errors.message && (
                       <p className="text-[#f472b6] text-sm font-bold mt-2 animate-pulse">
@@ -417,11 +417,11 @@ const ContactUs = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative py-5 rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white/75 font-syne font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.5)] transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3"
+                    className="w-full relative py-5 rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-gray-400/75 font-syne font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.5)] transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-gray-400/30 border-t-white rounded-full animate-spin" />
                         <span>{t.contact.form.submittingButton}</span>
                       </div>
                     ) : (
@@ -452,7 +452,7 @@ const ContactUs = () => {
                   className={`group relative p-[1px] rounded-[2rem] overflow-hidden transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}
                   style={{ transitionDelay: `${(idx + 3) * 150}ms` }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 group-hover:from-[#a78bfa]/40 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-400/10 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/40 transition-colors duration-500" />
                   <div
                     className="relative p-8 rounded-[2rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex items-center gap-6"
                     style={{
@@ -460,14 +460,14 @@ const ContactUs = () => {
                       transition: "transform 0.3s ease-out",
                     }}
                   >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[#a78bfa] group-hover:scale-110 group-hover:bg-[#a78bfa] group-hover:text-white/75 transition-all duration-500">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[#a78bfa] group-hover:scale-110 group-hover:bg-[#a78bfa] group-hover:text-gray-400/75 transition-all duration-500">
                       {info.icon}
                     </div>
                     <div className={isArabic ? "text-right" : "text-left"}>
-                      <h4 className="text-sm font-bold text-white/75 uppercase tracking-[0.2em] mb-1">
+                      <h4 className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] mb-1">
                         {info.title}
                       </h4>
-                      <p className="text-lg font-bold text-white/75 tracking-tight">
+                      <p className="text-lg font-bold text-gray-400/75 -tight">
                         {info.value}
                       </p>
                     </div>
@@ -483,10 +483,10 @@ const ContactUs = () => {
                   <a
                     key={idx}
                     href={item.link}
-                    className="group relative p-6 rounded-[1.5rem] bg-white/[0.02] border border-white/5 flex flex-col items-center gap-3 hover:bg-[#a78bfa]/5 hover:border-[#a78bfa]/30 transition-all duration-500"
+                    className="group relative p-6 rounded-[1.5rem] bg-gray-400/[0.02] border border-gray-400/5 flex flex-col items-center gap-3 hover:bg-[#a78bfa]/5 hover:border-[#a78bfa]/30 transition-all duration-500"
                   >
-                    <item.Icon className="text-2xl text-white/75 group-hover:text-[#a78bfa] group-hover:scale-110 transition-all duration-500" />
-                    <span className="text-sm font-bold text-white/75 uppercase tracking-widest group-hover:text-white/60 transition-colors">
+                    <item.Icon className="text-2xl text-gray-400/75 group-hover:text-[#a78bfa] group-hover:scale-110 transition-all duration-500" />
+                    <span className="text-sm font-bold text-gray-400/75 uppercase -widest group-hover:text-gray-400/60 transition-colors">
                       {item.label}
                     </span>
                   </a>
@@ -496,7 +496,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400/10 to-transparent" />
       </section>
     </>
   );

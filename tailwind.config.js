@@ -34,6 +34,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "sans-serif"],
+      },
       colors: {
         black: {
           DEFAULT: "#000",

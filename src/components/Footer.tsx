@@ -1,5 +1,11 @@
 "use client";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaGithub,
+  FaInstagram,
+} from "react-icons/fa";
 import Image from "next/image";
 import { useTranslation } from "./Usetranslation";
 
@@ -65,7 +71,7 @@ const Footer = () => {
       `}</style>
       <footer
         dir={dir}
-        className="relative w-full overflow-hidden pt-24 pb-12 bg-[#080810] border-t border-white/5"
+        className="relative w-full overflow-hidden pt-24 pb-12 bg-[#080810] border-t border-gray-400/5"
       >
         {/* Background Decorative Orbs - Animated & Color Changing */}
         <div
@@ -93,7 +99,7 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-gray-400 text-base leading-relaxed max-w-sm">
+              <p className="text-gray-400 text-base -relaxed max-w-sm">
                 {t.footer.description}
               </p>
 
@@ -101,7 +107,7 @@ const Footer = () => {
               <div className="flex gap-4">
                 {socialLinks.map(({ Icon, link }, idx) => (
                   <a key={idx} href={link} className="group relative w-12 h-12">
-                    <div className="relative w-full h-full rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-[#a78bfa]/10 group-hover:border-[#a78bfa]/50 group-hover:shadow-[0_0_20px_-5px_rgba(167,139,250,0.4)] group-hover:-translate-y-1">
+                    <div className="relative w-full h-full rounded-2xl bg-gray-400/[0.03] border border-gray-400/10 flex items-center justify-center transition-all duration-500 group-hover:bg-[#a78bfa]/10 group-hover:border-[#a78bfa]/50 group-hover:shadow-[0_0_20px_-5px_rgba(167,139,250,0.4)] group-hover:-translate-y-1">
                       <Icon
                         className="text-gray-400 group-hover:text-[#a78bfa] transition-colors"
                         size={20}
@@ -114,7 +120,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="lg:col-span-2 space-y-8">
-              <h3 className="font-syne text-lg font-bold text-white tracking-wider uppercase">
+              <h3 className="font-syne text-lg font-bold text-white -wider uppercase">
                 {t.footer.quickLinks.title}
               </h3>
               <div className="space-y-4">
@@ -122,7 +128,7 @@ const Footer = () => {
                   <a
                     key={idx}
                     href={link.href}
-                    className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                    className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-base font-medium"
                   >
                     <span className="w-1 h-1 rounded-full bg-[#a78bfa] opacity-0 group-hover:opacity-100 transition-all group-hover:scale-150" />
                     <span>{link.label}</span>
@@ -133,16 +139,16 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-8">
-              <h3 className="font-syne text-lg font-bold text-white tracking-wider uppercase">
+              <h3 className="font-syne text-lg font-bold text-white -wider uppercase">
                 {t.footer.contactInfo.title}
               </h3>
               <div className="space-y-6">
                 {contactInfo.map((item, idx) => (
                   <a key={idx} href={item.link} className="block group">
-                    <p className="text-white text-[14px] font-bold uppercase tracking-widest mb-1">
+                    <p className="text-white text-[14px] font-bold uppercase -widest mb-1">
                       {item.label}
                     </p>
-                    <p className="text-gray-400 group-hover:text-[#a78bfa] transition-colors text-sm">
+                    <p className="text-gray-400 group-hover:text-[#a78bfa] transition-colors text-base">
                       {item.value}
                     </p>
                   </a>
@@ -152,10 +158,10 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div className="lg:col-span-4 space-y-8">
-              <h3 className="font-syne text-lg font-bold text-white tracking-wider uppercase">
+              <h3 className="font-syne text-lg font-bold text-white -wider uppercase">
                 {t.footer.newsletter.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-base -relaxed">
                 {t.footer.newsletter.description}
               </p>
 
@@ -163,12 +169,12 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder={t.footer.newsletter.placeholder}
-                  className={`w-full px-6 py-4 rounded-2xl bg-white/[0.02] border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-[#a78bfa]/50 focus:bg-white/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 transition-all duration-300 ${
+                  className={`w-full px-6 py-4 rounded-2xl bg-gray-400/[0.02] border border-gray-400/10 text-white placeholder-gray-400 focus:outline-none focus:border-[#a78bfa]/50 focus:bg-gray-400/[0.05] focus:ring-4 focus:ring-[#a78bfa]/10 transition-all duration-300 ${
                     isArabic ? "pl-28" : "pr-28"
                   }`}
                 />
                 <button
-                  className={`absolute top-2 bottom-2 px-6 rounded-xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white text-xs font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all active:scale-95 ${
+                  className={`absolute top-2 bottom-2 px-6 rounded-xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white text-sm font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all active:scale-95 ${
                     isArabic ? "left-2" : "right-2"
                   }`}
                 >
@@ -179,12 +185,12 @@ const Footer = () => {
           </div>
 
           {/* Creative Divider */}
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12" />
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-400/10 to-transparent mb-12" />
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
-            <p className="text-white text-xs font-medium tracking-wide">
+            <p className="text-white text-sm font-medium -wide">
               {t.footer.copyright}
             </p>
 
@@ -194,7 +200,7 @@ const Footer = () => {
                 <a
                   key={idx}
                   href={item.link}
-                  className="text-white text-xs font-medium hover:text-[#a78bfa] transition-colors"
+                  className="text-white text-sm font-medium hover:text-[#a78bfa] transition-colors"
                 >
                   {item.label}
                 </a>

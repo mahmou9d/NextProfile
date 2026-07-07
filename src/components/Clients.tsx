@@ -69,7 +69,7 @@ const Clients = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Animated Border Gradient - #a78bfa = Violet 400 (The Purple color you requested) */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
 
               {/* Main Card Content */}
               <div className="relative h-full p-10 md:p-14 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col">
@@ -86,14 +86,14 @@ const Clients = () => {
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-10">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 group-hover:scale-110 transition-transform duration-500">
-                      <span className="text-3xl font-serif text-[#a78bfa] leading-none mt-2">
+                      <span className="text-3xl font-serif text-[#a78bfa] -none mt-2">
                         "
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#22d98a]/10 border border-[#22d98a]/20">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#22d98a] animate-pulse" />
-                      <span className="text-[10px] font-bold text-[#22d98a] uppercase tracking-widest">
+                      <span className="text-[10px] font-bold text-[#22d98a] uppercase -widest">
                         {isArabic ? "موثق" : "Verified"}
                       </span>
                     </div>
@@ -103,14 +103,14 @@ const Clients = () => {
                     className={`relative ${isArabic ? "text-right" : "text-left"}`}
                   >
                     <p
-                      className={`text-white/90 text-xl md:text-2xl font-medium leading-relaxed mb-14 italic ${isArabic ? "font-cairo" : "font-syne"}`}
+                      className={`text-gray-400/90 text-xl md:text-2xl font-medium -relaxed mb-14 italic ${isArabic ? "font-cairo" : "font-syne"}`}
                     >
                       "{isArabic ? testimonial.quote.AR : testimonial.quote.EN}"
                     </p>
                   </blockquote>
 
                   <div
-                    className={`mt-auto flex items-center gap-5 pt-8 border-t border-white/10 ${isArabic ? "flex-row-reverse" : ""}`}
+                    className={`mt-auto flex items-center gap-5 pt-8 border-t border-gray-400/10 ${isArabic ? "flex-row-reverse" : ""}`}
                   >
                     <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#a78bfa]/30 group-hover:border-[#a78bfa] transition-all duration-500">
                       <Image
@@ -121,10 +121,10 @@ const Clients = () => {
                       />
                     </div>
                     <div className={isArabic ? "text-right" : "text-left"}>
-                      <h4 className="font-syne text-base font-bold text-white tracking-tight group-hover:text-[#a78bfa] transition-colors duration-500">
+                      <h4 className="font-syne text-base font-bold text-white -tight group-hover:text-[#a78bfa] transition-colors duration-500">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-400 text-sm font-semibold uppercase tracking-widest">
+                      <p className="text-gray-400 text-base font-semibold uppercase -widest">
                         {isArabic ? testimonial.title.AR : testimonial.title.EN}
                       </p>
                     </div>
@@ -137,7 +137,7 @@ const Clients = () => {
       </div>
 
       {/* Creative Divider */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400/10 to-transparent" />
     </section>
   );
 };

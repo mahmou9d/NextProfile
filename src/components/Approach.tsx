@@ -68,10 +68,10 @@ const Approach = () => {
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               {/* Animated Border Shine */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
 
               {/* Card Body */}
-              <div className="relative h-full min-h-[420px] p-10 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col border border-white/5">
+              <div className="relative h-full min-h-[420px] p-10 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col border border-gray-400/5">
                 {/* Spotlight Overlay */}
                 <div
                   className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -92,8 +92,8 @@ const Approach = () => {
                       </span>
                     </div>
 
-                    <div className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
-                      <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    <div className="px-3 py-1 rounded-full bg-gray-400/[0.03] border border-gray-400/10">
+                      <span className="text-[10px] font-bold text-gray-400/40 uppercase -widest">
                         {card.iconText}
                       </span>
                     </div>
@@ -102,14 +102,14 @@ const Approach = () => {
                   <div
                     className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}
                   >
-                    <h3 className="font-syne text-3xl font-extrabold text-white tracking-tight group-hover:text-[#a78bfa] transition-colors duration-500">
+                    <h3 className="font-syne text-3xl font-extrabold text-white -tight group-hover:text-[#a78bfa] transition-colors duration-500">
                       {card.title}
                     </h3>
 
                     <div className="w-12 h-[2px] bg-gradient-to-r from-[#a78bfa] to-transparent group-hover:w-20 transition-all duration-500" />
 
                     <p
-                      className={`text-gray-400 text-lg leading-relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
+                      className={`text-gray-400 text-lg -relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
                     >
                       {card.description}
                     </p>
@@ -122,7 +122,7 @@ const Approach = () => {
       </div>
 
       {/* Divider matching other sections */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-400/10 to-transparent" />
     </section>
   );
 };

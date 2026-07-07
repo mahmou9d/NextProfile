@@ -54,7 +54,7 @@ const HeaderMobile = ({
             : "opacity-0 scale-95 -translate-y-10 pointer-events-none"
         }`}
       >
-        <div className="bg-[#0c0c14]/90 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 p-6 shadow-2xl overflow-hidden relative">
+        <div className="bg-[#0c0c14]/90 backdrop-blur-3xl rounded-[2.5rem] border border-gray-400/10 p-6 shadow-2xl overflow-hidden relative">
           {/* Decorative Glow */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#a78bfa]/10 blur-3xl rounded-full" />
 
@@ -69,12 +69,12 @@ const HeaderMobile = ({
                   key={idx}
                   href={href}
                   onClick={() => setMobileOpen(false)}
-                  className="group flex items-center justify-between p-4 rounded-2xl hover:bg-white/5 transition-all"
+                  className="group flex items-center justify-between p-4 rounded-2xl hover:bg-gray-400/5 transition-all"
                 >
-                  <span className="text-lg font-bold text-white/50 group-hover:text-white transition-colors text-right">
+                  <span className="text-lg font-bold text-gray-400/50 group-hover:text-white transition-colors text-right">
                     {isArabic ? item.name.AR : item.name.EN}
                   </span>
-                  <div className="h-8 w-8 rounded-full border border-white/10 flex items-center justify-center text-white group-hover:text-[#a78bfa] group-hover:border-[#a78bfa]/50 transition-all">
+                  <div className="h-8 w-8 rounded-full border border-gray-400/10 flex items-center justify-center text-white group-hover:text-[#a78bfa] group-hover:border-[#a78bfa]/50 transition-all">
                     <svg
                       className={`w-4 h-4 ${isArabic ? "rotate-180" : ""}`}
                       fill="none"
@@ -94,27 +94,27 @@ const HeaderMobile = ({
             })}
 
             {/* Language Switcher */}
-            <div className="pt-4 mt-4 border-t border-white/5">
+            <div className="pt-4 mt-4 border-t border-gray-400/5">
               <button
                 onClick={() => {
                   toggleLocale();
                   setMobileOpen(false);
                 }}
-                className={`w-full flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 group hover:border-[#a78bfa]/30 transition-all ${isArabic ? "flex-row-reverse" : ""}`}
+                className={`w-full flex items-center justify-between p-4 rounded-2xl bg-gray-400/5 border border-gray-400/10 group hover:border-[#a78bfa]/30 transition-all ${isArabic ? "flex-row-reverse" : ""}`}
               >
                 <div
                   className={`flex items-center gap-4 ${isArabic ? "flex-row-reverse" : ""}`}
                 >
                   <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#db2777] flex items-center justify-center">
-                    <span className="text-xs font-black text-white">
+                    <span className="text-sm font-black text-white">
                       {isArabic ? "EN" : "AR"}
                     </span>
                   </div>
                   <div className={isArabic ? "text-right" : "text-left"}>
-                    <p className="text-[10px] font-bold text-white uppercase tracking-widest">
+                    <p className="text-xs font-bold text-white uppercase -widest">
                       {isArabic ? "Switch to" : "التبديل إلى"}
                     </p>
-                    <p className="text-sm font-bold text-white">
+                    <p className="text-base font-bold text-white">
                       {isArabic ? "English" : "العربية"}
                     </p>
                   </div>

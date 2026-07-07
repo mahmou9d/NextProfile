@@ -82,7 +82,7 @@ const Experience = () => {
                     className={`flex-1 text-center lg:text-start space-y-3 ${isArabic ? "lg:text-right" : "lg:text-left"}`}
                   >
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-black leading-tight">
+                    <h3 className="text-2xl md:text-3xl font-black -tight">
                       <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-pink-300 group-hover:to-blue-300 transition-all duration-500">
                         {isArabic && card.title.AR
                           ? card.title.AR
@@ -91,7 +91,7 @@ const Experience = () => {
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                    <p className="text-gray-400 text-base md:text-lg -relaxed group-hover:text-gray-300 transition-colors duration-300">
                       {isArabic && card.desc.AR ? card.desc.AR : card.desc.EN}
                     </p>
 

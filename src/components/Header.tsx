@@ -43,24 +43,24 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
       >
         {/* ── Minimal Ticker ── */}
         {!scrolled && (
-          <div className="w-full bg-[#0c0c14] border-b border-white/5 py-2 overflow-hidden hidden md:block">
+          <div className="w-full bg-[#0c0c14] border-b border-gray-400/5 py-2 overflow-hidden hidden md:block">
             <div className="flex animate-[tickerMove_10s_linear_infinite] whitespace-nowrap">
               {[...Array(3)].map((_, di) => (
                 <span key={di} style={{ display: "contents" }}>
                   <div className="flex items-center gap-12 px-6">
-                    <span className="text-[16px] font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-[16px] font-bold text-white uppercase -widest flex items-center gap-2">
                       <div className="w-1 h-1 rounded-full bg-green-500" />
                       {isArabic
                         ? "+50 مشروع تم تسليمه"
                         : "50+ Projects Delivered"}
                     </span>
-                    <span className="text-[16px] font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-[16px] font-bold text-white uppercase -widest flex items-center gap-2">
                       <div className="w-1 h-1 rounded-full bg-[#a78bfa]" />
                       {isArabic
                         ? "98% نسبة رضا العملاء"
                         : "98% Client Satisfaction"}
                     </span>
-                    <span className="text-[16px] font-bold text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-[16px] font-bold text-white uppercase -widest flex items-center gap-2">
                       <div className="w-1 h-1 rounded-full bg-pink-500" />
                       {isArabic
                         ? "سرعة فائقة في التنفيذ"
@@ -80,8 +80,8 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
           <div
             className={`relative flex items-center justify-between px-6 md:px-10 py-4 transition-all duration-700 overflow-hidden ${
               scrolled
-                ? "bg-[#0c0c14]/70 backdrop-blur-2xl rounded-full border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                : "bg-transparent border-b border-white/5"
+                ? "bg-[#0c0c14]/70 backdrop-blur-2xl rounded-full border border-gray-400/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                : "bg-transparent border-b border-gray-400/5"
             }`}
           >
             {/* Logo */}
@@ -99,7 +99,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-syne text-lg font-bold text-white tracking-tight">
+                <span className="font-syne text-lg font-bold text-white -tight">
                   Webvitas
                 </span>
               </div>
@@ -117,10 +117,10 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
                     <li key={idx}>
                       <Link
                         href={href}
-                        className={`relative px-5 py-2 text-[13px] font-bold uppercase tracking-widest transition-all duration-300 rounded-full ${
+                        className={`relative px-5 py-2 text-[13px] font-bold uppercase -widest transition-all duration-300 rounded-full ${
                           isActive
                             ? "text-white bg-white"
-                            : "text-white hover:text-white hover:bg-white/5"
+                            : "text-white hover:text-white hover:bg-gray-400/5"
                         }`}
                       >
                         {isArabic ? item.name.AR : item.name.EN}
@@ -136,20 +136,20 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
               {/* Language Switch */}
               <button
                 onClick={handleToggleLocale}
-                className="hidden sm:flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/50 hover:text-white hover:border-[#a78bfa]/50 transition-all"
+                className="hidden sm:flex h-10 w-10 items-center justify-center rounded-xl bg-gray-400/5 border border-gray-400/10 text-white/50 hover:text-white hover:border-[#a78bfa]/50 transition-all"
               >
-                <span className="text-[14px] font-black uppercase tracking-tighter">
+                <span className="text-[14px] font-black uppercase -tighter">
                   {isArabic ? "EN" : "AR"}
                 </span>
               </button>
 
               {/* Main CTA */}
               <Link
-                href={`/${isArabic ? "ar" : "en"}/contact`}
+                href={`/${isArabic ? "ar" : "en"}#contact`}
                 className="group/cta relative h-11 px-3 md:px-7 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white font-syne text-[12px] md:text-[14px] font-black uppercase flex items-center gap-3 overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] active:scale-95"
               >
                 {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/cta:animate-[shimmer_1.5s_infinite]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent -translate-x-full group-hover/cta:animate-[shimmer_1.5s_infinite]" />
 
                 <span className="relative z-10">
                   {isArabic ? "ابدأ الآن" : "Start now"}
@@ -159,7 +159,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
               {/* Burger Menu */}
               <button
                 onClick={toggleMobile}
-                className="lg:hidden h-10 w-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/50"
+                className="lg:hidden h-10 w-10 flex items-center justify-center rounded-xl bg-gray-400/5 border border-gray-400/10 text-white/50"
               >
                 {mobileOpen ? <FaXmark size={18} /> : <FaBars size={18} />}
               </button>

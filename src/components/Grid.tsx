@@ -48,7 +48,7 @@ const Grid = () => {
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-12">
             <div className="space-y-4">
-              <h3 className="font-syne text-4xl md:text-6xl font-extrabold tracking-tighter text-white leading-none">
+              <h3 className="font-syne text-4xl md:text-6xl font-extrabold -tighter text-white -none">
                 {t.grid.cta.heading}
               </h3>
               <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium">
@@ -61,7 +61,7 @@ const Grid = () => {
                 href={`${localePrefix}#contact`}
                 className="group/cta relative inline-flex items-center gap-4 px-10 py-5 rounded-2xl bg-white text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] active:scale-95"
               >
-                <span className="font-syne text-xl font-black uppercase tracking-tight">
+                <span className="font-syne text-xl font-black uppercase -tight">
                   {t.grid.cta.startProject}
                 </span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white transition-transform group-hover/cta:translate-x-1">
