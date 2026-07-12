@@ -417,11 +417,11 @@ const ContactUs = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative py-5 rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-gray-400/75 font-syne font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.5)] transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3"
+                    className="w-full relative py-5 rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white font-syne font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(124,58,237,0.5)] transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-5 h-5 border-2 border-gray-400/30 border-t-white rounded-full animate-spin" />
+                        <div className="w-5 h-5 border-2 border-white border-t-white rounded-full animate-spin" />
                         <span>{t.contact.form.submittingButton}</span>
                       </div>
                     ) : (

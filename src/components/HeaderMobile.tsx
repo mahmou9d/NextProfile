@@ -71,7 +71,7 @@ const HeaderMobile = ({
                   onClick={() => setMobileOpen(false)}
                   className="group flex items-center justify-between p-4 rounded-2xl hover:bg-gray-400/5 transition-all"
                 >
-                  <span className="text-lg font-bold text-gray-400/50 group-hover:text-white transition-colors text-right">
+                  <span className="text-lg font-bold text-white group-hover:text-white transition-colors text-right">
                     {isArabic ? item.name.AR : item.name.EN}
                   </span>
                   <div className="h-8 w-8 rounded-full border border-gray-400/10 flex items-center justify-center text-white group-hover:text-[#a78bfa] group-hover:border-[#a78bfa]/50 transition-all">
@@ -111,8 +111,8 @@ const HeaderMobile = ({
                     </span>
                   </div>
                   <div className={isArabic ? "text-right" : "text-left"}>
-                    <p className="text-xs font-bold text-white uppercase -widest">
-                      {isArabic ? "Switch to" : "التبديل إلى"}
+                    <p className="text-base font-bold text-white">
+                      {isArabic ? "التبديل إلى" : "Switch to"}
                     </p>
                     <p className="text-base font-bold text-white">
                       {isArabic ? "English" : "العربية"}

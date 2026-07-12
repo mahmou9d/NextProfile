@@ -39,11 +39,11 @@ const Title = ({
             {title1}
           </span>
           <div className="flex flex-wrap text-3xl sm:text-4xl md:text-[5rem] items-center justify-center gap-x-6 mt-2 py-3">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#fb923c] italic font-extrabold -[1.3]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] via-[#f472b6] to-[#fb923c] italic font-extrabold leading-tight pr-2">
               {title2}
             </span>
             {title3 && (
-              <span className="text-white transition-colors duration-700 group-hover:text-gray-400/40 -[1.3]">
+              <span className="text-white transition-colors duration-700 group-hover:text-gray-400/40 leading-tight">
                 {title3}
               </span>
             )}

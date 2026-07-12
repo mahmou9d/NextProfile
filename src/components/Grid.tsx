@@ -48,7 +48,7 @@ const Grid = () => {
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-12">
             <div className="space-y-4">
-              <h3 className="font-syne text-4xl md:text-6xl font-extrabold -tighter text-white -none">
+              <h3 className="font-syne text-4xl md:text-6xl font-extrabold -tighter text-white leading-none">
                 {t.grid.cta.heading}
               </h3>
               <p className="text-gray-400 text-lg max-w-xl mx-auto font-medium">
