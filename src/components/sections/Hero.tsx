@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useTranslation } from "./Usetranslation";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const HeroROI = () => {
   const { isArabic, dir } = useTranslation();
@@ -62,8 +62,6 @@ const HeroROI = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Cairo:wght@400;600;700;900&display=swap');
-
         @keyframes fadeUp { from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;} }
         @keyframes pulse2 { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.7;transform:scale(1.04);} }
         @keyframes orb { 0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-52%) scale(1.08);} }
@@ -94,7 +92,7 @@ const HeroROI = () => {
         .roi-field-hint { font-size:16px;color:rgba(156,163,175,0.62);margin-bottom:10px;line-height:1.5; }
         .roi-field-row { display:flex;align-items:center; }
         .roi-currency { display:flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(156,163,175,0.08);border:1px solid rgba(156,163,175,0.15);border-left:none;border-radius:0 10px 10px 0;font-size:16px;font-weight:700;color:rgba(156,163,175,0.92);flex-shrink:0; }
-        .roi-field input[type=number] { width:100%;height:48px;background:rgba(156,163,175,0.08);border:1px solid rgba(156,163,175,0.15);border-right:none;border-radius:10px 0 0 10px;color:#fff;font-size:18px;font-weight:700;font-family:'Cairo',sans-serif;padding:0 16px;outline:none;transition:border-color 0.2s,background 0.2s;-moz-appearance:textfield; }
+        .roi-field input[type=number] { width:100%;height:48px;background:rgba(156,163,175,0.08);border:1px solid rgba(156,163,175,0.15);border-right:none;border-radius:10px 0 0 10px;color:#fff;font-size:18px;font-weight:700;padding:0 16px;outline:none;transition:border-color 0.2s,background 0.2s;-moz-appearance:textfield; }
         .roi-field input::-webkit-outer-spin-button,.roi-field input::-webkit-inner-spin-button{-webkit-appearance:none;}
         .roi-field input:focus { border-color:rgba(167,139,250,0.5);background:rgba(124,58,237,0.05); }
 
@@ -128,12 +126,10 @@ const HeroROI = () => {
         .roi-bar-fill-new { height:100%;border-radius:99px;background:linear-gradient(90deg,#7c3aed,#db2777,#fb923c);transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); }
 
         .roi-ctas { display:flex;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap;animation:fadeUp 0.6s 0.5s both; }
-        .roi-btn-main { display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;font-size:16px;font-weight:700;font-family:'Cairo',sans-serif;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(124,58,237,0.4);transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;white-space:nowrap;text-decoration:none; }
+        .roi-btn-main { display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#db2777);color:#fff;font-size:16px;font-weight:700;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(124,58,237,0.4);transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;white-space:nowrap;text-decoration:none; }
         .roi-btn-main::after { content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(156,163,175,0.15),transparent);transform:translateX(-100%);transition:transform 0.5s; }
         .roi-btn-main:hover::after { transform:translateX(100%); }
         .roi-btn-main:hover { transform:translateY(-2px);box-shadow:0 8px 36px rgba(124,58,237,0.55),0 0 14px rgba(219,39,119,0.3); }
-        .roi-btn-sec { display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;border:1px solid rgba(156,163,175,0.18);background:transparent;color:rgba(156,163,175,0.92);font-size:16px;font-weight:600;font-family:'Cairo',sans-serif;cursor:pointer;transition:all 0.2s;white-space:nowrap;text-decoration:none; }
-        .roi-btn-sec:hover { border-color:rgba(167,139,250,0.35);color:#fff;background:rgba(124,58,237,0.08); }
 
         .roi-trust { display:flex;align-items:center;gap:20px;margin-top:18px;flex-wrap:wrap;animation:fadeUp 0.6s 0.6s both; }
         .roi-trust-item { display:flex;align-items:center;gap:7px; }
@@ -187,58 +183,37 @@ const HeroROI = () => {
                 {isArabic ? "أرقام بيزنسك الحالية" : "Your Current Numbers"}
               </div>
 
-              {/* Input 1: Monthly Revenue */}
               <div className="roi-field">
-                <label>
-                  {isArabic ? "مبيعاتك الشهرية" : "Monthly Revenue"}
-                </label>
+                <label>{isArabic ? "مبيعاتك الشهرية" : "Monthly Revenue"}</label>
                 <p className="roi-field-hint">
                   {isArabic
                     ? "الفلوس اللي بتدخل عليك من البيع كل شهر تقريباً"
                     : "Roughly how much money comes in from sales each month"}
                 </p>
                 <div className="roi-field-row">
-                  <input
-                    ref={revenueRef}
-                    type="number"
-                    defaultValue={10000}
-                    min={0}
-                    onChange={calc}
-                  />
+                  <input ref={revenueRef} type="number" defaultValue={10000} min={0} onChange={calc} />
                   <div className="roi-currency">EGP</div>
                 </div>
               </div>
 
-              {/* Input 2: Orders per Month */}
               <div className="roi-field">
-                <label>
-                  {isArabic ? "عدد الطلبات في الشهر" : "Orders per Month"}
-                </label>
+                <label>{isArabic ? "عدد الطلبات في الشهر" : "Orders per Month"}</label>
                 <p className="roi-field-hint">
                   {isArabic
                     ? "كام طلب أو عميل بتخدمهم تقريباً كل شهر؟"
                     : "Roughly how many orders or customers do you serve each month?"}
                 </p>
                 <div className="roi-field-row">
-                  <input
-                    ref={ordersRef}
-                    type="number"
-                    defaultValue={20}
-                    min={1}
-                    onChange={calc}
-                  />
+                  <input ref={ordersRef} type="number" defaultValue={20} min={1} onChange={calc} />
                   <div className="roi-currency" style={{ fontSize: 12 }}>
                     {isArabic ? "طلب" : "orders"}
                   </div>
                 </div>
               </div>
 
-              {/* Derived insight */}
               <div className="roi-insight">
                 <p className="roi-insight-lbl">
-                  {isArabic
-                    ? "متوسط قيمة الأوردر عندك"
-                    : "Your average order value"}
+                  {isArabic ? "متوسط قيمة الأوردر عندك" : "Your average order value"}
                 </p>
                 <p className="roi-insight-val">{results.aovDisplay}</p>
               </div>
@@ -248,65 +223,43 @@ const HeroROI = () => {
             <div className="roi-results">
               <div className="roi-card roi-card-main">
                 <div className="roi-card-lbl">
-                  {isArabic
-                    ? "الزيادة السنوية المتوقعة"
-                    : "Expected Yearly Increase"}
+                  {isArabic ? "الزيادة السنوية المتوقعة" : "Expected Yearly Increase"}
                 </div>
                 <div className="roi-card-val">{results.yearlyGain}</div>
                 <div className="roi-card-sub">
-                  {isArabic
-                    ? "بعد المتجر الاحترافي"
-                    : "after your professional store"}
+                  {isArabic ? "بعد المتجر الاحترافي" : "after your professional store"}
                 </div>
               </div>
 
               <div className="roi-mini">
                 <div className="roi-mini-card">
-                  <div className="roi-mini-lbl">
-                    {isArabic ? "دلوقتي شهرياً" : "Current / Month"}
-                  </div>
+                  <div className="roi-mini-lbl">{isArabic ? "دلوقتي شهرياً" : "Current / Month"}</div>
                   <div className="roi-mini-val">{results.currentMonthly}</div>
                 </div>
                 <div className="roi-mini-card">
-                  <div className="roi-mini-lbl">
-                    {isArabic ? "بعد المتجر" : "After Store"}
-                  </div>
-                  <div className="roi-mini-val-accent">
-                    {results.newMonthly}
-                  </div>
+                  <div className="roi-mini-lbl">{isArabic ? "بعد المتجر" : "After Store"}</div>
+                  <div className="roi-mini-val-accent">{results.newMonthly}</div>
                 </div>
               </div>
 
               <div className="roi-bars">
-                <div className="roi-bars-title">
-                  {isArabic ? "مقارنة سريعة" : "Quick Compare"}
-                </div>
+                <div className="roi-bars-title">{isArabic ? "مقارنة سريعة" : "Quick Compare"}</div>
                 <div className="roi-bar-row">
                   <div className="roi-bar-info">
-                    <span className="roi-bar-name">
-                      {isArabic ? "مبيعاتك دلوقتي" : "Current Sales"}
-                    </span>
+                    <span className="roi-bar-name">{isArabic ? "مبيعاتك دلوقتي" : "Current Sales"}</span>
                     <span className="roi-bar-num">{results.barCurNum}</span>
                   </div>
                   <div className="roi-bar-track">
-                    <div
-                      className="roi-bar-fill-cur"
-                      style={{ width: barCurWidth }}
-                    />
+                    <div className="roi-bar-fill-cur" style={{ width: barCurWidth }} />
                   </div>
                 </div>
                 <div className="roi-bar-row">
                   <div className="roi-bar-info">
-                    <span className="roi-bar-name">
-                      {isArabic ? "بعد المتجر الاحترافي" : "After Pro Store"}
-                    </span>
+                    <span className="roi-bar-name">{isArabic ? "بعد المتجر الاحترافي" : "After Pro Store"}</span>
                     <span className="roi-bar-num">{results.barNewNum}</span>
                   </div>
                   <div className="roi-bar-track">
-                    <div
-                      className="roi-bar-fill-new"
-                      style={{ width: barNewWidth }}
-                    />
+                    <div className="roi-bar-fill-new" style={{ width: barNewWidth }} />
                   </div>
                 </div>
               </div>
@@ -317,28 +270,14 @@ const HeroROI = () => {
           <div className="roi-ctas">
             <a href={`${localePrefix}#contact`} className="roi-btn-main">
               {isArabic ? "ابني متجرك دلوقتي" : "Build My Store Now"}
-              <svg
-                width="15"
-                height="15"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d={
-                    isArabic
-                      ? "M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                      : "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  }
+                  d={isArabic ? "M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" : "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"}
                 />
               </svg>
             </a>
-            {/* <a href={`${localePrefix}#contact`} className="roi-btn-sec">
-              {isArabic ? "استشارة مجانية" : "Free Consultation"}
-            </a> */}
           </div>
 
           <div className="roi-trust">

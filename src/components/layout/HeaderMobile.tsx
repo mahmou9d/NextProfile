@@ -1,7 +1,7 @@
 import Link from "next/link";
-import React, { JSX, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { NavItem } from "../../types/type";
+import { NavItem } from "../../../types/type";
 
 const HeaderMobile = ({
   mobileOpen,

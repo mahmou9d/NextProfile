@@ -1,13 +1,14 @@
 import { navItems } from "@/data";
 
-import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import Footer from "@/components/Footer";
-import Clients from "@/components/Clients";
-import Approach from "@/components/Approach";
-// import Experience from "@/components/Experience";
-import Header from "@/components/Header";
-import ContactUs from "@/components/ContactUs";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
+import Hero from "@/components/sections/Hero";
+import Grid from "@/components/sections/Grid";
+import Clients from "@/components/sections/Clients";
+import Approach from "@/components/sections/Approach";
+import ContactUs from "@/components/sections/ContactUs";
+// import Experience from "@/components/sections/Experience";
 
 const Home = () => {
   return (
@@ -17,9 +18,9 @@ const Home = () => {
         <Hero />
         <Grid />
         <Clients />
-        {/* <Experience /> */}
         <Approach />
         <ContactUs />
+        {/* <Experience /> */}
         <Footer />
       </div>
     </main>

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, MouseEvent } from "react";
-import { useTranslation } from "@/components/Usetranslation";
-import Title from "./Title";
+import { useTranslation } from "@/hooks/useTranslation";
+import Title from "@/components/ui/Title";
 
 const Approach = () => {
   const { t, isArabic, dir } = useTranslation();
@@ -36,12 +36,11 @@ const Approach = () => {
       className="relative w-full py-20 md:py-32 overflow-hidden bg-[#080810]"
       dir={dir}
     >
-      {/* Background Glows - Matching Hero */}
+      {/* Background Glows */}
       <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-[#7c3aed]/10 blur-[120px] rounded-full pointer-events-none animate-[pulse_12s_infinite]" />
       <div className="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-[#db2777]/10 blur-[100px] rounded-full pointer-events-none animate-[pulse_10s_infinite_1s]" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header Section */}
         <Title
           subtitle={t.approach.subtitle}
           title1={t.approach.title1}
@@ -54,7 +53,7 @@ const Approach = () => {
           title3={null}
         />
 
-        {/* Approach Steps Grid - Glass Style */}
+        {/* Approach Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {t.approach.cards.map((card, index) => (
             <div
@@ -80,9 +79,6 @@ const Approach = () => {
                   }}
                 />
 
-                {/* Noise Effect */}
-                <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-12">
                     {/* Step Number Badge */}
@@ -99,18 +95,14 @@ const Approach = () => {
                     </div>
                   </div>
 
-                  <div
-                    className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}
-                  >
+                  <div className={`space-y-6 ${isArabic ? "text-right" : "text-left"}`}>
                     <h3 className="font-syne text-3xl font-extrabold text-white -tight group-hover:text-[#a78bfa] transition-colors duration-500">
                       {card.title}
                     </h3>
 
                     <div className="w-12 h-[2px] bg-gradient-to-r from-[#a78bfa] to-transparent group-hover:w-20 transition-all duration-500" />
 
-                    <p
-                      className={`text-gray-400 text-lg -relaxed ${isArabic ? "font-cairo" : "font-medium"}`}
-                    >
+                    <p className={`text-gray-400 text-lg -relaxed ${isArabic ? "font-cairo" : "font-medium"}`}>
                       {card.description}
                     </p>
                   </div>
@@ -121,7 +113,7 @@ const Approach = () => {
         </div>
       </div>
 
-      {/* Divider matching other sections */}
+      {/* Divider */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );

@@ -2,8 +2,8 @@
 import React from "react";
 import { workExperience } from "@/data";
 import Image from "next/image";
-import Title from "./Title";
-import { useTranslation } from "./Usetranslation";
+import Title from "@/components/ui/Title";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Experience = () => {
   const { t, isArabic, dir } = useTranslation();
@@ -15,7 +15,6 @@ const Experience = () => {
       dir={dir}
     >
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Header Section */}
         <Title
           subtitle={t.experience.subtitle}
           title1={t.experience.title1}
@@ -29,10 +28,12 @@ const Experience = () => {
           {workExperience.map((card: any, index: number) => (
             <article
               key={card.id}
-              className="group relative opacity-0 translate-y-8 transition-all duration-700 animate-fade-in"
+              className="group relative"
               style={{
-                transitionDelay: `${index * 150}ms`,
+                opacity: 0,
+                transform: "translateY(2rem)",
                 animation: `fadeIn 0.7s ease-out ${index * 150}ms forwards`,
+                willChange: "opacity, transform",
               }}
             >
               {/* Card Container */}
@@ -43,20 +44,13 @@ const Experience = () => {
                 </div>
 
                 {/* Content */}
-                <div
-                  className={`flex flex-col lg:flex-row items-center p-8 gap-6 ${isArabic ? "lg:flex-row-reverse" : ""}`}
-                >
+                <div className={`flex flex-col lg:flex-row items-center p-8 gap-6 ${isArabic ? "lg:flex-row-reverse" : ""}`}>
                   {/* Image Section */}
                   <div className="relative flex-shrink-0">
-                    {/* Image Container */}
                     <div className="relative w-32 h-32 lg:w-36 lg:h-36 rounded-2xl overflow-hidden border-2 border-gray-700/50 group-hover:border-blue-500/60 transition-all duration-500">
                       <Image
                         src={card.thumbnail!}
-                        alt={
-                          isArabic && card.title.AR
-                            ? card.title.AR
-                            : card.title.EN
-                        }
+                        alt={isArabic && card.title.AR ? card.title.AR : card.title.EN}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                         loading="lazy"
@@ -65,11 +59,9 @@ const Experience = () => {
                     </div>
 
                     {/* Number Badge */}
-                    <div
-                      className={`absolute -top-3 z-10 ${isArabic ? "-left-3" : "-right-3"}`}
-                    >
+                    <div className={`absolute -top-3 z-10 ${isArabic ? "-left-3" : "-right-3"}`}>
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-75 group-hover:opacity-100 transition-opacity " />
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-pink-500 rounded-xl opacity-75 group-hover:opacity-100 transition-opacity" />
                         <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-pink-500 flex items-center justify-center text-white font-black text-lg shadow-2xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                           {String(index + 1).padStart(2, "0")}
                         </div>
@@ -78,24 +70,17 @@ const Experience = () => {
                   </div>
 
                   {/* Text Content */}
-                  <div
-                    className={`flex-1 text-center lg:text-start space-y-3 ${isArabic ? "lg:text-right" : "lg:text-left"}`}
-                  >
-                    {/* Title */}
+                  <div className={`flex-1 text-center lg:text-start space-y-3 ${isArabic ? "lg:text-right" : "lg:text-left"}`}>
                     <h3 className="text-2xl md:text-3xl font-black leading-tight">
                       <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-pink-300 group-hover:to-blue-300 transition-all duration-500">
-                        {isArabic && card.title.AR
-                          ? card.title.AR
-                          : card.title.EN}
+                        {isArabic && card.title.AR ? card.title.AR : card.title.EN}
                       </span>
                     </h3>
 
-                    {/* Description */}
                     <p className="text-gray-400 text-base md:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                       {isArabic && card.desc.AR ? card.desc.AR : card.desc.EN}
                     </p>
 
-                    {/* Decorative Bar */}
                     <div className="pt-2">
                       <div className="h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 opacity-0 group-hover:opacity-100 group-hover:w-32 transition-all duration-500" />
                     </div>

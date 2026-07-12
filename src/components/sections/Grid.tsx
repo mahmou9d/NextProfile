@@ -1,9 +1,9 @@
 "use client";
 import { projects } from "@/data";
 import Link from "next/link";
-import Title from "./Title";
-import Card from "./Card";
-import { useTranslation } from "./Usetranslation";
+import Title from "@/components/ui/Title";
+import Card from "@/components/ui/Card";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Grid = () => {
   const { t, isArabic, dir } = useTranslation();
@@ -43,7 +43,6 @@ const Grid = () => {
 
         {/* Bottom CTA Section */}
         <div className="relative mt-32 md:mt-48">
-          {/* Creative Background Glow */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-12">
@@ -72,11 +71,7 @@ const Grid = () => {
                     stroke="currentColor"
                     strokeWidth={3}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </div>
               </Link>

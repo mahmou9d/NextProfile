@@ -2,8 +2,8 @@
 import { useState, useEffect, useRef, MouseEvent } from "react";
 import { testimonials } from "@/data";
 import Image from "next/image";
-import Title from "./Title";
-import { useTranslation } from "./Usetranslation";
+import Title from "@/components/ui/Title";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Clients = () => {
   const { t, isArabic } = useTranslation();
@@ -39,7 +39,7 @@ const Clients = () => {
       ref={sectionRef}
       className="relative w-full py-20 md:py-32 overflow-hidden bg-[#080810]"
     >
-      {/* Background Orbs - Using exact colors from Hero (#7c3aed = Violet 600) */}
+      {/* Background Orbs */}
       <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-[#7c3aed]/10 blur-[120px] rounded-full pointer-events-none animate-[pulse_10s_infinite]" />
       <div className="absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-[#db2777]/5 blur-[100px] rounded-full pointer-events-none animate-[pulse_15s_infinite_1s]" />
 
@@ -68,7 +68,7 @@ const Clients = () => {
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Animated Border Gradient - #a78bfa = Violet 400 (The Purple color you requested) */}
+              {/* Animated Border Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
 
               {/* Main Card Content */}
@@ -80,8 +80,6 @@ const Clients = () => {
                     background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.15), transparent 40%)`,
                   }}
                 />
-
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-10">
@@ -99,26 +97,22 @@ const Clients = () => {
                     </div>
                   </div>
 
-                  <blockquote
-                    className={`relative ${isArabic ? "text-right" : "text-left"}`}
-                  >
-                    <p
-                      className={`text-gray-400/90 text-xl md:text-2xl font-medium -relaxed mb-14 italic ${isArabic ? "font-cairo" : "font-syne"}`}
-                    >
+                  <blockquote className={`relative ${isArabic ? "text-right" : "text-left"}`}>
+                    <p className={`text-gray-400/90 text-xl md:text-2xl font-medium -relaxed mb-14 italic ${isArabic ? "font-cairo" : "font-syne"}`}>
                       "{isArabic ? testimonial.quote.AR : testimonial.quote.EN}"
                     </p>
                   </blockquote>
 
-                  <div
-                    className={`mt-auto flex items-center gap-5 pt-8 border-t border-gray-400/10 ${isArabic ? "flex-row-reverse" : ""}`}
-                  >
+                  <div className={`mt-auto flex items-center gap-5 pt-8 border-t border-gray-400/10 ${isArabic ? "flex-row-reverse" : ""}`}>
                     <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#a78bfa]/30 group-hover:border-[#a78bfa] transition-all duration-500">
-                      <Image
-                        src={testimonial.img || "/default-avatar.png"}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
+                      {testimonial.img && (
+                        <Image
+                          src={testimonial.img}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                      )}
                     </div>
                     <div className={isArabic ? "text-right" : "text-left"}>
                       <h4 className="font-syne text-base font-bold text-white -tight group-hover:text-[#a78bfa] transition-colors duration-500">

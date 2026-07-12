@@ -106,6 +106,7 @@
   animation: scroll-infinite 30s linear infinite;
   width: max-content;
   will-change: transform;
+  transform: translateZ(0);
 }
 
 .mask-gradient {

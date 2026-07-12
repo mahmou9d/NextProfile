@@ -217,7 +217,7 @@ export const testimonials = [
       EN: "Business Owner",
       AR: "صاحب العمل",
     },
-    img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
+    img: "/ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
   },
   {
     quote: {
@@ -229,7 +229,7 @@ export const testimonials = [
       EN: "Business Owner",
       AR: "صاحب العمل",
     },
-    img: "ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
+    img: "/ChatGPT Image Jun 4, 2026, 06_46_33 PM.png",
   },
   // {
   //     quote: {

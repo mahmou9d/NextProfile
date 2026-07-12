@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useTranslation } from "@/components/Usetranslation";
-import { CartProps } from "../../types/type";
+import { useTranslation } from "@/hooks/useTranslation";
+import { CartProps } from "../../../types/type";
 
 const Card = ({ project, index }: CartProps) => {
   const { t, isArabic } = useTranslation();
@@ -20,7 +20,8 @@ const Card = ({ project, index }: CartProps) => {
             alt={isArabic ? project.title.AR : project.title.EN}
             fill
             className="object-cover object-top transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60 group-hover:grayscale-0"
-            loading="lazy"
+            loading={index < 2 ? "eager" : "lazy"}
+            priority={index < 2}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-[#0c0c14]/80 to-transparent" />
         </div>
@@ -29,20 +30,9 @@ const Card = ({ project, index }: CartProps) => {
         <div className="relative z-10 flex h-full flex-col p-8 md:p-10">
           {/* Top Row: Metrics */}
           <div className="flex justify-between items-start">
-            {/* <div className="flex flex-wrap gap-2">
-              {project.icons?.slice(0, 3).map((tech, i) => (
-                <span
-                  key={i}
-                  className="text-[9px] font-bold text-gray-400/40 border border-gray-400/10 px-2 py-1 rounded bg-black/20 backdrop-blur-md uppercase -widest"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div> */}
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/30  border border-red-500">
               <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
               <span className="text-[9px] font-black text-gray-400/80 uppercase -[2px]">
-                {/* High ROI */}
                 Live
               </span>
             </div>

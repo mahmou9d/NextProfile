@@ -1,13 +1,11 @@
 "use client";
 import {
   FaFacebookF,
-  FaTwitter,
   FaLinkedinIn,
-  FaGithub,
   FaInstagram,
 } from "react-icons/fa";
 import Image from "next/image";
-import { useTranslation } from "./Usetranslation";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Footer = () => {
   const { t, isArabic, dir } = useTranslation();
@@ -30,11 +28,6 @@ const Footer = () => {
       value: "contact@webvitas.com",
       link: "mailto:contact@webvitas.com",
     },
-    // {
-    //   label: t.footer.contactInfo.website,
-    //   value: "www.webvitas.com",
-    //   link: "#",
-    // },
   ];
 
   const socialLinks = [
@@ -47,13 +40,6 @@ const Footer = () => {
       Icon: FaLinkedinIn,
       link: "https://www.linkedin.com/company/webvitas/",
     },
-    // { Icon: FaGithub, link: "https://github.com/mahmou9d" },
-  ];
-
-  const bottomLinks = [
-    { label: t.footer.links.privacy, link: "#" },
-    { label: t.footer.links.terms, link: "#" },
-    { label: t.footer.links.support, link: "#" },
   ];
 
   return (
@@ -73,7 +59,7 @@ const Footer = () => {
         dir={dir}
         className="relative w-full overflow-hidden pt-24 pb-12 bg-[#080810] border-t border-gray-400/5"
       >
-        {/* Background Decorative Orbs - Animated & Color Changing */}
+        {/* Background Decorative Orbs */}
         <div
           className="absolute top-0 left-1/4 w-[500px] h-[500px] blur-[120px] rounded-full pointer-events-none"
           style={{ animation: "footer-orb-move-1 20s ease-in-out infinite" }}
@@ -189,23 +175,9 @@ const Footer = () => {
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Copyright */}
             <p className="text-white text-sm font-medium -wide">
               {t.footer.copyright}
             </p>
-
-            {/* Bottom Links */}
-            <div className="flex items-center gap-8">
-              {bottomLinks.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.link}
-                  className="text-white text-sm font-medium hover:text-[#a78bfa] transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </footer>

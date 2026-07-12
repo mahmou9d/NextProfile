@@ -5,8 +5,8 @@ import { FaBars, FaXmark } from "react-icons/fa6";
 import Image from "next/image";
 import HeaderMobile from "./HeaderMobile";
 import { usePathname, useRouter } from "next/navigation";
-import { useTranslation } from "@/components/Usetranslation";
-import { NavItem } from "../../types/type";
+import { useTranslation } from "@/hooks/useTranslation";
+import { NavItem } from "../../../types/type";
 
 const Header = ({ navItems }: { navItems: NavItem[] }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,7 +25,7 @@ const Header = ({ navItems }: { navItems: NavItem[] }) => {
         setScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

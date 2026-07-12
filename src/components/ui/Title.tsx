@@ -66,14 +66,10 @@ const Title = ({
         <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#a78bfa]" />
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
         }
       `}</style>
     </div>

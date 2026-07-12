@@ -9,9 +9,9 @@ import {
   FaCloudUploadAlt,
 } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
-import { useTranslation } from "@/components/Usetranslation";
+import { useTranslation } from "@/hooks/useTranslation";
 import Link from "next/link";
-import Title from "./Title";
+import Title from "@/components/ui/Title";
 
 const ContactUs = () => {
   const { t, isArabic, dir } = useTranslation();
@@ -178,9 +178,7 @@ const ContactUs = () => {
 
       const response = await fetch("https://formspree.io/f/mjgopynd", {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
         body: formData,
       });
 
@@ -239,12 +237,6 @@ const ContactUs = () => {
 
   return (
     <>
-      <style>{`
-        @keyframes circular-orbit {
-          0% { transform: rotate(0deg) translateX(6px) rotate(0deg); }
-          100% { transform: rotate(360deg) translateX(6px) rotate(-360deg); }
-        }
-      `}</style>
       <section
         id="contact"
         ref={sectionRef}
@@ -270,36 +262,9 @@ const ContactUs = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto">
             {/* Glass Form Side */}
-            <div
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              className={`lg:col-span-7 group relative p-[1px] rounded-[2.5rem] overflow-hidden transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"}`}
-            >
-              {/* Animated Border Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/50 group-hover:to-[#f472b6]/50 transition-colors duration-500" />
-
-              <div
-                className="relative h-full p-8 md:p-12 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col"
-                style={{
-                  transform: `perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))`,
-                  transition: "transform 0.3s ease-out",
-                }}
-              >
-                {/* Spotlight Overlay */}
-                <div
-                  className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(167, 139, 250, 0.08), transparent 40%)`,
-                  }}
-                />
-
-                {/* Noise Effect */}
-                <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
-                <form
-                  onSubmit={handleSubmit}
-                  className="relative z-10 space-y-8"
-                >
+            <div className="lg:col-span-7 group relative p-[1px] rounded-[2.5rem]">
+              <div className="relative h-full p-8 md:p-12 rounded-[2.5rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex flex-col">
+                <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
@@ -344,9 +309,7 @@ const ContactUs = () => {
 
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-400/75 uppercase -[0.2em] px-1">
-                      {isArabic
-                        ? "المرفقات ( اختياريه )"
-                        : "Attachments (optional)"}
+                      {isArabic ? "المرفقات ( اختياريه )" : "Attachments (optional)"}
                     </label>
                     <div
                       className="relative group/file"
@@ -377,12 +340,8 @@ const ContactUs = () => {
                             {form.file
                               ? form.file.name
                               : isDragging
-                                ? isArabic
-                                  ? "اترك الملف هنا..."
-                                  : "Drop file here..."
-                                : isArabic
-                                  ? "اسحب وارفق ملف المشروع..."
-                                  : "Drag & drop project file..."}
+                                ? isArabic ? "اترك الملف هنا..." : "Drop file here..."
+                                : isArabic ? "اسحب وارفق ملف المشروع..." : "Drag & drop project file..."}
                           </span>
                         </div>
                         <span className="text-sm font-black uppercase -widest text-gray-400/75 bg-gray-400/5 px-2 py-1 rounded-lg">
@@ -427,9 +386,7 @@ const ContactUs = () => {
                     ) : (
                       <>
                         {t.contact.form.submitButton}
-                        <FaArrowRight
-                          className={`${isArabic ? "rotate-180" : ""}`}
-                        />
+                        <FaArrowRight className={`${isArabic ? "rotate-180" : ""}`} />
                       </>
                     )}
                   </button>
@@ -449,18 +406,10 @@ const ContactUs = () => {
                 <Link
                   key={idx}
                   href={info.link}
-                  className={`group relative p-[1px] rounded-[2rem] overflow-hidden transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}
-                  style={{ transitionDelay: `${(idx + 3) * 150}ms` }}
+                  className="group relative p-[1px] rounded-[2rem]"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-400/10 via-transparent to-gray-400/5 group-hover:from-[#a78bfa]/40 transition-colors duration-500" />
-                  <div
-                    className="relative p-8 rounded-[2rem] bg-[#0c0c14]/90 backdrop-blur-3xl flex items-center gap-6"
-                    style={{
-                      transform: `perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))`,
-                      transition: "transform 0.3s ease-out",
-                    }}
-                  >
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[#a78bfa] group-hover:scale-110 group-hover:bg-[#a78bfa] group-hover:text-gray-400/75 transition-all duration-500">
+                  <div className="relative p-8 rounded-[2rem] bg-[#0c0c14]/90 flex items-center gap-6">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#a78bfa]/10 border border-[#a78bfa]/20 text-[#a78bfa] group-hover:scale-110 transition-all duration-500">
                       {info.icon}
                     </div>
                     <div className={isArabic ? "text-right" : "text-left"}>

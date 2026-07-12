@@ -2,13 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['images.unsplash.com', 'links.papareact.com','i.pravatar.cc'],
-    unoptimized: true,  
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'links.papareact.com' },
+      { protocol: 'https', hostname: 'i.pravatar.cc' },
+    ],
   },
   // output:'export',
-  typescript:{
-    ignoreBuildErrors:true
-  }
 };
 
 export default nextConfig;
